@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "name": "Burger",
+        "category": "Fast food",
+        "price": 499,
+        "quantity": 20,
+        "origin": "United States",
+        "details": "A burger is a popular and iconic fast-food item enjoyed by people worldwide. Here are some details about burgers: Composition: A traditional burger consists of a ground meat patty, typically made from beef, though other meats like chicken, turkey, pork, or even plant-based options are also common. The patty is usually seasoned with salt and pepper and may be mixed with various ingredients to enhance flavor and texture. Bun: The meat patty is placed inside a soft bun, often made from wheat or potato bread, which is usually sliced in half horizontally. The bun can be toasted or grilled to add a bit of crunch and flavor. Toppings: Burgers are known for their wide range of toppings. Common toppings include lettuce, tomato, onion, cheese (as in a cheeseburger), pickles, ketchup, mustard, mayonnaise, and various sauces like barbecue sauce, hot sauce, or aioli. Gourmet burgers often feature creative and unique toppings like bacon, fried eggs, avocado, mushrooms, and specialty cheeses. Condiments: Various condiments are used to enhance the flavor of the burger. These include ketchup, mustard, mayonnaise, and sometimes special sauces created by the restaurant or chef. Cooking Methods: Burgers can be cooked in different ways, including grilling, frying, or even barbecuing. The cooking method can significantly influence the flavor and texture of the patty."
+    },
+    {
+        "id": 2,
+        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "name": "Pizza",
+        "category": "Casual Dining",
+        "price": 1199,
+        "quantity": 20,
+        "origin": "Italy",
+        "details": "Crust: The crust is the foundation of a pizza. It can vary in thickness and style, with options like thin and crispy, thick and doughy, stuffed crust, or even gluten-free for those with dietary restrictions. Sauce: Pizza sauce is typically made from tomatoes and can be seasoned with herbs and spices like oregano, basil, garlic, and salt. The sauce adds a tangy and savory flavor to the pizza. Cheese: Mozzarella cheese is the most common choice for pizza due to its gooey, melty texture. However, other cheeses like cheddar, Parmesan, provolone, or feta can also be used, either alone or in combination. Vegan pizzas often feature plant-based cheese. Toppings: Toppings are where pizza gets its individuality. They can include a wide variety of ingredients, such as pepperoni, sausage, mushrooms, onions, bell peppers, olives, anchovies, ham, pineapple, bacon, arugula, and many more. These toppings can be tailored to personal preferences, and the combination possibilities are nearly endless."
+    },
+    {
+        "id": 3,
+        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "name": "Pasta",
+        "category": "Italian Cuisine",
+        "price": 499,
+        "quantity": 15,
+        "origin": "Italy",
+        "details": "Origin: Pasta is believed to have originated in ancient China, where noodles made from wheat or rice have been consumed for thousands of years. It was later introduced to Italy, and Italian pasta, known for its various shapes and varieties, gained popularity and became a staple of Italian cuisine. Ingredients: Traditional pasta is made from durum wheat semolina and water. Some pasta varieties, especially in modern times, may be made with alternative flours like whole wheat, rice, quinoa, or even legumes for gluten-free options. Shapes: Pasta comes in a wide range of shapes and sizes, each suitable for different dishes and sauces. Common pasta shapes include spaghetti (long and thin), penne (tubular with angled ends), fettuccine (wide and flat), and rotini (spirals), to name a few. Each shape can affect the way sauces adhere to the pasta and the overall eating experience. Cooking Methods: Pasta is typically boiled in salted water until it reaches the desired level of doneness, which can range from al dente (firm to the bite) to softer. Different pasta shapes have different cooking times. Overcooking can make pasta mushy. Sauces: Pasta can be paired with a wide variety of sauces, which can be divided into categories: Tomato-Based Sauces: Like marinara or bolognese. Cream-Based Sauces: Such as Alfredo or carbonara. Oil-Based Sauces: Including garlic and olive oil or pesto. Pesto Sauces: Made from herbs, nuts, and cheese. Meat Sauces: Featuring ground meat, often in combination with tomato sauce. Vegetarian Sauces: With a variety of vegetables and seasonings. Seafood Sauces: Combining pasta with shrimp, clams, or other seafood."
+    },
+    {
+        "id": 4,
+        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "name": "Sushi",
+        "category": "Japanese Cuisine",
+        "price": 999,
+        "quantity": 15,
+        "origin": "Japan",
+        "details": "Sushi Rice (Shari): The foundation of sushi is vinegared rice. It is seasoned with rice vinegar, sugar, and salt, giving it a slightly sweet and tangy flavor. The rice is carefully prepared to achieve the right consistency and stickiness. Seafood: Sushi often includes various types of seafood. Common options include tuna, salmon, shrimp, yellowtail, and mackerel. Some sushi incorporates raw fish (sashimi), while others feature cooked or smoked seafood. Vegetables: Sushi can also include a variety of vegetables, such as cucumber, avocado, and pickled daikon radish, providing color and texture variations. Nori (Seaweed): Nori is often used to wrap sushi rolls (maki) and provides a satisfying crunch and a hint of ocean flavor. Types of Sushi: Nigiri: Nigiri sushi consists of a small mound of vinegared rice topped with a slice of raw or cooked seafood, often held together with a small strip of seaweed or a thin band of nori. Sashimi: While not technically sushi, sashimi is a dish that features thinly sliced raw seafood or fish, served without rice. It is often served as a separate course but is closely associated with sushi. Maki (Sushi Rolls): Sushi rolls, or maki, are created by rolling sushi rice, fish, and vegetables in a sheet of nori. The roll is then sliced into bite-sized pieces. Temaki: Temaki sushi is a hand-rolled cone-shaped sushi that is made by wrapping a sheet of nori around rice, fish, and other fillings."
+    },
+    {
+        "id": 5,
+        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "name": "Fries",
+        "category": "Fast food",
+        "price": 299,
+        "quantity": 20,
+        "origin": "France",
+        "details": "Regular Fries: These are the classic thin, crispy fries that are commonly served in fast-food restaurants. Steak Fries: Steak fries are thicker, with a soft interior and a crispy exterior. They are often served in more casual or pub-style dining establishments. Waffle Fries: Waffle-cut fries have a distinctive waffle-like pattern. They are known for their unique appearance and great for holding sauces. Curly Fries: Curly fries are seasoned and shaped in a spiral or curly pattern, adding a fun and textural element. Sweet Potato Fries: These are made from sweet potatoes and have a slightly sweet and earthy flavor. They are often considered a healthier alternative to regular fries. Condiments: Fries are commonly served with various condiments, including ketchup, mayonnaise, vinegar, gravy (as in poutine), or more exotic options like cheese sauce or truffle aioli. Cultural Significance: Fries are a popular and iconic side dish enjoyed around the world. They are often served alongside hamburgers, hot dogs, fried chicken, and a variety of fast-food and casual dining meals. In some countries, fries are a street food favorite. Health Considerations: Fries can be high in calories, saturated fat, and salt, so they are often considered an indulgence. Baked or air-fried versions are available as a healthier alternative."
+    },
+    {
+        "id": 6,
+        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "name": "Thai Soup",
+        "category": "Thai Cuisine",
+        "price": 799,
+        "quantity": 20,
+        "origin": "Thailand",
+        "details": "Tom Yum: Tom Yum is a famous Thai hot and sour soup known for its bold and zesty flavors. It features lemongrass, lime leaves, chili, and a combination of shrimp, chicken, or mushrooms. The soup can be clear or made with coconut milk (Tom Yum Goong). Tom Kha: Tom Kha is a coconut milk-based soup with a milder and creamier flavor compared to Tom Yum. It often includes chicken, mushrooms, and galangal. Thai Noodle Soup (Kuay Tiew): Thai noodle soups come in various regional styles, with ingredients like pork, beef, chicken, or seafood, and typically contain rice noodles. Examples include Khao Soi, a Northern Thai curry noodle soup, and Boat Noodle Soup (Kuay Tiew Rua) from central Thailand. Laksa: While Laksa is more commonly associated with Malaysian cuisine, it is also popular in some regions of Thailand, particularly in the south. It is a spicy and creamy noodle soup made with coconut milk, shrimp, chicken, or tofu. Green Curry Soup: Green curry soup is a rich and flavorful dish made with green curry paste, coconut milk, and a variety of proteins and vegetables. Condiments: Thai soups are often served with condiments that allow diners to adjust the flavor to their liking. These may include fish sauce, soy sauce, sugar, chili paste, and lime wedges. Cultural Significance: Soups are an integral part of Thai cuisine, and they are often enjoyed as a standalone meal or as an appetizer. They are known for their balanced combination of sweet, salty, spicy, and sour flavors. Thai soups reflect the country is dedication to fresh and aromatic ingredients, resulting in dishes that are both delicious and aromatic."
+    }
+]
