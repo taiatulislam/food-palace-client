@@ -5,11 +5,12 @@ import { FcGoogle } from 'react-icons/fc';
 
 const Footer = () => {
     return (
-        <div style={{ backgroundImage: 'url(https://i.ibb.co/TkCjv1C/grilled-chicken-breast-served-black-slate.jpg)', backgroundSize: 'cover' }}>
-            <footer className="footer footer-center p-10 text-primary-content max-w-7xl mx-auto place-items-end">
+        <div className='mt-20' style={{ backgroundImage: 'url(https://i.ibb.co/TkCjv1C/grilled-chicken-breast-served-black-slate.jpg)', backgroundSize: 'cover' }}>
+            <footer className="footer footer-center p-7 text-primary-content max-w-7xl mx-auto place-items-end gap-4">
                 <aside>
-                    <img src={logo} alt="" className='w-[150px]' />
-                    <p className="text-lg font-semibold">Food Palace <br />Providing food with great taste</p>
+                    <img src={logo} alt="logo" className='w-[150px]' />
+                    <p className="text-2xl text-white font-medium">Food Palace</p>
+                    <p className="text-lg text-white font-semibold">Providing food with great taste</p>
                 </aside>
                 <nav>
                     <div className="grid grid-flow-col gap-5">
