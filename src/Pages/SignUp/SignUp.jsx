@@ -70,7 +70,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className='pt-5' style={{ backgroundImage: 'url(https://i.ibb.co/0t43r4M/top-view-fresh-delicious-chinese-food-dark-background.jpg)', backgroundSize: 'cover', backgroundPosition: 'center center' }}>
+        <div className='pt-5 rounded-b-lg' style={{ backgroundImage: 'url(https://i.ibb.co/0t43r4M/top-view-fresh-delicious-chinese-food-dark-background.jpg)', backgroundSize: 'cover', backgroundPosition: 'center center' }}>
             <div className='flex flex-col'>
                 <div className='w-1/2 pb-5'>
                     <h2 className="text-5xl font-bold text-center mt-3 text-[#FA8072]">Sign Up</h2>
@@ -116,7 +116,7 @@ const SignUp = () => {
                             <button type='submit' className="btn bg-[#FA8072] border-none text-white text-md font-medium normal-case">Register</button>
                         </div>
                     </form>
-                    <p className='px-10 mt-4 text-white pb-10'>Already have an account? <Link to="/" className="text-[#FA8072]">Sign In</Link></p>
+                    <p className='px-10 mt-4 text-white pb-10'>Already have an account? <Link to="/signIn" className="text-[#FA8072]">Sign In</Link></p>
                 </div>
             </div >
         </div >

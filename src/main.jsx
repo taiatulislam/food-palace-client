@@ -12,6 +12,7 @@ import ErrorPage from './Pages/ErrorPage.jsx';
 import AllFood from './Pages/AllFood/AllFood.jsx';
 import SignUp from './Pages/SignUp/SignUp.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
+import SignIn from './Pages/SignIn/SignIn.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp />,
+      },
+      {
+        path: "/signIn",
+        element: <SignIn />,
       }
     ],
   },
