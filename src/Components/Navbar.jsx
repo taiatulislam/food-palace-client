@@ -10,7 +10,7 @@ const Navbar = () => {
                 color: "salmon", borderRadius: "0", padding: "5px", fontWeight: "600", fontSize: "16px"
             } :
                 {
-                    color: "white", fontWeight: "600", fontSize: "16px"
+                    color: "salmon", fontWeight: "600", padding: "5px", fontSize: "16px"
                 }
         }}>Home</NavLink></li>
         <li><NavLink to='/allFood' style={({ isActive }) => {
@@ -19,7 +19,7 @@ const Navbar = () => {
                 color: "salmon", borderRadius: "0", padding: "5px", fontWeight: "600", fontSize: "16px"
             } :
                 {
-                    color: "white", fontWeight: "600", fontSize: "16px"
+                    color: "salmon", fontWeight: "600", padding: "5px", fontSize: "16px"
                 }
         }}>All Food</NavLink></li>
         <li><NavLink to='/blog' style={({ isActive }) => {
@@ -28,7 +28,7 @@ const Navbar = () => {
                 color: "salmon", borderRadius: "0", padding: "5px", fontWeight: "600", fontSize: "16px"
             } :
                 {
-                    color: "white", fontWeight: "600", fontSize: "16px"
+                    color: "salmon", fontWeight: "600", padding: "5px", fontSize: "16px"
                 }
         }}>Blog</NavLink></li>
     </>
@@ -50,7 +50,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal gap-5">
+                    <ul className="menu menu-horizontal gap-10">
                         {links}
                     </ul>
                 </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
-                    <Link className="btn normal-case">Sign In</Link>
+                    <Link to='/signUp' className="btn normal-case">Sign In</Link>
                 </div>
             </div>
         </div>

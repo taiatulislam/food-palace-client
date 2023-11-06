@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const PopularFood = () => {
+const AllFood = () => {
 
     const [foods, setFoods] = useState([])
 
@@ -9,10 +9,10 @@ const PopularFood = () => {
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [])
+
     return (
-        <div className="max-w-7xl mx-auto mt-[80vh]">
-            <h2 className="text-5xl font-bold text-center my-10 text-[#FA8072]">Top Food</h2>
-            <div className="grid grid-cols-3 gap-7">
+        <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-3 gap-7 mt-10">
                 {
                     foods.map(food => <div key={food.id} className="card card-compact bg-base-100 shadow-xl">
                         <figure><img src={food.image} alt="food" className="h-[300px] w-full rounded-b-lg" /></figure>
@@ -34,4 +34,4 @@ const PopularFood = () => {
     );
 };
 
-export default PopularFood;
+export default AllFood;
