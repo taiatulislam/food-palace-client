@@ -1,5 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import logoLight from '../../src/assets/images/logo/logo-light.jpg'
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
 
@@ -33,6 +35,12 @@ const Navbar = () => {
         }}>Blog</NavLink></li>
     </>
 
+    const { user, signout } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        return signout();
+    }
+
     return (
         <div className="max-w-7xl mx-auto relative z-10">
             <div className="navbar bg-transparent h-[15vh]">
@@ -55,24 +63,28 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-5">
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={logoLight} alt="" />
+                    {
+                        user ?
+                            <div className="flex items-center gap-5">
+                                <div className="dropdown dropdown-end">
+                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src={user?.photoURL} alt="profile" />
+                                        </div>
+                                    </label>
+                                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                        <li><Link>My added food</Link></li>
+                                        <li><Link>Add food</Link></li>
+                                        <li><Link>My ordered food</Link></li>
+                                    </ul>
+                                </div>
+                                <button onClick={handleSignOut} className="btn btn-xs md:btn-sm lg:btn-md normal-case font-semibold border-2 border-black rounded-lg">Sign Out</button>
                             </div>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
-                        </ul>
-                    </div>
-                    <Link to='/signUp' className="btn normal-case">Sign In</Link>
+                            :
+                            <div className="flex gap-3">
+                                <Link to='/signUp' className="btn normal-case">Sign In</Link>
+                            </div>
+                    }
                 </div>
             </div>
         </div>

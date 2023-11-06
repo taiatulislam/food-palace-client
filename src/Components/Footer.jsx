@@ -22,7 +22,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
-            <p className='text-white  text-lg text-center py-5'>Copyright © 2023 - All right reserved</p>
+            <p className='text-white text-lg text-center py-5'>Copyright © 2023 - All right reserved</p>
         </div>
     );
 };

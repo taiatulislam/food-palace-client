@@ -13,6 +13,7 @@ import AllFood from './Pages/AllFood/AllFood.jsx';
 import SignUp from './Pages/SignUp/SignUp.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import SignIn from './Pages/SignIn/SignIn.jsx';
+import Blog from './Pages/Blog/Blog.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/signIn",
         element: <SignIn />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       }
     ],
   },

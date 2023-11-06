@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../Providers/AuthProvider";
 
@@ -9,6 +9,8 @@ const SignIn = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const { signIn, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleForm = e => {
         e.preventDefault();
@@ -19,6 +21,7 @@ const SignIn = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                navigate(location.state ? location.state : '/')
                 Swal.fire({
                     title: 'Success!',
                     text: 'SignIn successfully',
@@ -48,6 +51,7 @@ const SignIn = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                navigate(location.state ? location.state : '/')
             })
             .catch(error => {
                 console.log(error.code, error.message);

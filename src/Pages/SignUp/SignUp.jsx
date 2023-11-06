@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -8,6 +8,7 @@ const SignUp = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleForm = e => {
         e.preventDefault();
@@ -57,8 +58,8 @@ const SignUp = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                navigate('/')
             })
-
             .catch(error => {
                 Swal.fire({
                     title: 'Error!',
