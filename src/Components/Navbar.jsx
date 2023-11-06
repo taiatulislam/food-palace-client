@@ -10,7 +10,7 @@ const Navbar = () => {
                 color: "salmon", borderRadius: "0", padding: "5px", fontWeight: "600", fontSize: "16px"
             } :
                 {
-                    color: "black", fontWeight: "600", fontSize: "16px"
+                    color: "white", fontWeight: "600", fontSize: "16px"
                 }
         }}>Home</NavLink></li>
         <li><NavLink to='/allFood' style={({ isActive }) => {
@@ -19,7 +19,7 @@ const Navbar = () => {
                 color: "salmon", borderRadius: "0", padding: "5px", fontWeight: "600", fontSize: "16px"
             } :
                 {
-                    color: "black", fontWeight: "600", fontSize: "16px"
+                    color: "white", fontWeight: "600", fontSize: "16px"
                 }
         }}>All Food</NavLink></li>
         <li><NavLink to='/blog' style={({ isActive }) => {
@@ -28,14 +28,14 @@ const Navbar = () => {
                 color: "salmon", borderRadius: "0", padding: "5px", fontWeight: "600", fontSize: "16px"
             } :
                 {
-                    color: "black", fontWeight: "600", fontSize: "16px"
+                    color: "white", fontWeight: "600", fontSize: "16px"
                 }
         }}>Blog</NavLink></li>
     </>
 
     return (
-        <div className="max-w-7xl mx-auto mt-5">
-            <div className="navbar bg-base-100 h-[15vh]">
+        <div className="max-w-7xl mx-auto relative z-10">
+            <div className="navbar bg-transparent h-[15vh]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

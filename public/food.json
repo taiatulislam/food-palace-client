@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "image": "https://i.ibb.co/NLnXkbM/burger-3.jpg",
         "name": "Burger",
         "category": "Fast food",
         "price": 499,
@@ -11,7 +11,7 @@
     },
     {
         "id": 2,
-        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "image": "https://i.ibb.co/bvHGDQ6/pizza-2.jpg",
         "name": "Pizza",
         "category": "Casual Dining",
         "price": 1199,
@@ -21,7 +21,7 @@
     },
     {
         "id": 3,
-        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "image": "https://i.ibb.co/WfsXWqV/pasta-1.jpg",
         "name": "Pasta",
         "category": "Italian Cuisine",
         "price": 499,
@@ -31,7 +31,7 @@
     },
     {
         "id": 4,
-        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "image": "https://i.ibb.co/ZYxrNxN/sushi-3.jpg",
         "name": "Sushi",
         "category": "Japanese Cuisine",
         "price": 999,
@@ -41,7 +41,7 @@
     },
     {
         "id": 5,
-        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "image": "https://i.ibb.co/YhHs5D2/fries-1.jpg",
         "name": "Fries",
         "category": "Fast food",
         "price": 299,
@@ -51,7 +51,7 @@
     },
     {
         "id": 6,
-        "image": "https://i.ibb.co/PMzHdms/pizza-3.jpg",
+        "image": "https://i.ibb.co/RNwmQ6C/soup-1.jpg",
         "name": "Thai Soup",
         "category": "Thai Cuisine",
         "price": 799,

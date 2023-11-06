@@ -8,17 +8,17 @@ const AboutUs = () => {
                 <div className="flex items-center gap-10 mt-10">
                     <div className="w-1/2">
                         <div className="border-2 border-[#FA8072] rounded-lg p-5">
-                            <h3 className="text-3xl font-bold my-5 text-[#FA8072]">Our Story</h3>
+                            <h3 className="text-3xl font-bold mb-5 text-[#FA8072]">Our Story</h3>
                             <p className="font-medium">At Food palace, our story is one of culinary creativity and a deep love for bringing people together through exceptional food. Our journey began when we decided to turn their lifelong passion for cooking into a dream come true a restaurant that not only serves delectable dishes but also offers an unforgettable dining experience.</p>
                         </div>
 
                         <div className="border-2 border-[#FA8072] rounded-lg p-5 my-3">
-                            <h3 className="text-3xl font-bold my-5 text-[#FA8072]">Local Flavor, Global Inspiration</h3>
+                            <h3 className="text-3xl font-bold mb-5 text-[#FA8072]">Local Flavor, Global Inspiration</h3>
                             <p className="font-medium">While we celebrate our local roots, we draw inspiration from global culinary traditions. Our menu is a harmonious fusion of flavors and techniques, bringing a world of tastes to your plate.</p>
                         </div>
 
                         <div className="border-2 border-[#FA8072] rounded-lg p-5">
-                            <h3 className="text-3xl font-bold my-5 text-[#FA8072]">Our Philosophy</h3>
+                            <h3 className="text-3xl font-bold mb-5 text-[#FA8072]">Our Philosophy</h3>
                             <p className="font-medium">Our philosophy is simple: to offer you more than just a meal. We believe that dining is an art, and every plate is a canvas. Our chefs pour their hearts into crafting each dish, and our warm and welcoming staff ensures that every visit is not just a meal but a cherished memory.</p>
                         </div>
                     </div>
