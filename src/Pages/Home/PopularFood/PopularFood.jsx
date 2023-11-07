@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const PopularFood = () => {
 
@@ -28,7 +29,7 @@ const PopularFood = () => {
                     )}
             </div>
             <div className="my-10 text-center">
-                <button className="btn normal-case text-[#FA8072] border-2 border-[#FA8072]">See all</button>
+                <Link to='/allFood' className="btn normal-case text-[#FA8072] border-2 border-[#FA8072]">See all</Link>
             </div>
         </div>
     );

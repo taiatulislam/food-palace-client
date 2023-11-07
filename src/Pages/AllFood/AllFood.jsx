@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const AllFood = () => {
 
@@ -8,6 +8,7 @@ const AllFood = () => {
     const [currentPage, setCurrentPage] = useState(0)
     const foodPerPage = 9;
     const NoOfPages = Math.ceil(allFoods.length / foodPerPage);
+    const navigate = useNavigate();
 
     // page number generate
     const pages = [];
@@ -17,14 +18,13 @@ const AllFood = () => {
 
     // load food for specific page
     useEffect(() => {
-        fetch(`http://localhost:5000/foods?page=${currentPage}&size=${foodPerPage} `)
+        fetch(`http://localhost:5000/allFood?page=${currentPage}&size=${foodPerPage} `)
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [currentPage])
 
     const handlePage = page => {
         setCurrentPage(page);
-
     }
 
     // get search data
@@ -35,9 +35,14 @@ const AllFood = () => {
 
         const smallLetter = name.charAt(0).toUpperCase() + name.slice(1)
 
-        fetch(`http://localhost:5000/allFoods/${smallLetter}`)
+        fetch(`http://localhost:5000/allFood/${smallLetter}`)
             .then(res => res.json())
             .then(data => setFoods(data))
+    }
+
+    // handle details button
+    const handleDetails = id => {
+        navigate(`/allFood/${id}`)
     }
 
     return (
@@ -58,7 +63,7 @@ const AllFood = () => {
                             <p className="text-base font-medium"><span className="font-bold">Quantity:</span> {food.quantity}</p>
                             <p className="text-base font-medium"><span className="font-bold">Price:</span> ${food.price}</p>
                             <div className="card-actions justify-end">
-                                <button className="btn bg-[#FA8072] w-full normal-case text-white">Details</button>
+                                <button onClick={() => handleDetails(food._id)} className="btn bg-[#FA8072] w-full normal-case text-white">Details</button>
                             </div>
                         </div>
                     </div>
