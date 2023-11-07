@@ -7,9 +7,9 @@ const ContactUs = () => {
                 <div>
                     <h3 className="text-3xl font-bold mb-5">Locations</h3>
                     <p className="text-xl font-medium">Branch-01</p>
-                    <p className="font-medium mb-3"><address>Mazar road, 2nd colony, mirpur, Dhaka-1218, Dhaka.</address></p>
+                    <address className="font-medium mb-3">Mazar road, 2nd colony, mirpur, Dhaka-1218, Dhaka.</address>
                     <p className="text-xl font-medium">Branch-02</p>
-                    <p className="font-medium"><address>Shahjalal upo-shahar, Sylhet-3100, Sylhet.</address></p>
+                    <address className="font-medium">Shahjalal upo-shahar, Sylhet-3100, Sylhet.</address>
                 </div>
                 <div>
                     <h3 className="text-3xl font-bold mb-5">Opening Hour</h3>

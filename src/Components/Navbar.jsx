@@ -82,7 +82,7 @@ const Navbar = () => {
                             </div>
                             :
                             <div className="flex gap-3">
-                                <Link to='/signUp' className="btn normal-case">Sign In</Link>
+                                <Link to='/signUp' className="btn normal-case">Sign Up</Link>
                             </div>
                     }
                 </div>
