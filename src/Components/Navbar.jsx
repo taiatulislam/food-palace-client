@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logoLight from '../../src/assets/images/logo/logo-light.jpg'
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
@@ -36,9 +36,14 @@ const Navbar = () => {
     </>
 
     const { user, signout } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSignOut = () => {
         return signout();
+    }
+
+    const handleAddedFood = email => {
+        navigate(`/addedFood/${email}`)
     }
 
     return (
@@ -73,7 +78,7 @@ const Navbar = () => {
                                         </div>
                                     </label>
                                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                        <li><Link>My added food</Link></li>
+                                        <li><button onClick={() => handleAddedFood(user?.email)}>My added food</button></li>
                                         <li><Link>Add food</Link></li>
                                         <li><Link>My ordered food</Link></li>
                                     </ul>
