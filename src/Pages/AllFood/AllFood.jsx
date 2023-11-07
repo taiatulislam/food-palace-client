@@ -1,17 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const AllFood = () => {
 
     const allFoods = useLoaderData();
     const [foods, setFoods] = useState(allFoods);
+    const [currentPage, setCurrentPage] = useState(0)
+    const foodPerPage = 9;
+    const NoOfPages = Math.ceil(allFoods.length / foodPerPage);
 
+    // page number generate
+    const pages = [];
+    for (let i = 0; i < NoOfPages; i++) {
+        pages.push(i)
+    }
+
+    // load food for specific page
+    useEffect(() => {
+        fetch(`http://localhost:5000/foods?page=${currentPage}&size=${foodPerPage} `)
+            .then(res => res.json())
+            .then(data => setFoods(data))
+    }, [currentPage])
+
+    const handlePage = page => {
+        setCurrentPage(page);
+
+    }
+
+    // get search data
     const handleForm = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
 
-        fetch(`http://localhost:5000/allFoods/${name}`)
+        const smallLetter = name.charAt(0).toUpperCase() + name.slice(1)
+
+        fetch(`http://localhost:5000/allFoods/${smallLetter}`)
             .then(res => res.json())
             .then(data => setFoods(data))
     }
@@ -39,6 +63,11 @@ const AllFood = () => {
                         </div>
                     </div>
                     )}
+            </div>
+            <div className="flex gap-5 justify-center mt-7">
+                {
+                    pages.map(page => <button key={page} onClick={() => handlePage(page)} className={currentPage === page ? 'bg-[#FA8072] btn text-white' : 'btn'}>{page + 1}</button>)
+                }
             </div>
         </div>
     );
