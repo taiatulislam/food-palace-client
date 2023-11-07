@@ -1,9 +1,13 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const FoodDetails = () => {
 
     const food = useLoaderData();
-    console.log(food);
+    const navigate = useNavigate();
+
+    const handleOrder = id => {
+        navigate(`/purchase/${id}`)
+    }
 
     return (
         <div className="max-w-7xl mx-auto py-5">
@@ -18,7 +22,7 @@ const FoodDetails = () => {
                     <p className="text-lg my-3"><span className="font-semibold">Made By:</span></p>
                     <p className="text-lg my-3"><span className="font-semibold">Food Origin:</span> {food.origin}</p>
                     <p className="text-lg my-3"><span className="font-semibold">Description:</span> {food.details}</p>
-                    <button className="btn normal-case text-white bg-[#FA8072] w-full my-3">Order</button>
+                    <button onClick={() => handleOrder(food._id)} className="btn normal-case text-white bg-[#FA8072] w-full my-3">Order</button>
                 </div>
             </div>
         </div>

@@ -15,6 +15,7 @@ import AuthProvider from './Providers/AuthProvider.jsx';
 import SignIn from './Pages/SignIn/SignIn.jsx';
 import Blog from './Pages/Blog/Blog.jsx';
 import FoodDetails from './Pages/FoodDetails/FoodDetails.jsx';
+import Purchase from './Pages/Purchase/Purchase.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/purchase/:id",
+        element: <Purchase />,
+        loader: ({ params }) => fetch(`http://localhost:5000/purchase/${params.id}`)
       }
     ],
   },
