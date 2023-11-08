@@ -18,6 +18,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AddFood from './Pages/AddFood/AddFood.jsx';
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         path: "/addedFood/:email",
         element: <AddedFood />,
         loader: ({ params }) => fetch(`http://localhost:5000/addedFood/${params.email}`)
+      },
+      {
+        path: "/addFood",
+        element: <AddFood />
       },
       {
         path: "/purchase/:id",

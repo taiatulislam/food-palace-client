@@ -46,6 +46,10 @@ const Navbar = () => {
         navigate(`/addedFood/${email}`)
     }
 
+    const handleAddFood = () => {
+        navigate('/addFood')
+    }
+
     return (
         <div className="max-w-7xl mx-auto relative z-10">
             <div className="navbar bg-transparent h-[15vh]">
@@ -79,7 +83,7 @@ const Navbar = () => {
                                     </label>
                                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                         <li><button onClick={() => handleAddedFood(user?.email)}>My added food</button></li>
-                                        <li><Link>Add food</Link></li>
+                                        <li><button onClick={() => handleAddFood(user?.email)}>Add food</button></li>
                                         <li><Link>My ordered food</Link></li>
                                     </ul>
                                 </div>
