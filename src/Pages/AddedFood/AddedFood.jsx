@@ -2,8 +2,8 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 
 const AddedFood = () => {
 
-    const foods = useLoaderData();
     const navigate = useNavigate();
+    const foods = useLoaderData();
 
     const handleUpdate = id => {
         navigate(`/updateFood/${id}`)

@@ -20,6 +20,7 @@ import {
 } from "react-router-dom";
 import AddFood from './Pages/AddFood/AddFood.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
+import OrderedFood from './Pages/OrderedFood/OrderedFood.jsx';
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
         path: "/addedFood/:email",
         element: <AddedFood />,
         loader: ({ params }) => fetch(`http://localhost:5000/addedFood/${params.email}`)
+      },
+      {
+        path: "/ordered/:email",
+        element: <OrderedFood />,
+        loader: ({ params }) => fetch(`http://localhost:5000/ordered/${params.email}`)
       },
       {
         path: "/addFood",
