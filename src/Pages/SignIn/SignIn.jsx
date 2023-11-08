@@ -30,7 +30,7 @@ const SignIn = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
-                fetch('http://localhost:5000/users/', {
+                fetch('https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/users/', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

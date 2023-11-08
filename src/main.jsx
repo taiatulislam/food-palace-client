@@ -13,15 +13,15 @@ import FoodDetails from './Pages/FoodDetails/FoodDetails.jsx';
 import Purchase from './Pages/Purchase/Purchase.jsx';
 import AddedFood from './Pages/AddedFood/AddedFood.jsx';
 import UpdateFood from './Pages/UpdateFood/UpdateFood.jsx';
+import AddFood from './Pages/AddFood/AddFood.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
+import OrderedFood from './Pages/OrderedFood/OrderedFood.jsx';
+
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import AddFood from './Pages/AddFood/AddFood.jsx';
-import PrivateRoute from './Routes/PrivateRoute.jsx';
-import OrderedFood from './Pages/OrderedFood/OrderedFood.jsx';
-
 
 const router = createBrowserRouter([
   {
@@ -36,12 +36,12 @@ const router = createBrowserRouter([
       {
         path: "/allFood",
         element: <AllFood />,
-        loader: () => fetch('http://localhost:5000/allFood')
+        loader: () => fetch('https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/allFood')
       },
       {
         path: "/allFood/:id",
         element: <FoodDetails></FoodDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/foodDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/foodDetails/${params.id}`)
       },
       {
         path: "/signUp",
@@ -58,12 +58,12 @@ const router = createBrowserRouter([
       {
         path: "/addedFood/:email",
         element: <AddedFood />,
-        loader: ({ params }) => fetch(`http://localhost:5000/addedFood/${params.email}`)
+        loader: ({ params }) => fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/addedFood/${params.email}`)
       },
       {
         path: "/ordered/:email",
         element: <OrderedFood />,
-        loader: ({ params }) => fetch(`http://localhost:5000/ordered/${params.email}`)
+        loader: ({ params }) => fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/ordered/${params.email}`)
       },
       {
         path: "/addFood",
@@ -72,12 +72,12 @@ const router = createBrowserRouter([
       {
         path: "/purchase/:id",
         element: <PrivateRoute><Purchase /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/purchase/${params.id}`)
+        loader: ({ params }) => fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/purchase/${params.id}`)
       },
       {
         path: "/updateFood/:id",
         element: <UpdateFood />,
-        loader: ({ params }) => fetch(`http://localhost:5000/updateFood/${params.id}`)
+        loader: ({ params }) => fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/updateFood/${params.id}`)
       }
     ],
   },

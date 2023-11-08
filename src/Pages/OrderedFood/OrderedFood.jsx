@@ -8,7 +8,7 @@ const OrderedFood = () => {
     const [loadData, setLoadData] = useState(foods);
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/order/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -20,7 +20,7 @@ const AddFood = () => {
 
         const addFood = { name, category, origin, price, quantity, image, details, madeBy }
 
-        fetch('http://localhost:5000/addFood/', {
+        fetch('https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/addFood/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

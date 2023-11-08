@@ -20,7 +20,7 @@ const UpdateFood = () => {
 
         console.log(updateFood);
 
-        fetch(`http://localhost:5000/updateFood/${food._id}`, {
+        fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/updateFood/${food._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

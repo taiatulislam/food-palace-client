@@ -16,7 +16,7 @@ const Purchase = () => {
         food.userEmail = user.email;
         food.date = e.target.date.value;
 
-        fetch('http://localhost:5000/purchase/', {
+        fetch('https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/purchase/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

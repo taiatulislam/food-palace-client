@@ -6,7 +6,7 @@ const PopularFood = () => {
     const [foods, setFoods] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/popularFood')
+        fetch('https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/popularFood')
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [])

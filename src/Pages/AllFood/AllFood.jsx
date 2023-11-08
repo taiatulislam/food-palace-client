@@ -18,7 +18,7 @@ const AllFood = () => {
 
     // load food for specific page
     useEffect(() => {
-        fetch(`http://localhost:5000/allFoodPage?page=${currentPage}&size=${foodPerPage} `)
+        fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/allFoodPage?page=${currentPage}&size=${foodPerPage} `)
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [currentPage])
@@ -35,7 +35,7 @@ const AllFood = () => {
 
         const smallLetter = name.charAt(0).toUpperCase() + name.slice(1)
 
-        fetch(`http://localhost:5000/allFood/${smallLetter}`)
+        fetch(`https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/allFood/${smallLetter}`)
             .then(res => res.json())
             .then(data => setFoods(data))
     }

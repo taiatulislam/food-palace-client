@@ -1,3 +1,4 @@
+[Click here for live site](https://food-palace-client.web.app/)
 
 # Project Features
 
