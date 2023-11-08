@@ -3,11 +3,6 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import Home from './Pages/Home/Home/Home.jsx';
 import Root from './Pages/Root.jsx';
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import ErrorPage from './Pages/ErrorPage.jsx';
 import AllFood from './Pages/AllFood/AllFood.jsx';
 import SignUp from './Pages/SignUp/SignUp.jsx';
@@ -17,6 +12,13 @@ import Blog from './Pages/Blog/Blog.jsx';
 import FoodDetails from './Pages/FoodDetails/FoodDetails.jsx';
 import Purchase from './Pages/Purchase/Purchase.jsx';
 import AddedFood from './Pages/AddedFood/AddedFood.jsx';
+import UpdateFood from './Pages/UpdateFood/UpdateFood.jsx';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,11 @@ const router = createBrowserRouter([
         path: "/purchase/:id",
         element: <Purchase />,
         loader: ({ params }) => fetch(`http://localhost:5000/purchase/${params.id}`)
+      },
+      {
+        path: "/updateFood/:id",
+        element: <UpdateFood />,
+        loader: ({ params }) => fetch(`http://localhost:5000/updateFood/${params.id}`)
       }
     ],
   },
