@@ -14,6 +14,7 @@ const Purchase = () => {
         food._id = null;
         food.userName = user.displayName;
         food.userEmail = user.email;
+        food.date = e.target.date.value;
 
         fetch('http://localhost:5000/purchase/', {
             method: 'POST',
@@ -24,7 +25,6 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',

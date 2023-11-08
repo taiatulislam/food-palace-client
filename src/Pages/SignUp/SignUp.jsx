@@ -18,7 +18,7 @@ const SignUp = () => {
         const photo = form.photo.value;
         const password = form.password.value;
 
-        console.log(name, email, photo, password);
+        const user = { name, email, photo, password };
 
         if (password.length < 6) {
             return Swal.fire({
@@ -58,6 +58,15 @@ const SignUp = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                fetch('http://localhost:5000/users/', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => data)
                 navigate('/')
             })
             .catch(error => {

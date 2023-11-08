@@ -4,8 +4,8 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 const AllFood = () => {
 
     const allFoods = useLoaderData();
-    const [foods, setFoods] = useState(allFoods);
-    const [currentPage, setCurrentPage] = useState(0)
+    const [foods, setFoods] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
     const foodPerPage = 9;
     const NoOfPages = Math.ceil(allFoods.length / foodPerPage);
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const AllFood = () => {
 
     // load food for specific page
     useEffect(() => {
-        fetch(`http://localhost:5000/allFood?page=${currentPage}&size=${foodPerPage} `)
+        fetch(`http://localhost:5000/allFoodPage?page=${currentPage}&size=${foodPerPage} `)
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [currentPage])

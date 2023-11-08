@@ -19,6 +19,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import AddFood from './Pages/AddFood/AddFood.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/purchase/:id",
-        element: <Purchase />,
+        element: <PrivateRoute><Purchase /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/purchase/${params.id}`)
       },
       {

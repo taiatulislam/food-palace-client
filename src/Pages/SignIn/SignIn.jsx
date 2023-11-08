@@ -18,6 +18,8 @@ const SignIn = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        const user = { email, password }
+
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
@@ -28,6 +30,15 @@ const SignIn = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                fetch('http://localhost:5000/users/', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => data)
             })
             .catch(error => {
                 console.log(error.code, error.message);
