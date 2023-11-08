@@ -6,7 +6,7 @@ import { FcGoogle } from 'react-icons/fc';
 const Footer = () => {
     return (
         <div className='mt-10 rounded-t-lg' style={{ backgroundImage: 'url(https://i.ibb.co/TkCjv1C/grilled-chicken-breast-served-black-slate.jpg)', backgroundSize: 'cover' }}>
-            <footer className="footer footer-center p-7 text-primary-content max-w-7xl mx-auto place-items-end gap-4">
+            <footer className="footer footer-center p-7 text-primary-content max-w-7xl mx-auto place-items-center md:place-items-end gap-4">
                 <aside>
                     <img src={logo} alt="logo" className='w-[150px]' />
                     <p className="text-2xl text-white font-medium">Food Palace</p>

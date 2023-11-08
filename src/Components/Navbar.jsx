@@ -63,7 +63,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link>
-                        <img src={logoLight} alt="" className=" w-[90px] rounded" />
+                        <img src={logoLight} alt="" className=" w-[40px] md:w-[90px] rounded" />
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -77,7 +77,7 @@ const Navbar = () => {
                             <div className="flex items-center gap-5">
                                 <div className="dropdown dropdown-end">
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full">
+                                        <div className="w-8 md:w-10 rounded-full">
                                             <img src={user?.photoURL} alt="profile" />
                                         </div>
                                     </label>

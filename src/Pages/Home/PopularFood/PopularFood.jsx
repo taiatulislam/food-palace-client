@@ -13,7 +13,7 @@ const PopularFood = () => {
     return (
         <div className="max-w-7xl mx-auto mt-[80vh]">
             <h2 className="text-5xl font-bold text-center my-10 text-[#FA8072]">Top Food</h2>
-            <div className="grid grid-cols-3 gap-7">
+            <div className="grid md:grid-cols-2 px-5 lg:px-0 lg:grid-cols-3 gap-7">
                 {
                     foods.map(food => <div key={food.id} className="card card-compact bg-base-100 shadow-xl">
                         <figure><img src={food.image} alt="food" className="h-[300px] w-full rounded-b-lg" /></figure>
