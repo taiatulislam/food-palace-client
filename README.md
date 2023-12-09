@@ -16,7 +16,7 @@ Food palace is a restaurant management website Where a user can order his /her f
 - __Pagination:__ All food also has pagination. I am not showing all the data in a page. A single page contain 9 data.
 
 
-  # Technology
+# Technology
   - React
   - Tailwind CSS
   - daisyUI
