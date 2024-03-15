@@ -1,4 +1,5 @@
-[Click here for live site](https://food-palace-client.web.app/)
+# Description
+Food palace is a restaurant management website Where a user can order his /her food. All the food shows in All food section using card. User can find his/her food by serching by category or manually by changing page. There is a details food page for more information about that food. After that, in order page a user has to put information and place an order. I have also implemented a user dashboard page here user can add foods, view his/her added foods in the website and his/her ordered food.
 
 # Project Features
 
@@ -12,14 +13,18 @@
 
 - __Search all food:__ All food has a search feature. We can filter food based on their name. If the searchbox is empty then all the product is show.
 
-- __Pagination:__ All food also has pagination. I am not showing all the data in a page. A single page contain 9 data. 
+- __Pagination:__ All food also has pagination. I am not showing all the data in a page. A single page contain 9 data.
 
 
-# React + Vite
+# Technology
+  - React
+  - Tailwind CSS
+  - daisyUI
+  - Mongodb
+  - Express js
+  - Node js
+  - React router
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Site links
+Live site link: https://food-palace-client.web.app/
