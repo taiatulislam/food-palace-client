@@ -36,7 +36,7 @@ const Footer = () => {
 
             <div>
               <h2 className="text-lg font-bold mt-10">Newsletter</h2>
-              <hr className="w-[90px] border-2 border-[#ffc107]" />
+              <hr className="w-[90px] border-2 border-[#ffc107] rounded-lg" />
               <p className="font-medium my-2">
                 Subscribe and Get Recent News and Updates
               </p>
@@ -55,7 +55,7 @@ const Footer = () => {
 
           <div className="text-white w-1/3">
             <h2 className="text-lg font-bold">Contact Info</h2>
-            <hr className="w-[100px] border-2 border-[#ffc107]" />
+            <hr className="w-[100px] border-2 border-[#ffc107] rounded-lg" />
             <p className="py-4">Mon - Sat: 1.00 p.m to 3.00 p.m</p>
             <p className="">Sun: 12.30 pm to 3.30 p.m</p>
             <p className="py-4">Festival: Open Full Day</p>

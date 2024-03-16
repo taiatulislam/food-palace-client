@@ -2,16 +2,15 @@ const AboutUs = () => {
   return (
     <div>
       <div className="max-w-7xl mx-auto py-16">
-        <h3 className="text-5xl text-center font-bold pt-10 text-black">
-          About Us
-        </h3>
+        <h3 className="text-5xl text-center font-bold text-black">About Us</h3>
+        <hr className="mx-auto w-[150px] border-[3px] border-[#ffc107] rounded-lg" />
         <p className="mx-auto text-center pt-1 max-w-xl">
           Welcome to Food Palace, where passion for food and a commitment to
           creating memorable dining experiences come together.
         </p>
         <div className="flex flex-col-reverse md:flex-row lg:flex-row items-center gap-10 mt-10 px-5 lg:px-0">
           <div className="w-full md:w-1/2">
-            <div className="border-2 border-[#dc3545] rounded-lg p-5">
+            <div className="border-2 border-[#dc3545] rounded-lg p-5 shadow-lg">
               <h3 className="text-3xl font-bold mb-5 text-[#dc3545]">
                 Our Story
               </h3>
@@ -25,7 +24,7 @@ const AboutUs = () => {
               </p>
             </div>
 
-            <div className="border-2 border-[#dc3545] rounded-lg p-5 my-3">
+            <div className="border-2 border-[#dc3545] rounded-lg p-5 my-3 shadow-lg">
               <h3 className="text-3xl font-bold mb-5 text-[#dc3545]">
                 Local Flavor, Global Inspiration
               </h3>
@@ -37,7 +36,7 @@ const AboutUs = () => {
               </p>
             </div>
 
-            <div className="border-2 border-[#dc3545] rounded-lg p-5">
+            <div className="border-2 border-[#dc3545] rounded-lg p-5 shadow-lg">
               <h3 className="text-3xl font-bold mb-5 text-[#dc3545]">
                 Our Philosophy
               </h3>
