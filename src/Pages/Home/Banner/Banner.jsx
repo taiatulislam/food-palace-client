@@ -63,7 +63,7 @@ const Banner = () => {
             </div>
             <div className="">
               {/* Discount */}
-              <p className="text-black text-2xl font-bold text-center rounded-full w-[170px] h-[170px] bg-[#ffc107] border-2 border-black absolute bottom-0">
+              <p className="text-black text-2xl font-bold text-center rounded-full w-[170px] h-[170px] bg-[#ffc107] border-2 border-black absolute bottom-4">
                 upto <br /> <span className="text-7xl">20%</span> <br />
                 OFF
               </p>
