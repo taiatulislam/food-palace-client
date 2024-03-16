@@ -13,18 +13,18 @@ const Navbar = () => {
             return isActive
               ? {
                   backgroundColor: "transparent",
-                  borderBottom: "3px solid salmon",
-                  color: "salmon",
+                  borderBottom: "3px solid #dc3545",
+                  color: "#dc3545",
                   borderRadius: "0",
                   padding: "5px",
                   fontWeight: "600",
-                  fontSize: "16px",
+                  fontSize: "18px",
                 }
               : {
-                  color: "salmon",
+                  color: "#dc3545",
                   fontWeight: "600",
                   padding: "5px",
-                  fontSize: "16px",
+                  fontSize: "18px",
                 };
           }}
         >
@@ -38,18 +38,18 @@ const Navbar = () => {
             return isActive
               ? {
                   backgroundColor: "transparent",
-                  borderBottom: "3px solid salmon",
-                  color: "salmon",
+                  borderBottom: "3px solid #dc3545",
+                  color: "#dc3545",
                   borderRadius: "0",
                   padding: "5px",
                   fontWeight: "600",
-                  fontSize: "16px",
+                  fontSize: "18px",
                 }
               : {
-                  color: "salmon",
+                  color: "#dc3545",
                   fontWeight: "600",
                   padding: "5px",
-                  fontSize: "16px",
+                  fontSize: "18px",
                 };
           }}
         >
@@ -63,18 +63,18 @@ const Navbar = () => {
             return isActive
               ? {
                   backgroundColor: "transparent",
-                  borderBottom: "3px solid salmon",
-                  color: "salmon",
+                  borderBottom: "3px solid #dc3545",
+                  color: "#dc3545",
                   borderRadius: "0",
                   padding: "5px",
                   fontWeight: "600",
-                  fontSize: "16px",
+                  fontSize: "18px",
                 }
               : {
-                  color: "salmon",
+                  color: "#dc3545",
                   fontWeight: "600",
                   padding: "5px",
-                  fontSize: "16px",
+                  fontSize: "18px",
                 };
           }}
         >
@@ -135,8 +135,8 @@ const Navbar = () => {
             <Link>
               <img
                 src={logoLight}
-                alt=""
-                className=" w-[40px] md:w-[90px] rounded"
+                alt="logo"
+                className=" w-[40px] md:w-[70px] rounded"
               />
             </Link>
           </div>

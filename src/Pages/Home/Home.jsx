@@ -1,16 +1,18 @@
 import AboutUs from "./AboutUs";
 import Banner from "./Banner";
 import PopularFood from "./PopularFood";
+import Reserve from "./Reserve";
 import SocialMedia from "./SocialMedia";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Banner></Banner>
       <PopularFood></PopularFood>
       <AboutUs></AboutUs>
+      <Reserve></Reserve>
       <SocialMedia></SocialMedia>
-    </div>
+    </>
   );
 };
 
