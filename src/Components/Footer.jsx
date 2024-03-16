@@ -37,7 +37,7 @@ const Footer = () => {
             <div>
               <h2 className="text-lg font-bold mt-10">Newsletter</h2>
               <hr className="w-[90px] border-2 border-[#ffc107]" />
-              <p className="font-medium mt-5 mb-2">
+              <p className="font-medium my-2">
                 Subscribe and Get Recent News and Updates
               </p>
               <div className="flex gap-3">

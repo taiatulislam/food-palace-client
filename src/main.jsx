@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Home from "./Pages/Home/Home/Home.jsx";
+import Home from "./Pages/Home/Home.jsx";
 import Root from "./Pages/Root.jsx";
 import ErrorPage from "./Pages/ErrorPage.jsx";
 import AllFood from "./Pages/AllFood/AllFood.jsx";
