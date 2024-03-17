@@ -1,7 +1,7 @@
 const AboutUs = () => {
   return (
     <div>
-      <div className="max-w-7xl mx-auto py-16">
+      <div className="max-w-7xl mx-auto py-10">
         <h3 className="text-5xl text-center font-bold text-black">About Us</h3>
         <hr className="mx-auto w-[150px] border-[3px] border-[#ffc107] rounded-lg" />
         <p className="mx-auto text-center pt-1 max-w-xl">

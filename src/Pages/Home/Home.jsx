@@ -4,6 +4,7 @@ import ChooseCategory from "./ChooseCategory";
 import PopularFood from "./PopularFood";
 import Reserve from "./Reserve";
 import SocialMedia from "./SocialMedia";
+import Testimonial from "./Testimonial";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <PopularFood />
       <AboutUs />
       <Reserve />
+      <Testimonial />
       <SocialMedia />
     </>
   );

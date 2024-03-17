@@ -14,7 +14,7 @@ const PopularFood = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto pt-16">
+    <div className="max-w-7xl mx-auto py-10">
       <h3 className="text-5xl text-center font-bold text-black">Top Food</h3>
       <hr className="mx-auto w-[150px] border-[3px] border-[#ffc107] rounded-lg mb-12" />
       <div className="grid md:grid-cols-2 px-5 lg:px-0 lg:grid-cols-4 gap-7">
@@ -48,7 +48,7 @@ const PopularFood = () => {
           </div>
         ))}
       </div>
-      <div className="my-10 text-center">
+      <div className="mt-10 text-center">
         <Link
           to="/allFood"
           className="btn normal-case text-[#dc3545] border-2 border-[#dc3545]"

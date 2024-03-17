@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 
 const ChooseCategory = () => {
   return (
-    <div className="max-w-7xl mx-auto mt-10">
+    <div className="max-w-7xl mx-auto py-10">
       <h3 className="text-5xl text-center font-bold text-black">
         Choose a Category
       </h3>
