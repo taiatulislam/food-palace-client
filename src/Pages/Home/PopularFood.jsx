@@ -21,7 +21,7 @@ const PopularFood = () => {
         {foods.map((food) => (
           <div
             key={food._id}
-            className="flex flex-col bg-base-100 shadow-xl border-4 border-[#ffc107] rounded-lg p-5"
+            className="flex flex-col bg-base-100 shadow-xl border-4 border-[#dc3545] rounded-lg p-5"
           >
             <img
               src={food.image}
@@ -29,7 +29,7 @@ const PopularFood = () => {
               className="h-[200px] w-full rounded-lg"
             />
             <div className="flex flex-col">
-              <div className="flex gap-3 items-center pt-3">
+              <div className="flex gap-2 items-center pt-3">
                 <FaStar className="text-[#ffc107] text-lg" />
                 <FaStar className="text-[#ffc107] text-lg" />
                 <FaStar className="text-[#ffc107] text-lg" />
@@ -41,7 +41,7 @@ const PopularFood = () => {
                 <span className="text-[#dc3545] font-bold text-xl">$ </span>
                 {food.price}
               </p>
-              <button className="bg-[#ffc107] w-full rounded-lg py-2 mt-3 font-medium">
+              <button className="bg-[#dc3545] text-white w-full rounded-lg py-2 mt-3 font-medium">
                 Details
               </button>
             </div>

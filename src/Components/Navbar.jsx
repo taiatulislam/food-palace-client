@@ -1,14 +1,21 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logoLight from "../../src/assets/images/logo/logo-light.jpg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
+  const [route, setRoute] = useState("home");
+
+  const activeRoute = (path) => {
+    setRoute(path);
+  };
+
   const links = (
     <>
       <li>
         <NavLink
           to="/"
+          onClick={() => activeRoute("home")}
           style={({ isActive }) => {
             return isActive
               ? {
@@ -34,6 +41,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/allFood"
+          onClick={() => activeRoute("allFood")}
           style={({ isActive }) => {
             return isActive
               ? {
@@ -59,6 +67,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/blog"
+          onClick={() => activeRoute("blog")}
           style={({ isActive }) => {
             return isActive
               ? {
@@ -104,7 +113,9 @@ const Navbar = () => {
   };
 
   return (
-    <section className="w-full absolute top-0">
+    <section
+      className={`${route === "home" ? "absolute top-0 w-full" : "static"}`}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="navbar bg-transparent h-[15vh]">
           <div className="navbar-start">
