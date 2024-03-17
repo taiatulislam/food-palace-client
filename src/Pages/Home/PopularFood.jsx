@@ -36,7 +36,7 @@ const PopularFood = () => {
                 <FaStar className="text-[#ffc107] text-lg" />
                 <FaStar className="text-[#ffc107] text-lg" />
               </div>
-              <h2 className="text-xl font-semibold py-2">{food.name}</h2>
+              <h2 className="text-lg font-semibold pt-2">{food.name}</h2>
               <p className="text-lg font-medium">
                 <span className="text-[#dc3545] font-bold text-xl">$ </span>
                 {food.price}

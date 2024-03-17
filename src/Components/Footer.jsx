@@ -96,7 +96,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <p className="text-white bg-black text-center py-3">
+      <p className="text-white bg-black text-center py-4">
         Copyright © 2023 - All right reserved ||{" "}
         <span className="text-[#dc3545]">Food Palace</span>
       </p>

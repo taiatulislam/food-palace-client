@@ -11,7 +11,7 @@ const AboutUs = () => {
         <div className="flex flex-col-reverse md:flex-row lg:flex-row items-center gap-10 mt-10 px-5 lg:px-0">
           <div className="w-full md:w-1/2">
             <div className="border-2 border-[#dc3545] rounded-lg p-5 shadow-lg">
-              <h3 className="text-3xl font-bold mb-5 text-[#dc3545]">
+              <h3 className="text-3xl font-semibold mb-5 text-[#dc3545]">
                 Our Story
               </h3>
               <p className="font-medium">
@@ -25,7 +25,7 @@ const AboutUs = () => {
             </div>
 
             <div className="border-2 border-[#dc3545] rounded-lg p-5 my-3 shadow-lg">
-              <h3 className="text-3xl font-bold mb-5 text-[#dc3545]">
+              <h3 className="text-3xl font-semibold mb-5 text-[#dc3545]">
                 Local Flavor, Global Inspiration
               </h3>
               <p className="font-medium">
@@ -37,7 +37,7 @@ const AboutUs = () => {
             </div>
 
             <div className="border-2 border-[#dc3545] rounded-lg p-5 shadow-lg">
-              <h3 className="text-3xl font-bold mb-5 text-[#dc3545]">
+              <h3 className="text-3xl font-semibold mb-5 text-[#dc3545]">
                 Our Philosophy
               </h3>
               <p className="font-medium">
@@ -64,14 +64,14 @@ const AboutUs = () => {
             </div>
             <div className="grid gap-3 rounded-lg grid-cols-1">
               <img
-                src="https://i.ibb.co/sKZtQTX/ready-eat-meals-arrangement-1.jpg"
-                alt=""
-                className="h-[450px] w-full rounded-r-lg"
-              />
-              <img
                 src="https://i.ibb.co/LvTvxZR/ready-eat-meal-collage-design.jpg"
                 alt="green"
                 className="rounded-r-lg"
+              />
+              <img
+                src="https://i.ibb.co/sKZtQTX/ready-eat-meals-arrangement-1.jpg"
+                alt=""
+                className="h-[450px] w-full rounded-r-lg"
               />
             </div>
           </div>
