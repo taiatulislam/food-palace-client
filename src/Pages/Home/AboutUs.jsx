@@ -1,14 +1,16 @@
 const AboutUs = () => {
   return (
     <div>
-      <div className="max-w-7xl mx-auto py-10">
-        <h3 className="text-5xl text-center font-bold text-black">About Us</h3>
-        <hr className="mx-auto w-[150px] border-[3px] border-[#ffc107] rounded-lg" />
+      <div className="max-w-7xl mx-auto py-10 px-5">
+        <h3 className="text-3xl md:text-5xl text-center font-bold text-black">
+          About Us
+        </h3>
+        <hr className="mx-auto w-[100px] md:w-[150px] border-[3px] border-[#ffc107] rounded-lg mb-5" />
         <p className="mx-auto text-center pt-1 max-w-xl">
           Welcome to Food Palace, where passion for food and a commitment to
           creating memorable dining experiences come together.
         </p>
-        <div className="flex flex-col-reverse md:flex-row lg:flex-row items-center gap-10 mt-10 px-5 lg:px-0">
+        <div className="flex flex-col-reverse md:flex-row lg:flex-row items-center gap-10 mt-10">
           <div className="w-full md:w-1/2">
             <div className="border-2 border-[#dc3545] rounded-lg p-5 shadow-lg">
               <h3 className="text-3xl font-semibold mb-5 text-[#dc3545]">
@@ -54,24 +56,24 @@ const AboutUs = () => {
               <img
                 src="https://i.ibb.co/6wftNDH/pub-promo-with-delicious-burger.jpg"
                 alt="burger"
-                className="h-[450px] rounded-l-lg"
+                className="h-[450px] rounded-l-lg object-cover"
               />
               <img
-                src="https://i.ibb.co/QjGLKQV/ready-eat-meals-arrangement.jpg"
+                src="https://i.ibb.co/v3XX8k6/ready-eat-meals-arrangement-2.jpg"
                 alt="meat"
-                className="rounded-l-lg"
+                className="rounded-l-lg object-cover"
               />
             </div>
             <div className="grid gap-3 rounded-lg grid-cols-1">
               <img
-                src="https://i.ibb.co/LvTvxZR/ready-eat-meal-collage-design.jpg"
+                src="https://i.ibb.co/zsBL9Pk/ready-eat-meal-collage-design-1.jpg"
                 alt="green"
-                className="rounded-r-lg"
+                className="rounded-r-lg object-cover"
               />
               <img
-                src="https://i.ibb.co/sKZtQTX/ready-eat-meals-arrangement-1.jpg"
+                src="https://i.ibb.co/0ZGx3G5/ready-eat-meals-arrangement-1-1.jpg"
                 alt=""
-                className="h-[450px] w-full rounded-r-lg"
+                className="h-[450px] w-full rounded-r-lg object-cover"
               />
             </div>
           </div>

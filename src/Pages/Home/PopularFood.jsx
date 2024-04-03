@@ -15,8 +15,10 @@ const PopularFood = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-10">
-      <h3 className="text-5xl text-center font-bold text-black">Top Food</h3>
-      <hr className="mx-auto w-[150px] border-[3px] border-[#ffc107] rounded-lg mb-12" />
+      <h3 className="text-3xl md:text-5xl text-center font-bold text-black">
+        Top Food
+      </h3>
+      <hr className="mx-auto w-[100px] md:w-[150px] border-[3px] border-[#ffc107] rounded-lg mb-10" />
       <div className="grid md:grid-cols-2 px-5 lg:px-0 lg:grid-cols-4 gap-7">
         {foods.map((food) => (
           <div

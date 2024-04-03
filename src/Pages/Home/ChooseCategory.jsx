@@ -6,18 +6,23 @@ import "swiper/css/pagination";
 const ChooseCategory = () => {
   return (
     <div className="max-w-7xl mx-auto py-10">
-      <h3 className="text-5xl text-center font-bold text-black">
+      <h3 className="text-3xl md:text-5xl text-center font-bold text-black">
         Choose a Category
       </h3>
+
       <hr className="mx-auto w-[200px] border-[3px] border-[#ffc107] rounded-lg mb-10" />
 
       {/* Swiper */}
       <Swiper
         modules={[Pagination]}
-        slidesPerView={4}
+        slidesPerView={2}
         spaceBetween={25}
         pagination={{ clickable: true }}
         className="w-full"
+        breakpoints={{
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+        }}
       >
         {/* Slide 1 */}
         <SwiperSlide className="text-center">

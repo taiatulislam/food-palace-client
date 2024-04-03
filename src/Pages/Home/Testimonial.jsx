@@ -3,13 +3,15 @@ import { ImQuotesLeft } from "react-icons/im";
 
 const Testimonial = () => {
   return (
-    <section className="max-w-7xl mx-auto py-10">
-      <div className="grid grid-cols-2 items-center">
-        <div className="w-[75%]">
+    <section className="max-w-7xl mx-auto py-10 px-5 lg:px-0">
+      <div className="flex flex-col-reverse md:flex-row gap-10 items-center">
+        <div className="w-full md:w-[75%]">
           <h3 className="text-[#dc3545] font-semibold">
             Testimonials & Reviews
           </h3>
-          <h2 className="text-5xl font-semibold">Our Customer Feedbacks</h2>
+          <h2 className="text-3xl md:text-5xl font-semibold">
+            Our Customer Feedbacks
+          </h2>
           <div className="border-[3px] border-[#ffc107] rounded-lg mt-7 p-7 relative">
             <p>
               A good restaurant like a vacation. It transports you, and it
@@ -40,12 +42,12 @@ const Testimonial = () => {
             <img
               src="https://i.ibb.co/nkwsqcc/unnamed.jpg"
               alt="iceCream"
-              className="rounded-lg -ml-24 h-[200px]"
+              className="rounded-lg -ml-24 h-[200px] object-cover"
             />
             <img
               src="https://i.ibb.co/D8Zrn4p/ice.jpg"
               alt="coffee"
-              className="rounded-lg h-[200px]"
+              className="rounded-lg h-[200px] object-cover"
             />
           </div>
         </div>

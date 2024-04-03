@@ -50,21 +50,21 @@ const AllFood = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto px-5">
       <div className="text-center mt-5">
         <form onSubmit={handleForm}>
           <input
             type="text"
             name="name"
             placeholder="Burger, Pizza, Paste ....."
-            className="pl-2 border-2 p-2 border-[#dc3545] rounded-l-lg w-1/3"
+            className="pl-2 border-2 p-2 border-[#dc3545] rounded-l-lg w-2/3"
           />
           <button className="text-white bg-[#dc3545] border-2 py-2 px-5 border-[#dc3545] rounded-r-lg">
             Search
           </button>
         </form>
       </div>
-      <div className="grid grid-cols-3 gap-7 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mt-10">
         {foods.map((food) => (
           <div
             key={food._id}
@@ -109,7 +109,7 @@ const AllFood = () => {
           </div>
         ))}
       </div>
-      <div className="flex gap-5 justify-center mt-7]">
+      <div className="flex gap-5 justify-center mt-7">
         {pages.map((page) => (
           <button
             key={page}

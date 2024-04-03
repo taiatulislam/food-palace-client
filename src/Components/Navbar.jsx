@@ -1,27 +1,23 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logoLight from "../../src/assets/images/logo/logo-light.jpg";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const [route, setRoute] = useState("home");
-
-  const activeRoute = (path) => {
-    setRoute(path);
-  };
+  const location = useLocation();
 
   const links = (
     <>
       <li>
         <NavLink
           to="/"
-          onClick={() => activeRoute("home")}
           style={({ isActive }) => {
             return isActive
               ? {
                   backgroundColor: "transparent",
-                  borderBottom: "3px solid #dc3545",
-                  color: "#dc3545",
+                  borderBottom: "3px solid #ffc107",
+                  color: "#ffc107",
                   borderRadius: "0",
                   padding: "5px",
                   fontWeight: "600",
@@ -41,13 +37,12 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/allFood"
-          onClick={() => activeRoute("allFood")}
           style={({ isActive }) => {
             return isActive
               ? {
                   backgroundColor: "transparent",
-                  borderBottom: "3px solid #dc3545",
-                  color: "#dc3545",
+                  borderBottom: "3px solid #ffc107",
+                  color: "#ffc107",
                   borderRadius: "0",
                   padding: "5px",
                   fontWeight: "600",
@@ -67,13 +62,12 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/blog"
-          onClick={() => activeRoute("blog")}
           style={({ isActive }) => {
             return isActive
               ? {
                   backgroundColor: "transparent",
-                  borderBottom: "3px solid #dc3545",
-                  color: "#dc3545",
+                  borderBottom: "3px solid #ffc107",
+                  color: "#ffc107",
                   borderRadius: "0",
                   padding: "5px",
                   fontWeight: "600",
@@ -114,13 +108,21 @@ const Navbar = () => {
 
   return (
     <section
-      className={`${route === "home" ? "absolute top-0 w-full" : "static"}`}
+      className={`${
+        location?.pathname === "/" ? "absolute top-0 w-full" : "static"
+      }`}
+      style={{
+        backgroundImage: `${
+          location?.pathname !== "/" &&
+          "url(https://i.ibb.co/XkKCdB0/patron-black.jpg)"
+        }`,
+      }}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="navbar bg-transparent h-[15vh]">
+        <div className="navbar">
           <div className="navbar-start">
             <div className="dropdown">
-              <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <label tabIndex={0} className="btn btn-ghost md:hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -138,7 +140,7 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-300 rounded-box w-52"
               >
                 {links}
               </ul>
@@ -151,7 +153,7 @@ const Navbar = () => {
               />
             </Link>
           </div>
-          <div className="navbar-center hidden lg:flex">
+          <div className="navbar-center hidden md:flex">
             <ul className="menu menu-horizontal gap-10">{links}</ul>
           </div>
           <div className="navbar-end flex gap-5">
