@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const AllFood = () => {
   const allFoods = useLoaderData();
@@ -64,7 +64,7 @@ const AllFood = () => {
           </button>
         </form>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 mt-10">
         {foods.map((food) => (
           <div
             key={food._id}
@@ -74,29 +74,29 @@ const AllFood = () => {
               <img
                 src={food.image}
                 alt="food"
-                className="h-[300px] w-full rounded-b-lg"
+                className="md:h-[200px] w-full rounded-b-lg"
               />
             </figure>
             <div className="mt-3">
-              <div className="flex gap-2 items-center text-[#ffc107]">
+              <h2 className="text-xl font-semibold">{food.name}</h2>
+              <p className="text-2xl font-semibold">
+                <span className="font-bold text-[#dc3545]">$ </span>
+                {food?.price}
+              </p>
+              <p
+                className={`text-lg font-medium ${
+                  food?.quantity > 0 ? "text-green-500" : "text-red-500"
+                }`}
+              >
+                {food?.quantity > 0 ? "Available" : "Stock Out"}
+              </p>
+              <div className="flex gap-2 items-center text-[#ffc107]  mb-4 pt-2">
                 <FaStar />
                 <FaStar />
                 <FaStar />
                 <FaStar />
                 <FaStar />
               </div>
-              <h2 className="text-xl font-semibold pt-2">{food.name}</h2>
-              <p className="text-2xl font-semibold">
-                <span className="font-bold text-[#dc3545]">$ </span>
-                {food?.price}
-              </p>
-              <p
-                className={`text-lg font-medium mb-4 ${
-                  food?.quantity > 0 ? "text-green-500" : "text-red-500"
-                }`}
-              >
-                {food?.quantity > 0 ? "Available" : "Stock Out"}
-              </p>
               <div className="card-actions justify-end">
                 <button
                   onClick={() => handleDetails(food._id)}
