@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "The Secret to a Perfect Summer Salad",
+    "description": "Summer salads are more than just lettuce and tomatoes. For the perfect mix, combine crunchy greens, seasonal fruits (like mango or berries), roasted nuts, and a tangy vinaigrette. A sprinkle of feta or goat cheese elevates it to gourmet level. Refreshing, light, and packed with nutrients—this is the ultimate summer bite!",
+    "altText": "Salad",
+    "imageUrl": "https://images.pexels.com/photos/434258/pexels-photo-434258.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Homemade Pasta: Worth the Effort?",
+    "description": "Making pasta at home might seem intimidating, but the flavor and texture are unbeatable. All you need is flour, eggs, and a rolling pin. Whether you're crafting silky tagliatelle or stuffed ravioli, homemade pasta brings an artisan touch to your table. Pair it with a simple garlic and olive oil sauce to let the pasta shine.",
+    "altText": "Pasta",
+    "imageUrl": "https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "5-Minute Dessert Fix: Mug Cake Magic",
+    "description": "Craving something sweet but don’t want to bake an entire cake? Enter the chocolate mug cake—a dessert ready in just 5 minutes! Mix flour, cocoa powder, sugar, milk, and a touch of oil in a mug, microwave it for a minute, and voilà! Gooey, rich, and satisfying. Top with a scoop of vanilla ice cream for extra indulgence.",
+    "altText": "Dessert",
+    "imageUrl": "https://images.pexels.com/photos/1132558/pexels-photo-1132558.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "Refreshing Drinks to Beat the Heat",
+    "description": "When temperatures rise, a cool drink can be your best friend. Skip the soda and try homemade lemon-mint coolers, fresh fruit smoothies, or even iced herbal teas. These drinks not only hydrate but also provide essential nutrients and antioxidants. Add slices of citrus, cucumber, or berries to boost the flavor naturally.",
+    "altText": "Drinks",
+    "imageUrl": "https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg"
+  }
+]
