@@ -2,6 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #dc3545;
+  --color-secondary: #ffc107;
+}
+
 .font-link {
-   font-family: "Fredoka", sans-serif;
- }
+  font-family: "Fredoka", sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+  height: 50px;
+} */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 999px;
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: #dadada;
+}
+
+/* SLider */
+.testimonial-swiper .swiper-pagination {
+  overflow: visible !important;
+  bottom: 0 !important;
+}
+
+.testimonial-swiper {
+  padding-bottom: 40px !important;
+}
+
+.testimonial-swiper .swiper-pagination-bullet-active {
+  background: var(--color-primary) !important;
+}
+
+.testimonial-swiper .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ccc;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.testimonial-swiper .swiper-pagination-bullet-active {
+  background: var(--color-primary) !important;
+  width: 30px;
+  height: 6px;
+  border-radius: 10px;
+}

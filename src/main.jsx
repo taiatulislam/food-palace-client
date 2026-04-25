@@ -9,7 +9,7 @@ import SignUp from "./Pages/SignUp/SignUp.jsx";
 import AuthProvider from "./Providers/AuthProvider.jsx";
 import SignIn from "./Pages/SignIn/SignIn.jsx";
 import Blog from "./Pages/Blog/Blog.jsx";
-import FoodDetails from "./Pages/FoodDetails/FoodDetails.jsx";
+// import FoodDetails from "./Pages/FoodDetails/FoodDetails.jsx";
 import Purchase from "./Pages/Purchase/Purchase.jsx";
 import AddedFood from "./Pages/AddedFood/AddedFood.jsx";
 import UpdateFood from "./Pages/UpdateFood/UpdateFood.jsx";
@@ -18,6 +18,8 @@ import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import OrderedFood from "./Pages/OrderedFood/OrderedFood.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import FoodDetails2 from "./Pages/FoodDetails/FoodDetails2.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,18 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/allFood",
         element: <AllFood />,
-        loader: () =>
-          fetch(
-            "https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/allFood"
-          ),
       },
       {
         path: "/allFood/:id",
-        element: <FoodDetails></FoodDetails>,
-        loader: ({ params }) =>
-          fetch(
-            `https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/foodDetails/${params.id}`
-          ),
+        element: <FoodDetails2></FoodDetails2>,
       },
       {
         path: "/signUp",
@@ -60,18 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/addedFood/:email",
         element: <AddedFood />,
-        loader: ({ params }) =>
-          fetch(
-            `https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/addedFood/${params.email}`
-          ),
       },
       {
         path: "/ordered/:email",
         element: <OrderedFood />,
-        loader: ({ params }) =>
-          fetch(
-            `https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/ordered/${params.email}`
-          ),
       },
       {
         path: "/addFood",
@@ -84,27 +70,23 @@ const router = createBrowserRouter([
             <Purchase />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/purchase/${params.id}`
-          ),
       },
       {
         path: "/updateFood/:id",
         element: <UpdateFood />,
-        loader: ({ params }) =>
-          fetch(
-            `https://food-palace-server-obvwxtfg9-md-taiatul-islam-apons-projects.vercel.app/updateFood/${params.id}`
-          ),
       },
     ],
   },
 ]);
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  </React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
+  </React.StrictMode>,
 );

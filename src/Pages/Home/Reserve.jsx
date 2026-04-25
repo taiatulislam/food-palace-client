@@ -11,7 +11,7 @@ const Reserve = () => {
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/3 text-white">
           <h2 className="text-3xl font-semibold">RESERVE A TABLE</h2>
-          <hr className="w-[250px] md:w-[120px] border-2 border-[#ffc107] rounded-lg" />
+          <hr className="w-[250px] md:w-[120px] border-2 border-secondary rounded-lg" />
           <p className="my-3">Discover Our New Menu!</p>
         </div>
 
@@ -55,7 +55,7 @@ const Reserve = () => {
               </div>
             </div>
           </div>
-          <button className="bg-[#ffc107] p-3 font-semibold rounded-lg float-right mt-5 text-sm">
+          <button className="bg-secondary p-3 font-semibold rounded-lg float-right mt-5 text-sm">
             Reserve A Table
           </button>
         </div>

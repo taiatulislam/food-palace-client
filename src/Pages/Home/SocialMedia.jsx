@@ -4,10 +4,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import social1 from "../../assets/images/social/photo-gallery-1.webp";
+import social2 from "../../assets/images/social/photo-gallery-2.webp";
+import social3 from "../../assets/images/social/photo-gallery-3.webp";
+import social4 from "../../assets/images/social/photo-gallery-4.webp";
+import social5 from "../../assets/images/social/photo-gallery-5.webp";
+
 const SocialMedia = () => {
   return (
     <div className="container mx-auto text-center">
-      <FaInstagram className="rounded-full text-white bg-[#dc3545] w-14 h-14 p-2 mx-auto mb-3" />
+      <FaInstagram className="rounded-full text-white bg-primary w-14 h-14 p-2 mx-auto mb-3" />
       <h2 className="text-3xl md:text-5xl font-semibold">
         Follow @FoodPalace{" "}
       </h2>
@@ -27,34 +33,19 @@ const SocialMedia = () => {
           className="w-full mt-5"
         >
           <SwiperSlide className="text-white">
-            <img
-              src="https://i.ibb.co/8BzLBgv/photo-gallery-1.jpg"
-              alt="Food"
-            />
+            <img src={social1} alt="Food" />
           </SwiperSlide>
           <SwiperSlide className="text-white">
-            <img
-              src="https://i.ibb.co/XW8tdKf/photo-gallery-2.jpg"
-              alt="Food"
-            />
+            <img src={social2} alt="Food" />
           </SwiperSlide>
           <SwiperSlide className="text-white">
-            <img
-              src="https://i.ibb.co/CzDCSw3/photo-gallery-3.jpg"
-              alt="Food"
-            />
+            <img src={social3} alt="Food" />
           </SwiperSlide>
           <SwiperSlide className="text-white">
-            <img
-              src="https://i.ibb.co/C0QZWVQ/photo-gallery-4.jpg"
-              alt="Food"
-            />
+            <img src={social4} alt="Food" />
           </SwiperSlide>
           <SwiperSlide className="text-white">
-            <img
-              src="https://i.ibb.co/GRpXJ13/photo-gallery-5.jpg"
-              alt="Food"
-            />
+            <img src={social5} alt="Food" />
           </SwiperSlide>
         </Swiper>
       </div>

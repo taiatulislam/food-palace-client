@@ -1,209 +1,205 @@
+import { Link } from "react-router-dom";
+
 const Blog = () => {
   return (
-    <div className="max-w-7xl mx-auto px-5">
-      <div className="border-2 border-[#FA8072] rounded-lg p-5 mt-5">
-        <h3 className="text-3xl font-semibold mb-3">
-          What is One way data binding?
-        </h3>
-        <p className="text-lg">
-          One-way data binding is a concept used in web development and user
-          interfaces to describe the process of updating the user interface (UI)
-          with data from a data source or model. In one-way data binding, data
-          flows from the source to the UI, but changes in the UI do not affect
-          the underlying data source.
-        </p>
-
-        <p className="text-lg my-3">
-          Here is how one-way data binding typically works:
-        </p>
-
-        <p className="text-lg">
-          Data Source: There is a data source or model that contains the
-          information to be displayed in the UI. This data source could be an
-          object, a database, an API response, or any other source of data.
-        </p>
-
-        <p className="text-lg my-3">
-          <span className="font-semibold">UI Display:</span> The UI elements,
-          such as text fields, labels, tables, or charts, are bound to specific
-          data points from the data source. This binding is typically
-          established in the code or through a declarative framework or library.
-        </p>
-
-        <p className="text-lg">
-          <span className="font-semibold">Initial Rendering:</span> When the UI
-          is initially rendered, it displays the data from the data source. Any
-          changes in the data source are automatically reflected in the UI. For
-          example, if the data source is updated, the UI will display the
-          updated information.
-        </p>
-
-        <p className="text-lg my-3">
-          <span className="font-semibold">User Interaction:</span> While the UI
-          can display the data, user interactions with the UI elements do not
-          directly affect the underlying data source. In other words, changes
-          made by users in the UI (like input fields or form submissions) are
-          not automatically propagated back to the data source through one-way
-          data binding.
-        </p>
-
-        <p className="text-lg">
-          One-way data binding is often used when it is not necessary for the UI
-          to update the data source, or when the data source is read-only. It
-          simplifies the process of displaying data and keeps the UI in sync
-          with changes in the data source without the need for manual updates.
+    <section className="max-w-7xl mx-auto px-5 py-8">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-5xl font-bold text-black">Food Blog</h1>
+        <hr className="mx-auto w-[130px] md:w-[180px] border-[3px] border-secondary rounded-lg my-3" />
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Fresh ideas, practical kitchen tips, and food business insights to
+          help you cook better and serve smarter.
         </p>
       </div>
-      <div className="border-2 border-[#FA8072] rounded-lg my-5 p-5">
-        <h3 className="text-3xl font-semibold mb-3">What is NPM in node.js?</h3>
-        <p className="text-lg">
-          NPM, which stands for &quot;Node Package Manager&quot; is a package
-          manager for JavaScript and Node.js. It is the default package manager
-          that comes bundled with Node.js, making it an essential tool for
-          managing and sharing libraries, frameworks, and code packages within
-          the Node.js ecosystem. NPM plays a crucial role in simplifying the
-          process of installing, updating, and managing dependencies for Node.js
-          projects.
-        </p>
 
-        <p className="text-lg my-3">
-          Key features and functions of NPM include:
-        </p>
+      <article className="grid grid-cols-1 lg:grid-cols-2 gap-6 border-2 border-primary rounded-xl p-4 md:p-6 bg-white shadow-sm mb-10">
+        <img
+          src={featuredBlog.image}
+          alt={featuredBlog.title}
+          className="w-full h-[260px] md:h-[340px] object-cover rounded-lg"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="flex flex-col justify-center">
+          <p className="text-sm font-semibold text-primary mb-2">
+            {featuredBlog.category}
+          </p>
+          <h2 className="text-2xl md:text-4xl font-bold text-black mb-3">
+            {featuredBlog.title}
+          </h2>
+          <p className="text-gray-700 text-base md:text-lg">
+            {featuredBlog.description}
+          </p>
+          <p className="text-sm text-gray-500 mt-4">{featuredBlog.readTime}</p>
+          <Link
+            to={`/blog/${featuredBlog.id}`}
+            className="btn bg-primary border-none normal-case text-white w-fit mt-5"
+          >
+            Read Article
+          </Link>
+        </div>
+      </article>
 
-        <p className="text-lg">
-          <span className="font-semibold">Package Installation:</span> NPM
-          allows developers to easily install third-party packages or modules
-          created by others. These packages can be used to extend the
-          functionality of Node.js applications.
-        </p>
-
-        <p className="text-lg my-3">
-          <span className="font-semibold">Dependency Management:</span> NPM
-          helps manage project dependencies by keeping track of which packages
-          are required for a specific project and their versions. This ensures
-          that the project uses the correct versions of dependencies, reducing
-          potential compatibility issues.
-        </p>
-
-        <p className="text-lg">
-          <span className="font-semibold">Package Publishing:</span>Package
-          Publishing: Developers can publish their own Node.js packages to the
-          NPM registry, making them accessible to the global Node.js community.
-        </p>
-
-        <p className="text-lg my-3">
-          <span className="font-semibold">Version Control:</span> NPM maintains
-          version information for each package, enabling developers to specify
-          which version of a package their project should use.
-        </p>
-
-        <p className="text-lg">
-          <span className="font-semibold">Scripts:</span> NPM allows developers
-          to define and run custom scripts within their projects. Common scripts
-          include starting a development server, running tests, and building
-          production code.
-        </p>
-
-        <p className="text-lg mt-3">
-          <span className="font-semibold">Global Packages:</span> NPM can
-          install packages globally on a developer&apos;s machine, which allows
-          for the installation of command-line tools and utilities that can be
-          used across multiple projects.
-        </p>
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="text-2xl md:text-3xl font-bold text-black">
+          Latest Food Articles
+        </h2>
+        <p className="text-sm text-gray-500">{blogs.length} articles</p>
       </div>
-      <div className="border-2 border-[#FA8072] rounded-lg my-5 p-5">
-        <h3 className="text-3xl font-semibold mb-3">
-          Different between Mongodb database vs mySQL database.
-        </h3>
 
-        <p className="my-3 text-lg">
-          MongoDB and MySQL are both popular database management systems, but
-          they have significant differences in terms of their data models, query
-          languages, and use cases. Here are some key differences between
-          MongoDB and MySQL:
-        </p>
-
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>MongoDB</th>
-            <th>My SQL</th>
-          </tr>
-          <tr>
-            <td>Data Model</td>
-            <td>
-              MongoDB is a NoSQL database, which means it uses a flexible,
-              document-oriented data model. Data is stored in BSON (Binary JSON)
-              format, and documents can have varying structures within the same
-              collection. MongoDB is well-suited for handling unstructured or
-              semi-structured data.
-            </td>
-            <td>
-              MySQL is a relational database management system (RDBMS) that uses
-              a tabular, structured data model. Data is organized into tables
-              with predefined schemas, and relationships between tables are
-              established using foreign keys. MySQL is ideal for structured data
-              with defined relationships.
-            </td>
-          </tr>
-          <tr>
-            <td>Query Language</td>
-            <td>
-              MongoDB uses a query language that is based on JavaScript and is
-              designed for querying JSON-like documents. It supports rich
-              querying capabilities, including the ability to query nested
-              fields and arrays.
-            </td>
-            <td>
-              MySQL uses SQL (Structured Query Language) for querying. SQL is a
-              powerful language for working with structured data, enabling
-              complex joins, aggregation functions, and data manipulation.
-            </td>
-          </tr>
-          <tr>
-            <td>Scalability</td>
-            <td>
-              MongoDB is known for its horizontal scalability. It can easily
-              handle large volumes of data and high write loads by distributing
-              data across multiple servers (sharding).
-            </td>
-            <td>
-              MySQL can scale vertically by adding more CPU, memory, and storage
-              to a single server. While there are clustering and replication
-              options, horizontal scalability is more complex compared to
-              MongoDB.
-            </td>
-          </tr>
-          <tr>
-            <td>Schema Flexibility</td>
-            <td>
-              MongoDB provides flexibility in data modeling, allowing for easy
-              schema changes and adaptation to evolving data requirements
-              without significant downtime.
-            </td>
-            <td>
-              MySQL enforces a fixed schema, which means that schema changes
-              often require careful planning and database migrations.
-            </td>
-          </tr>
-          <tr>
-            <td>Use Cases</td>
-            <td>
-              MongoDB is commonly used for applications where flexibility,
-              scalability, and fast development are key, such as content
-              management systems, IoT applications, and real-time analytics.
-            </td>
-            <td>
-              MySQL is often chosen for applications that require strong data
-              integrity, complex queries, and well-defined schemas, such as
-              e-commerce platforms, financial systems, and traditional
-              relational data storage.
-            </td>
-          </tr>
-        </table>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        {blogs.map((blog) => (
+          <article
+            key={blog.id}
+            className="border-2 border-primary rounded-xl overflow-hidden shadow-sm bg-white hover:shadow-lg transition-shadow duration-300"
+          >
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="w-full h-[220px] object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="p-5">
+              <p className="text-xs font-semibold tracking-wide text-primary mb-2">
+                {blog.category}
+              </p>
+              <h3 className="text-xl font-semibold text-black mb-3">
+                {blog.title}
+              </h3>
+              <p className="text-gray-700 text-sm">{blog.description}</p>
+              <div className="flex items-center justify-between mt-4">
+                <p className="text-xs text-gray-500">{blog.readTime}</p>
+                <Link
+                  to={`/blog/${blog.id}`}
+                  className="text-primary font-semibold hover:underline"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
+
+const featuredBlog = {
+  id: "featured",
+  title: "10 Food Trends That Customers Love in 2026",
+  description:
+    "From protein-rich bowls to fusion street food, these trends are helping food brands increase engagement, repeat orders, and social shares.",
+  image: "https://i.ibb.co/jJrXm4j/pexels-ella-olsson-1640777.jpg",
+  readTime: "7 min read",
+  category: "Featured",
+  author: "Food Palace Team",
+  publishedAt: "Apr 2026",
+  content: [
+    "Food trends now move faster than ever, and customers expect fresh ideas in every season. Protein-rich bowls, low-oil frying, and ingredient transparency are becoming standard choices for regular diners.",
+    "Fusion food is also becoming more popular. People enjoy familiar local flavors combined with global techniques. Restaurants that experiment with small seasonal specials often see stronger repeat customer behavior.",
+    "Another major trend is visual presentation. Well-plated meals with color contrast, fresh herbs, and texture variety are more likely to perform well on social media, driving organic food marketing.",
+  ],
+};
+
+const blogs = [
+  {
+    id: "1",
+    title: "How to Plate Food Like a Pro Chef",
+    description:
+      "Simple plating techniques that make your dishes look premium and more appetizing in photos.",
+    image: "https://i.ibb.co/Gs8fQXf/pexels-chanwalrus-958545.jpg",
+    readTime: "4 min read",
+    category: "Kitchen Tips",
+    author: "Chef Arif Rahman",
+    publishedAt: "Mar 2026",
+    content: [
+      "Professional plating starts with balance. Use one hero element and support it with smaller side components to avoid a crowded plate.",
+      "Color contrast is essential. Pair greens with warm tones like grilled proteins or roasted vegetables to make dishes look more vibrant.",
+      "Finish with texture: crunchy toppings, fresh herbs, or light sauce streaks can transform basic serving into a premium presentation.",
+    ],
+  },
+  {
+    id: "2",
+    title: "Healthy Fast Food: Smart Ingredient Swaps",
+    description:
+      "Build lighter menu options with better oils, fresh toppings, and smarter side choices.",
+    image: "https://i.ibb.co/kx6P4sH/pexels-jan-n-g-u-y-e-n-699953.jpg",
+    readTime: "5 min read",
+    category: "Nutrition",
+    author: "Nadia Islam",
+    publishedAt: "Feb 2026",
+    content: [
+      "Healthy fast food does not mean removing flavor. Start with ingredient swaps like Greek yogurt sauces, whole-grain buns, and baked sides.",
+      "Control portion size by designing balanced combos with lean proteins and vegetables. Customers appreciate choices that feel satisfying without being too heavy.",
+      "Clear nutritional labeling also builds trust. Highlighting calorie-smart options helps customers pick meals confidently.",
+    ],
+  },
+  {
+    id: "3",
+    title: "Best Spices to Boost Flavor Naturally",
+    description:
+      "A quick guide to spice combinations that make grilled, baked, and sautéed dishes stand out.",
+    image: "https://i.ibb.co/x7nW9D3/pexels-antonio-friedemann-4462782.jpg",
+    readTime: "3 min read",
+    category: "Flavors",
+    author: "Chef Tanim",
+    publishedAt: "Jan 2026",
+    content: [
+      "Cumin, paprika, and garlic powder are a strong base for grilled dishes. This trio adds warmth and depth without overpowering ingredients.",
+      "For seafood and white meats, combine black pepper, lemon zest, and coriander for a lighter aromatic profile.",
+      "Freshly ground spice blends usually perform better than pre-mixed packs in both aroma and flavor complexity.",
+    ],
+  },
+  {
+    id: "4",
+    title: "Reducing Food Waste in Restaurant Kitchens",
+    description:
+      "Practical systems for inventory tracking, prep planning, and creative reuse of ingredients.",
+    image: "https://i.ibb.co/JnW6rK8/pexels-kampus-production-5920773.jpg",
+    readTime: "6 min read",
+    category: "Restaurant Management",
+    author: "Rafiul Karim",
+    publishedAt: "Dec 2025",
+    content: [
+      "Food waste often starts with over-prep. Forecasting demand based on daily sales can reduce unnecessary production.",
+      "Use FIFO inventory flow and assign shelf labels with prep dates to improve ingredient rotation.",
+      "Leftover ingredients can be repurposed into soups, sauces, or staff meals to minimize disposal while preserving value.",
+    ],
+  },
+  {
+    id: "5",
+    title: "How Food Photography Increases Online Orders",
+    description:
+      "Learn what angles, lighting, and styling techniques make menu photos convert better.",
+    image: "https://i.ibb.co/ZhRMQCG/pexels-ella-olsson-3026808.jpg",
+    readTime: "5 min read",
+    category: "Marketing",
+    author: "Samiha Noor",
+    publishedAt: "Nov 2025",
+    content: [
+      "Natural side lighting gives food better depth and texture than direct flash. Keep shadows soft to preserve detail.",
+      "Use close-up framing for hero shots and top-down views for combo meals or platters.",
+      "Consistent editing style across menu photos builds stronger brand identity and improves trust on ordering platforms.",
+    ],
+  },
+  {
+    id: "6",
+    title: "Seasonal Menu Planning for Better Sales",
+    description:
+      "Use seasonal ingredients to control costs, improve taste, and keep your menu exciting.",
+    image: "https://i.ibb.co/HGf9H9v/pexels-pixabay-262978.jpg",
+    readTime: "4 min read",
+    category: "Menu Planning",
+    author: "Food Palace Team",
+    publishedAt: "Oct 2025",
+    content: [
+      "Seasonal menus help reduce ingredient costs and improve freshness at the same time. Local availability often means better quality produce.",
+      "Rotate featured dishes monthly to keep repeat customers interested and increase trial orders.",
+      "Use customer feedback and sales reports to keep high-performing seasonal items in a core rotation.",
+    ],
+  },
+];
 
 export default Blog;
