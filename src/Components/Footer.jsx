@@ -1,7 +1,7 @@
-import logoLight from "../assets/images/logo/logo-light.jpg";
+import { FaMapLocationDot } from "react-icons/fa6";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { LuMailOpen } from "react-icons/lu";
-import { FaMapLocationDot } from "react-icons/fa6";
+import logoLight from "../assets/images/logo/logo-light.jpg";
 
 const contactInfo = [
   {
@@ -72,7 +72,7 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <p className="text-base md:text-lg text-justify">
+            <p className="text-base md:text-lg text-justify max-w-lg">
               All produced by using ingredients and serving up delicious food,
               every time. Including pizza and pasta dishes, as well as fresh
               salads, burger, steaks, risottos and indulgent desserts.
