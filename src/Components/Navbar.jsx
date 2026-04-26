@@ -11,7 +11,6 @@ const navLinkStyle = ({ isActive }) => ({
   borderRadius: "0",
   padding: "5px",
   fontWeight: "600",
-  fontSize: "18px",
 });
 
 const Navbar = () => {
@@ -33,19 +32,29 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/" style={navLinkStyle}>
+        <NavLink to="/" style={navLinkStyle} className="text-xs md:text-lg">
           Home
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="/allFood" style={navLinkStyle}>
+        <NavLink
+          to="/allFood"
+          style={navLinkStyle}
+          className="text-xs md:text-lg"
+        >
           All Food
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="/blog" style={navLinkStyle}>
+        <NavLink to="/cart" style={navLinkStyle} className="text-xs md:text-lg">
+          Cart
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/blog" style={navLinkStyle} className="text-xs md:text-lg">
           Blog
         </NavLink>
       </li>
@@ -58,14 +67,18 @@ const Navbar = () => {
 
   return (
     <section className={sectionClass} style={sectionStyle}>
-      <div className="max-w-7xl mx-auto px-5 md:px-0">
+      <div className="max-w-7xl mx-auto px-5 lg:px-0">
         <div className="navbar px-0">
           <div className="navbar-start">
-            <div className="dropdown">
-              <label tabIndex={0} className="btn btn-ghost md:hidden">
+            <div className="dropdown dropdown-end md:hidden z-20">
+              <label
+                tabIndex={0}
+                role="button"
+                className="cursor-pointer text-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -78,9 +91,10 @@ const Navbar = () => {
                   />
                 </svg>
               </label>
+
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-300 rounded-box w-52"
+                className="menu menu-xs dropdown-content left-0 mt-2 z-[50] w-40 rounded-box bg-base-300 p-2 shadow"
               >
                 {links}
               </ul>
@@ -103,13 +117,13 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-center hidden md:flex">
-            <ul className="menu menu-horizontal gap-10">{links}</ul>
+            <ul className="menu menu-horizontal gap-5 lg:gap-10">{links}</ul>
           </div>
 
           <div className="navbar-end flex gap-5">
             {user ? (
               <div className="flex items-center gap-5">
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-end z-20">
                   <label
                     tabIndex={0}
                     className="btn btn-ghost btn-circle avatar"
@@ -120,11 +134,13 @@ const Navbar = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52"
+                    className="menu menu-xs md:menu-sm dropdown-content right-0 z-20 p-2 shadow bg-base-100 rounded-box"
                   >
                     {userMenuLinks.map((item) => (
                       <li key={item.label}>
-                        <Link to={item.to}>{item.label}</Link>
+                        <Link to={item.to} className="text-nowrap">
+                          {item.label}
+                        </Link>
                       </li>
                     ))}
                   </ul>

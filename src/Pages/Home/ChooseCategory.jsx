@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 
 const ChooseCategory = () => {
   return (
-    <div className="max-w-7xl mx-auto py-10">
+    <div className="max-w-7xl mx-auto py-10 px-5 lg:px-0">
       <h3 className="text-3xl md:text-5xl text-center font-bold text-black">
         Choose a Category
       </h3>
@@ -14,11 +14,11 @@ const ChooseCategory = () => {
 
       {/* Swiper */}
       <Swiper
+        className="testimonial-swiper"
         modules={[Pagination]}
         slidesPerView={2}
         spaceBetween={25}
         pagination={{ clickable: true }}
-        className="w-full"
         breakpoints={{
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
@@ -34,7 +34,9 @@ const ChooseCategory = () => {
             />
             <div className="font-semibold">
               <h3 className="text-lg">Organic Food</h3>
-              <p className="text-primary">12 dishes in the Menu</p>
+              <p className="text-primary text-sm md:text-base">
+                12 dishes in the Menu
+              </p>
             </div>
           </div>
         </SwiperSlide>
@@ -49,7 +51,9 @@ const ChooseCategory = () => {
             />
             <div className="font-semibold">
               <h3 className="text-lg">Zinger Burger</h3>
-              <p className="text-primary">04 dishes in the Menu</p>
+              <p className="text-primary text-sm md:text-base">
+                04 dishes in the Menu
+              </p>
             </div>
           </div>
         </SwiperSlide>
@@ -64,7 +68,9 @@ const ChooseCategory = () => {
             />
             <div className="font-semibold">
               <h3 className="text-lg">Grill Food</h3>
-              <p className="text-primary">10 dishes in the Menu</p>
+              <p className="text-primary text-sm md:text-base">
+                10 dishes in the Menu
+              </p>
             </div>
           </div>
         </SwiperSlide>
@@ -80,7 +86,9 @@ const ChooseCategory = () => {
           </div>
           <div className="font-semibold">
             <h3 className="text-lg">Organic Food</h3>
-            <p className="text-primary">12 dishes in the Menu</p>
+            <p className="text-primary text-sm md:text-base">
+              12 dishes in the Menu
+            </p>
           </div>
         </SwiperSlide>
       </Swiper>

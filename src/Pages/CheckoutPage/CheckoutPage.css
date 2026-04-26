@@ -1,0 +1,537 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.ck-page {
+  font-family: "DM Sans", sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  color: #111827;
+}
+
+/* ---------- Header ---------- */
+.ck-header {
+  margin-bottom: 1.5rem;
+}
+
+.ck-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px;
+}
+
+.ck-sub {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ---------- Step bar ---------- */
+.ck-steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  gap: 0;
+}
+
+.ck-step-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.ck-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  flex-shrink: 0;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.ck-step-num.done {
+  background: #1d9e75;
+  color: #e1f5ee;
+  border: none;
+}
+
+.ck-step-num.active {
+  background: #111827;
+  color: #ffffff;
+  border: none;
+}
+
+.ck-step-num.idle {
+  background: #f9fafb;
+  color: #6b7280;
+  border: 0.5px solid #e5e7eb;
+}
+
+.ck-step-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.ck-step-label.active {
+  color: #111827;
+}
+
+.ck-step-line {
+  flex: 1;
+  height: 0.5px;
+  background: #e5e7eb;
+  margin: 0 8px;
+}
+
+.ck-step-line.done {
+  background: #1d9e75;
+}
+
+/* ---------- Layout ---------- */
+.ck-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .ck-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Sections ---------- */
+.ck-section {
+  background: #ffffff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.ck-sec-title {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ck-sec-icon {
+  width: 20px;
+  height: 20px;
+  background: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+/* ---------- Form fields ---------- */
+.ck-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ck-full {
+  grid-template-columns: 1fr;
+}
+
+.ck-tri {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ck-card-row {
+  grid-template-columns: 1fr 88px 80px;
+  margin-bottom: 0;
+}
+
+.ck-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ck-label {
+  font-size: 11px;
+  color: #9ca3af;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.ck-input {
+  height: 38px;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 13.5px;
+  font-family: "DM Sans", sans-serif;
+  color: #111827;
+  background: #f9fafb;
+  outline: none;
+  width: 100%;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.ck-input:focus {
+  border-color: #1d9e75;
+  background: #ffffff;
+}
+
+.ck-input::placeholder {
+  color: #d1d5db;
+}
+
+/* ---------- Delivery options ---------- */
+.ck-delivery-opts {
+  display: flex;
+  gap: 8px;
+}
+
+.ck-d-opt {
+  flex: 1;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+  background: #f9fafb;
+}
+
+.ck-d-opt.ck-d-active {
+  border-color: #1d9e75;
+  background: #ffffff;
+}
+
+.ck-d-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.ck-d-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.ck-d-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ck-d-price {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.ck-d-opt.ck-d-active .ck-d-price {
+  color: #1d9e75;
+}
+
+.ck-d-sub {
+  font-size: 11.5px;
+  color: #9ca3af;
+}
+
+.ck-radio {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1.5px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.15s;
+}
+
+.ck-radio.ck-radio-checked {
+  border-color: #1d9e75;
+}
+
+.ck-radio.ck-radio-checked::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1d9e75;
+  display: block;
+}
+
+/* ---------- Payment methods ---------- */
+.ck-pay-methods {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.ck-pay-opt {
+  flex: 1;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+  background: #f9fafb;
+}
+
+.ck-pay-opt.ck-pay-active {
+  border-color: #1d9e75;
+  background: #ffffff;
+}
+
+.ck-pay-icon {
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  color: #9ca3af;
+}
+
+.ck-pay-opt.ck-pay-active .ck-pay-icon {
+  color: #1d9e75;
+}
+
+.ck-pay-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.ck-pay-opt.ck-pay-active .ck-pay-label {
+  color: #085041;
+}
+
+.ck-cash-note {
+  font-size: 13px;
+  color: #6b7280;
+  background: #f9fafb;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ---------- Order summary card ---------- */
+.ck-summary-card {
+  background: #ffffff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px;
+  position: sticky;
+  top: 16px;
+}
+
+.ck-sum-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 14px;
+}
+
+.ck-oc-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ck-oc-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #f3f4f6;
+}
+
+.ck-oc-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ck-oc-name {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ck-oc-qty {
+  font-size: 11.5px;
+  color: #9ca3af;
+  margin-top: 1px;
+}
+
+.ck-oc-price {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+  flex-shrink: 0;
+}
+
+.ck-oc-divider {
+  height: 0.5px;
+  background: #f3f4f6;
+  margin: 10px 0;
+}
+
+.ck-oc-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  margin-bottom: 7px;
+}
+
+.ck-oc-lbl {
+  color: #6b7280;
+}
+
+.ck-oc-val {
+  font-weight: 500;
+  color: #111827;
+}
+
+.ck-oc-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 4px;
+}
+
+.ck-oc-total-lbl {
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.ck-oc-total-val {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ck-place-btn {
+  width: 100%;
+  height: 44px;
+  background: #111827;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  transition: background 0.15s;
+  margin-top: 14px;
+}
+
+.ck-place-btn:hover:not(:disabled) {
+  background: #1f2937;
+}
+
+.ck-place-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ck-place-btn.ck-placing {
+  background: #1d9e75;
+}
+
+.ck-secure {
+  text-align: center;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* ---------- Success screen ---------- */
+.ck-success {
+  text-align: center;
+  padding: 48px 20px;
+  background: #ffffff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 16px;
+  margin-top: 16px;
+}
+
+.ck-check-circle {
+  width: 56px;
+  height: 56px;
+  background: #e1f5ee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+
+.ck-success-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.ck-success-sub {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.ck-order-num {
+  font-size: 12.5px;
+  font-weight: 500;
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 6px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 14px;
+}

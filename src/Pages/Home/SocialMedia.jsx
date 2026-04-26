@@ -12,7 +12,7 @@ import social5 from "../../assets/images/social/photo-gallery-5.webp";
 
 const SocialMedia = () => {
   return (
-    <div className="container mx-auto text-center">
+    <div className="container mx-auto text-center px-5 lg:px-0">
       <FaInstagram className="rounded-full text-white bg-primary w-14 h-14 p-2 mx-auto mb-3" />
       <h2 className="text-3xl md:text-5xl font-semibold">
         Follow @FoodPalace{" "}

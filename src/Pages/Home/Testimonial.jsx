@@ -22,7 +22,7 @@ const Testimonial = () => {
           <Swiper
             className="testimonial-swiper"
             modules={[Autoplay, Pagination]}
-            slidesPerView={2}
+            slidesPerView={1}
             spaceBetween={30}
             loop
             autoplay={{
@@ -31,6 +31,12 @@ const Testimonial = () => {
             }}
             pagination={{
               clickable: true,
+            }}
+            breakpoints={{
+              1024: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
             }}
           >
             {reviews.map((item) => (
@@ -61,8 +67,6 @@ const Testimonial = () => {
             alt="bg"
             className="rounded-lg h-[200px]"
             loading="lazy"
-            decoding="async"
-            sizes="(max-width: 768px) 42vw, 220px"
           />
           <div className="flex flex-col gap-6">
             <img
@@ -70,16 +74,12 @@ const Testimonial = () => {
               alt="iceCream"
               className="rounded-lg -ml-24 h-[200px] object-cover"
               loading="lazy"
-              decoding="async"
-              sizes="(max-width: 768px) 42vw, 220px"
             />
             <img
               src={coffee}
               alt="coffee"
               className="rounded-lg h-[200px] object-cover"
               loading="lazy"
-              decoding="async"
-              sizes="(max-width: 768px) 42vw, 220px"
             />
           </div>
         </div>

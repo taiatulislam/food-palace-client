@@ -18,7 +18,7 @@ import banner4 from "../../../assets/images/banner/banner-4.webp";
 const Banner = () => {
   return (
     <div
-      className="md:h-screen flex items-center"
+      className="md:h-screen flex items-center px-5 lg:px-0"
       style={{
         backgroundImage: `url(${bannerBG})`,
         backgroundSize: "cover",
@@ -38,11 +38,11 @@ const Banner = () => {
         >
           {/* Slide 1 */}
           <SwiperSlide>
-            <div className="max-w-7xl mx-auto flex items-center justify-between mt-16">
+            <div className="max-w-7xl mx-auto flex flex-col gap-5 md:gap:0 md:flex-row items-center justify-between mt-16">
               <img
                 src={foodBG}
                 alt="bg"
-                className="h-[50%] md:h-[80%] w-[55%] rounded-l-full absolute right-0 -z-10"
+                className="h-[50%] md:h-[80%] w-[55%] rounded-l-full absolute right-0 bottom-0 -z-10"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
@@ -50,20 +50,20 @@ const Banner = () => {
               />
 
               <div>
-                <h3 className="text-primary text-lg lg:text-2xl font-semibold">
+                <h3 className="text-primary text-xs md:text-lg lg:text-2xl font-semibold">
                   Fastest Delivery & Easy Pickup
                 </h3>
-                <h1 className="text-secondary text-3xl md:text-5xl lg:text-8xl font-bold">
+                <h1 className="text-secondary text-xl md:text-3xl lg:text-8xl font-bold">
                   Kings Burger
                 </h1>
-                <p className="text-lg lg:text-2xl text-white max-w-lg my-1 md:my-5">
+                <p className="text-xs md:text-lg lg:text-2xl text-white max-w-lg my-1 md:my-5">
                   Good food starts with good ingredients. We only bring you the
                   best.
                 </p>
                 {/* button and rating div*/}
                 <div className="flex flex-col-reverse md:flex-row item-center gap-2 md:gap-10">
                   <Link to="/allFood">
-                    <button className="bg-primary text-white p-3 font-semibold rounded-lg">
+                    <button className="text-xs md:text-base bg-primary text-white p-2 md:p-3 font-semibold rounded-md">
                       View Our Menu
                     </button>
                   </Link>
@@ -80,7 +80,7 @@ const Banner = () => {
 
               {/* Discount */}
               <div>
-                <p className="text-black text-2xl font-bold text-center rounded-full w-[100px] lg:w-[170px] h-[100px] lg:h-[170px] bg-secondary border-2 border-black absolute bottom-10 md:bottom-4">
+                <p className="text-black text-2xl font-bold text-center rounded-full w-[100px] lg:w-[170px] h-[100px] lg:h-[170px] bg-secondary border-2 border-black absolute bottom-4">
                   upto <br /> <span className="text-2xl lg:text-7xl">20%</span>{" "}
                   <br />
                   OFF

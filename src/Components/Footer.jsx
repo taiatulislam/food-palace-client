@@ -2,6 +2,7 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { LuMailOpen } from "react-icons/lu";
 import logoLight from "../assets/images/logo/logo-light.jpg";
+import bannerBG from "../assets/images/patron-black.jpg";
 
 const contactInfo = [
   {
@@ -50,18 +51,18 @@ const Footer = () => {
   return (
     <div
       style={{
-        backgroundImage: "url('/src/assets/images/patron-black.jpg')",
+        backgroundImage: `url(${bannerBG})`,
         backgroundSize: "cover",
       }}
     >
-      <footer className="md:py-7 max-w-7xl mx-auto py-16">
+      <footer className="md:py-7 max-w-7xl mx-auto py-16 px-5 lg:px-0">
         <div className="flex flex-col md:flex-row gap-5 md:gap-10">
           <div className="text-white w-full md:w-2/3">
             <div className="flex items-center mb-5">
               <img
                 src={logoLight}
                 alt="logo"
-                className="md:w-[50px] lg:w-[50px] rounded mr-2"
+                className="w-[50px] lg:w-[50px] rounded mr-2"
               />
               <div>
                 <h3 className="md:text-lg lg:text-xl text-white">
@@ -72,7 +73,7 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <p className="text-base md:text-lg text-justify max-w-lg">
+            <p className="text-base lg:text-lg text-justify max-w-lg">
               All produced by using ingredients and serving up delicious food,
               every time. Including pizza and pasta dishes, as well as fresh
               salads, burger, steaks, risottos and indulgent desserts.
