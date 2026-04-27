@@ -2,11 +2,11 @@ import { useState } from "react";
 import "./FoodCard.css";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import placeholderImage from "../assets/images/placeholder.png";
 
-export default function FoodCard2({ food }) {
+export default function FoodCard({ food }) {
   const {
-    image = food?.image ||
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
+    image = food?.image || placeholderImage,
     category = food?.category || "",
     name = food?.name || "",
     description = food?.description ||
@@ -23,14 +23,17 @@ export default function FoodCard2({ food }) {
   const [wished, setWished] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  let alertTimeout;
 
   const showCustomAlert = (message) => {
     setAlertMessage(message);
     setShowAlert(true);
 
-    setTimeout(() => {
+    clearTimeout(alertTimeout);
+
+    alertTimeout = setTimeout(() => {
       setShowAlert(false);
-    }, 5000);
+    }, 3000);
   };
 
   const handleWishlist = (e) => {
@@ -59,7 +62,14 @@ export default function FoodCard2({ food }) {
     <div className="fc-card" onClick={() => handleDetails(food?._id)}>
       {/* Image */}
       <div className="fc-image-area">
-        <img src={image} alt={name} className="fc-img" />
+        <img
+          src={image}
+          alt={name}
+          className="fc-img"
+          onError={(e) => {
+            e.currentTarget.src = placeholderImage;
+          }}
+        />
 
         <span
           className={`fc-badge-avail ${available ? "fc-avail" : "fc-unavail"}`}
@@ -135,7 +145,7 @@ export default function FoodCard2({ food }) {
           <div className="fc-price-block">
             <p className="fc-price-label">Price</p>
             <p className="fc-price">
-              <span className="fc-currency">$</span>
+              <span className="fc-currency">৳</span>
               {price?.toFixed(2)}
             </p>
           </div>
@@ -197,6 +207,6 @@ export default function FoodCard2({ food }) {
   );
 }
 
-FoodCard2.propTypes = {
+FoodCard.propTypes = {
   food: PropTypes.object.isRequired,
 };

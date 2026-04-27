@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./CartPage.css";
 import { useNavigate } from "react-router-dom";
+import RecentlyViewed from "../../Components/RecentlyViewed";
 
 const INITIAL_ITEMS = [
   {
@@ -74,7 +75,7 @@ export default function CartPage() {
   const discount = promoApplied ? subtotal * PROMO_DISCOUNT : 0;
   const tax = (subtotal - discount + delivery) * TAX_RATE;
   const total = subtotal - discount + delivery + tax;
-  const totalItems = items.reduce((s, i) => s + i.qty, 0);
+  // const totalItems = items.reduce((s, i) => s + i.qty, 0);
 
   /* ---- Handlers ---- */
   const changeQty = (id, delta) => {
@@ -105,8 +106,6 @@ export default function CartPage() {
 
   return (
     <div className="max-w-7xl mx-auto my-10">
-      {/* Header */}
-
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-5xl font-bold text-black">Cart</h1>
         <hr className="mx-auto w-[100px] md:w-[100px] border-[3px] border-secondary rounded-lg my-3" />
@@ -265,6 +264,8 @@ export default function CartPage() {
           </button>
         </div>
       </div>
+
+      <RecentlyViewed />
     </div>
   );
 }

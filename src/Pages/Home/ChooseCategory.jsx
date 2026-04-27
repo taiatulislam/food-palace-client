@@ -2,8 +2,24 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useQuery } from "@tanstack/react-query";
 
 const ChooseCategory = () => {
+  const fetchAllFoods = async () => {
+    const response = await fetch("/json/category.json");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch food data");
+    }
+
+    return response.json();
+  };
+
+  const { data: totalCategory = [], isLoading } = useQuery({
+    queryKey: ["totalCategory"],
+    queryFn: fetchAllFoods,
+  });
+
   return (
     <div className="max-w-7xl mx-auto py-10 px-5 lg:px-0">
       <h3 className="text-3xl md:text-5xl text-center font-bold text-black">
@@ -24,73 +40,35 @@ const ChooseCategory = () => {
           1024: { slidesPerView: 4 },
         }}
       >
-        {/* Slide 1 */}
-        <SwiperSlide className="text-center">
-          <div className="flex flex-col">
-            <img
-              src="https://i.ibb.co/y06NXhY/category-1.jpg"
-              alt="category"
-              className="rounded-full"
-            />
-            <div className="font-semibold">
-              <h3 className="text-lg">Organic Food</h3>
-              <p className="text-primary text-sm md:text-base">
-                12 dishes in the Menu
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        {/* Slide 2 */}
-        <SwiperSlide className="text-center">
-          <div className="flex flex-col">
-            <img
-              src="https://i.ibb.co/1rqWKt4/category-2.jpg"
-              alt="category"
-              className="rounded-full"
-            />
-            <div className="font-semibold">
-              <h3 className="text-lg">Zinger Burger</h3>
-              <p className="text-primary text-sm md:text-base">
-                04 dishes in the Menu
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        {/* Slide 3 */}
-        <SwiperSlide className="text-center">
-          <div className="flex flex-col">
-            <img
-              src="https://i.ibb.co/xgjhLpR/category-3.jpg"
-              alt="category"
-              className="rounded-full"
-            />
-            <div className="font-semibold">
-              <h3 className="text-lg">Grill Food</h3>
-              <p className="text-primary text-sm md:text-base">
-                10 dishes in the Menu
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        {/* Slide 4 */}
-        <SwiperSlide className="text-center">
-          <div className="flex flex-col">
-            <img
-              src="https://i.ibb.co/XWqxqH9/category-4.jpg"
-              alt="category"
-              className="rounded-full"
-            />
-          </div>
-          <div className="font-semibold">
-            <h3 className="text-lg">Organic Food</h3>
-            <p className="text-primary text-sm md:text-base">
-              12 dishes in the Menu
-            </p>
-          </div>
-        </SwiperSlide>
+        {isLoading
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <SwiperSlide key={index} className="text-center">
+                <div className="flex flex-col items-center animate-pulse">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-gray-300"></div>
+                  <div className="mt-4 space-y-2">
+                    <div className="h-4 w-24 bg-gray-300 rounded mx-auto"></div>
+                    <div className="h-3 w-32 bg-gray-200 rounded mx-auto"></div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))
+          : totalCategory?.map((category, index) => (
+              <SwiperSlide key={index} className="text-center">
+                <div className="flex flex-col items-center">
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="w-full h-40 object-cover rounded-full"
+                  />
+                  <div className="font-semibold mt-3">
+                    <h3 className="text-lg">{category.name}</h3>
+                    <p className="text-primary text-sm md:text-base">
+                      {category.noOfFood} dishes in the Menu
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
       </Swiper>
     </div>
   );

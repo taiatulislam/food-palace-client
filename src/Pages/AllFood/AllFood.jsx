@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import axiosInstance from "../../api/axiosInstance";
+// import axiosInstance from "../../api/axiosInstance";
 import FoodCard from "../../Components/FoodCard";
 import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
 
@@ -16,12 +16,27 @@ const AllFood = () => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
+  // const { data: totalFoodData = [], isLoading: isTotalLoading } = useQuery({
+  //   queryKey: ["all-food-total"],
+  //   queryFn: async () => {
+  //     const { data } = await axiosInstance.get("/allFood");
+  //     return data;
+  //   },
+  // });
+
+  const fetchAllFoods = async () => {
+    const response = await fetch("/json/allFood.json");
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch food data");
+    }
+
+    return response.json();
+  };
+
   const { data: totalFoodData = [], isLoading: isTotalLoading } = useQuery({
     queryKey: ["all-food-total"],
-    queryFn: async () => {
-      const { data } = await axiosInstance.get("/allFood");
-      return data;
-    },
+    queryFn: fetchAllFoods,
   });
 
   const noOfPage = Math.ceil((totalFoodData?.length || 0) / foodPerPage);
@@ -185,9 +200,6 @@ const AllFood = () => {
                   <FoodCard
                     key={food._id}
                     food={food}
-                    // showAvailability
-                    // actionLabel="Details"
-                    // onAction={handleDetails}
                   />
                 ))}
           </div>

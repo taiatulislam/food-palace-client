@@ -55,7 +55,7 @@ const Reserve = () => {
               </div>
             </div>
           </div>
-          <button className="bg-secondary p-3 font-semibold rounded-lg float-right mt-5 text-sm">
+          <button className="bg-secondary p-3 font-semibold rounded-lg float-right mt-5 text-sm text-w">
             Reserve A Table
           </button>
         </div>

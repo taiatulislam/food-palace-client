@@ -1,30 +1,107 @@
 [
   {
-    "id": 1,
-    "title": "The Secret to a Perfect Summer Salad",
-    "description": "Summer salads are more than just lettuce and tomatoes. For the perfect mix, combine crunchy greens, seasonal fruits (like mango or berries), roasted nuts, and a tangy vinaigrette. A sprinkle of feta or goat cheese elevates it to gourmet level. Refreshing, light, and packed with nutrients—this is the ultimate summer bite!",
-    "altText": "Salad",
-    "imageUrl": "https://images.pexels.com/photos/434258/pexels-photo-434258.jpeg"
+    "id": "featured",
+    "title": "10 Food Trends That Customers Love in 2026",
+    "description": "From protein-rich bowls to fusion street food, these trends are helping food brands increase engagement, repeat orders, and social shares.",
+    "image": "https://images.unsplash.com/photo-1548940740-204726a19be3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb2RzfGVufDB8fDB8fHww",
+    "readTime": "7 min read",
+    "category": "Featured",
+    "author": "Food Palace Team",
+    "publishedAt": "Apr 2026",
+    "content": [
+      "Food trends now move faster than ever, and customers expect fresh ideas in every season. Protein-rich bowls, low-oil frying, and ingredient transparency are becoming standard choices for regular diners.",
+      "Fusion food is also becoming more popular. People enjoy familiar local flavors combined with global techniques. Restaurants that experiment with small seasonal specials often see stronger repeat customer behavior.",
+      "Another major trend is visual presentation. Well-plated meals with color contrast, fresh herbs, and texture variety are more likely to perform well on social media, driving organic food marketing."
+    ]
   },
   {
-    "id": 2,
-    "title": "Homemade Pasta: Worth the Effort?",
-    "description": "Making pasta at home might seem intimidating, but the flavor and texture are unbeatable. All you need is flour, eggs, and a rolling pin. Whether you're crafting silky tagliatelle or stuffed ravioli, homemade pasta brings an artisan touch to your table. Pair it with a simple garlic and olive oil sauce to let the pasta shine.",
-    "altText": "Pasta",
-    "imageUrl": "https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg"
+    "id": "1",
+    "title": "How to Plate Food Like a Pro Chef",
+    "description": "Simple plating techniques that make your dishes look premium and more appetizing in photos.",
+    "image": "https://images.unsplash.com/photo-1572715376701-98568319fd0b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlZnxlbnwwfHwwfHx8MA%3D%3D",
+    "readTime": "4 min read",
+    "category": "Kitchen Tips",
+    "author": "Chef Arif Rahman",
+    "publishedAt": "Mar 2026",
+    "content": [
+      "Professional plating starts with balance. Use one hero element and support it with smaller side components to avoid a crowded plate.",
+      "Color contrast is essential. Pair greens with warm tones like grilled proteins or roasted vegetables to make dishes look more vibrant.",
+      "Finish with texture: crunchy toppings, fresh herbs, or light sauce streaks can transform basic serving into a premium presentation."
+    ]
   },
   {
-    "id": 3,
-    "title": "5-Minute Dessert Fix: Mug Cake Magic",
-    "description": "Craving something sweet but don’t want to bake an entire cake? Enter the chocolate mug cake—a dessert ready in just 5 minutes! Mix flour, cocoa powder, sugar, milk, and a touch of oil in a mug, microwave it for a minute, and voilà! Gooey, rich, and satisfying. Top with a scoop of vanilla ice cream for extra indulgence.",
-    "altText": "Dessert",
-    "imageUrl": "https://images.pexels.com/photos/1132558/pexels-photo-1132558.jpeg"
+    "id": "2",
+    "title": "Healthy Fast Food: Smart Ingredient Swaps",
+    "description": "Build lighter menu options with better oils, fresh toppings, and smarter side choices.",
+    "image": "https://images.unsplash.com/photo-1642694358494-3d450f5ea978?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhlYWx0aHklMjBmYXN0JTIwZm9vZHxlbnwwfHwwfHx8MA%3D%3D",
+    "readTime": "5 min read",
+    "category": "Nutrition",
+    "author": "Nadia Islam",
+    "publishedAt": "Feb 2026",
+    "content": [
+      "Healthy fast food does not mean removing flavor. Start with ingredient swaps like Greek yogurt sauces, whole-grain buns, and baked sides.",
+      "Control portion size by designing balanced combos with lean proteins and vegetables. Customers appreciate choices that feel satisfying without being too heavy.",
+      "Clear nutritional labeling also builds trust. Highlighting calorie-smart options helps customers pick meals confidently."
+    ]
   },
   {
-    "id": 4,
-    "title": "Refreshing Drinks to Beat the Heat",
-    "description": "When temperatures rise, a cool drink can be your best friend. Skip the soda and try homemade lemon-mint coolers, fresh fruit smoothies, or even iced herbal teas. These drinks not only hydrate but also provide essential nutrients and antioxidants. Add slices of citrus, cucumber, or berries to boost the flavor naturally.",
-    "altText": "Drinks",
-    "imageUrl": "https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg"
+    "id": "3",
+    "title": "Best Spices to Boost Flavor Naturally",
+    "description": "A quick guide to spice combinations that make grilled, baked, and sautéed dishes stand out.",
+    "image": "https://images.unsplash.com/photo-1716816211590-c15a328a5ff0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BpY2UlMjBmb29kfGVufDB8fDB8fHww",
+    "readTime": "3 min read",
+    "category": "Flavors",
+    "author": "Chef Tanim",
+    "publishedAt": "Jan 2026",
+    "content": [
+      "Cumin, paprika, and garlic powder are a strong base for grilled dishes. This trio adds warmth and depth without overpowering ingredients.",
+      "For seafood and white meats, combine black pepper, lemon zest, and coriander for a lighter aromatic profile.",
+      "Freshly ground spice blends usually perform better than pre-mixed packs in both aroma and flavor complexity."
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Reducing Food Waste in Restaurant Kitchens",
+    "description": "Practical systems for inventory tracking, prep planning, and creative reuse of ingredients.",
+    "image": "https://images.unsplash.com/photo-1574676039880-73da8368f0eb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Zm9vZCUyMHdhc3RlfGVufDB8fDB8fHww",
+    "readTime": "6 min read",
+    "category": "Restaurant Management",
+    "author": "Rafiul Karim",
+    "publishedAt": "Dec 2025",
+    "content": [
+      "Food waste often starts with over-prep. Forecasting demand based on daily sales can reduce unnecessary production.",
+      "Use FIFO inventory flow and assign shelf labels with prep dates to improve ingredient rotation.",
+      "Leftover ingredients can be repurposed into soups, sauces, or staff meals to minimize disposal while preserving value."
+    ]
+  },
+  {
+    "id": "5",
+    "title": "How Food Photography Increases Online Orders",
+    "description": "Learn what angles, lighting, and styling techniques make menu photos convert better.",
+    "image": "https://images.unsplash.com/photo-1478145971721-10511ecaf005?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHx8MA%3D%3D",
+    "readTime": "5 min read",
+    "category": "Marketing",
+    "author": "Samiha Noor",
+    "publishedAt": "Nov 2025",
+    "content": [
+      "Natural side lighting gives food better depth and texture than direct flash. Keep shadows soft to preserve detail.",
+      "Use close-up framing for hero shots and top-down views for combo meals or platters.",
+      "Consistent editing style across menu photos builds stronger brand identity and improves trust on ordering platforms."
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Seasonal Menu Planning for Better Sales",
+    "description": "Use seasonal ingredients to control costs, improve taste, and keep your menu exciting.",
+    "image": "https://media.istockphoto.com/id/1091697242/photo/bio-food-garden-produce-and-harvested-vegetable-fresh-farm-vegetables-in-wooden-box.webp?a=1&b=1&s=612x612&w=0&k=20&c=Ung6eO3zo_eYmNUJ7f22u85aGiGGPaGZqMRJirZDc3w=",
+    "readTime": "4 min read",
+    "category": "Menu Planning",
+    "author": "Food Palace Team",
+    "publishedAt": "Oct 2025",
+    "content": [
+      "Seasonal menus help reduce ingredient costs and improve freshness at the same time. Local availability often means better quality produce.",
+      "Rotate featured dishes monthly to keep repeat customers interested and increase trial orders.",
+      "Use customer feedback and sales reports to keep high-performing seasonal items in a core rotation."
+    ]
   }
 ]

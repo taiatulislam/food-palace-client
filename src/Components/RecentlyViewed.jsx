@@ -1,18 +1,8 @@
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-// import axiosInstance from "../../api/axiosInstance";
-import FoodCard from "../../Components/FoodCard";
-import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
+import FoodCardSkeleton from "./FoodCardSkeleton";
+import FoodCard from "./FoodCard";
 
-const PopularFood = () => {
-  // const { data: foods = [], isLoading } = useQuery({
-  //   queryKey: ["popular-food"],
-  //   queryFn: async () => {
-  //     const { data } = await axiosInstance.get("/popularFood");
-  //     return Array.isArray(data) ? data.slice(0, 4) : [];
-  //   },
-  // });
-
+const RecentlyViewed = () => {
   const fetchAllFoods = async () => {
     const response = await fetch("/json/popularFood.json");
 
@@ -31,7 +21,7 @@ const PopularFood = () => {
   return (
     <div className="max-w-7xl mx-auto py-10 px-5 lg:px-0">
       <h3 className="text-3xl md:text-5xl text-center font-bold text-black">
-        Top Food
+        Recently Viewed
       </h3>
       <hr className="mx-auto w-[100px] md:w-[150px] border-[3px] border-secondary rounded-lg mb-10" />
       <div className="grid justify-center md:grid-cols-2 lg:grid-cols-4 gap-7">
@@ -41,17 +31,8 @@ const PopularFood = () => {
             ))
           : foods?.map((food) => <FoodCard key={food._id} food={food} />)}
       </div>
-
-      <div className="mt-10 text-center">
-        <Link
-          to="/allFood"
-          className="btn normal-case text-primary border-2 border-primary"
-        >
-          See more
-        </Link>
-      </div>
     </div>
   );
 };
 
-export default PopularFood;
+export default RecentlyViewed;

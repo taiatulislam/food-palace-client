@@ -22,6 +22,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import FoodDetails2 from "./Pages/FoodDetails/FoodDetails2.jsx";
 import CartPage from "./Pages/Cart/CartPage.jsx";
 import CheckoutPage from "./Pages/CheckoutPage/CheckoutPage.jsx";
+import BlogDetails from "./Pages/Blog/BlogDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allFood/:id",
-        element: <FoodDetails2></FoodDetails2>,
+        element: <FoodDetails2 />,
       },
       {
         path: "/signUp",
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetails />,
       },
       {
         path: "/cart",
