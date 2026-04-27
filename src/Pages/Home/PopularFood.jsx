@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../api/axiosInstance";
-import FoodCard2 from "../../Components/FoodCard2";
-import FoodCardSkeleton2 from "../../Components/FoodCardSkeleton2";
+import FoodCard from "../../Components/FoodCard";
+import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
 
 const PopularFood = () => {
   const { data: foods = [], isLoading } = useQuery({
@@ -22,9 +22,9 @@ const PopularFood = () => {
       <div className="grid justify-center md:grid-cols-2 lg:grid-cols-4 gap-7">
         {isLoading
           ? Array.from({ length: 4 }).map((_, index) => (
-              <FoodCardSkeleton2 key={index} variant="popularFood" />
+              <FoodCardSkeleton key={index} variant="popularFood" />
             ))
-          : foods?.map((food) => <FoodCard2 key={food._id} food={food} />)}
+          : foods?.map((food) => <FoodCard key={food._id} food={food} />)}
       </div>
 
       <div className="mt-10 text-center">

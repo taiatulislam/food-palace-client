@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../api/axiosInstance";
-// import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
-// import FoodCard from "../../Components/FoodCard";
-import FoodCard2 from "../../Components/FoodCard2";
-import FoodCardSkeleton2 from "../../Components/FoodCardSkeleton2";
+import FoodCard from "../../Components/FoodCard";
+import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
 
 const AllFood = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -116,8 +114,10 @@ const AllFood = () => {
                   <input
                     type="text"
                     name="name"
+                    value={searchTerm}
                     placeholder="Burger, Pizza, Pasta..."
                     className="pl-2 border-2 p-2 border-primary rounded-l-lg w-full"
+                    onChange={(e) => setSearchTerm(e.target.value)}
                   />
                   <button className="text-white bg-primary border-2 py-2 px-4 border-primary rounded-r-lg">
                     Go
@@ -179,10 +179,10 @@ const AllFood = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
             {isGridLoading
               ? Array.from({ length: foodPerPage }).map((_, index) => (
-                  <FoodCardSkeleton2 key={index} />
+                  <FoodCardSkeleton key={index} />
                 ))
               : displayFoods.map((food) => (
-                  <FoodCard2
+                  <FoodCard
                     key={food._id}
                     food={food}
                     // showAvailability

@@ -1,85 +1,202 @@
+import { useState } from "react";
+import "./FoodCard.css";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { FaStar } from "react-icons/fa";
 
-const FoodCard = ({
-  food,
-  actionLabel,
-  onAction,
-  metaFields = [],
-  showAvailability = false,
-}) => {
+export default function FoodCard2({ food }) {
+  const {
+    image = food?.image ||
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
+    category = food?.category || "",
+    name = food?.name || "",
+    description = food?.description ||
+      "Tender white fish fillet grilled in banana leaf with lemon, herbs & seasoned potatoes.",
+    rating = food?.rating || 0.0,
+    reviews = food?.reviews || 0,
+    price = food?.price || 0,
+    available = food?.available || false,
+    prepTime = food?.prepTime || "0 Min",
+    calories = food?.calories || 0,
+  } = food;
+  const [qty, setQty] = useState(1);
+  const navigate = useNavigate();
+  const [wished, setWished] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+
+  const showCustomAlert = (message) => {
+    setAlertMessage(message);
+    setShowAlert(true);
+
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 5000);
+  };
+
+  const handleWishlist = (e) => {
+    e.stopPropagation();
+
+    const newWishState = !wished;
+    setWished(newWishState);
+
+    showCustomAlert(
+      newWishState
+        ? "Added to wishlist successfully!"
+        : "Removed from wishlist successfully!",
+    );
+  };
+
+  const handleCart = (e) => {
+    e.stopPropagation();
+    showCustomAlert("Added to cart successfully!");
+  };
+
+  const handleDetails = (id) => {
+    navigate(`/allFood/${id}`);
+  };
+
   return (
-    <div className="card card-compact bg-base-100 shadow-xl border-[3px] border-primary p-2">
-      <figure>
-        <img
-          src={food?.image}
-          alt={food?.name || "food"}
-          className="h-[200px] w-full rounded-b-lg"
-          loading="lazy"
-          decoding="async"
-          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 25vw"
-        />
-      </figure>
+    <div className="fc-card" onClick={() => handleDetails(food?._id)}>
+      {/* Image */}
+      <div className="fc-image-area">
+        <img src={image} alt={name} className="fc-img" />
 
-      <div className="mt-3">
-        <div className="flex gap-2 items-center text-secondary">
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
+        <span
+          className={`fc-badge-avail ${available ? "fc-avail" : "fc-unavail"}`}
+        >
+          {available ? "Available" : "Unavailable"}
+        </span>
+
+        <span className="fc-badge-time">
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="white"
+            strokeWidth="1.5"
+            width="11"
+            height="11"
+          >
+            <circle cx="8" cy="8" r="6.5" />
+            <polyline points="8,4 8,8 10.5,10" />
+          </svg>
+          {prepTime}
+        </span>
+
+        <button
+          className={`fc-wishlist ${wished ? "fc-wished" : ""}`}
+          onClick={(e) => handleWishlist(e)}
+          aria-label="Save to wishlist"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="15"
+            height="15"
+            fill={wished ? "var(--color-primary)" : "none"}
+            stroke={wished ? "var(--color-primary)" : "currentColor"}
+            strokeWidth="1.5"
+          >
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Body */}
+      <div className="fc-body">
+        <p className="fc-category">{category}</p>
+        <p className="fc-name">{name}</p>
+        <p className="fc-desc">{description}</p>
+
+        {/* Meta */}
+        <div className="fc-meta">
+          <div className="fc-stars">
+            {[...Array(5)].map((_, i) => (
+              <svg
+                key={i}
+                viewBox="0 0 20 20"
+                width="13"
+                height="13"
+                fill="var(--color-star)"
+              >
+                <polygon points="10,1 12.9,7 19.5,7.6 14.5,12 16.2,18.5 10,15 3.8,18.5 5.5,12 0.5,7.6 7.1,7" />
+              </svg>
+            ))}
+            <span className="fc-rating-val">{rating}</span>
+          </div>
+          <span className="fc-dot" />
+          <span className="fc-reviews">{reviews} reviews</span>
+          <span className="fc-dot" />
+          <span className="fc-calories">{calories} kcal</span>
         </div>
 
-        <h2 className="text-xl font-semibold pt-2">{food?.name}</h2>
+        <div className="fc-divider" />
 
-        {metaFields.map((field) => (
-          <p key={field.label} className="text-base font-medium">
-            <span className="font-bold">{field.label}:</span> {field.value}
-          </p>
-        ))}
+        {/* Bottom row */}
+        <div className="fc-bottom">
+          <div className="fc-price-block">
+            <p className="fc-price-label">Price</p>
+            <p className="fc-price">
+              <span className="fc-currency">$</span>
+              {price?.toFixed(2)}
+            </p>
+          </div>
 
-        <p className="text-2xl font-semibold">
-          <span className="font-bold text-primary">$ </span>
-          {food?.price}
-        </p>
-
-        {showAvailability && (
-          <p
-            className={`text-lg font-medium mb-4 ${
-              food?.quantity > 0 ? "text-green-500" : "text-red-500"
-            }`}
-          >
-            {food?.quantity > 0 ? "Available" : "Stock Out"}
-          </p>
-        )}
-
-        {actionLabel && onAction && (
-          <div className="card-actions justify-end mt-3">
+          <div className="fc-qty-add">
             <button
-              onClick={() => onAction(food?._id)}
-              className="btn bg-primary w-full normal-case text-white"
+              className="fc-qty-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setQty((q) => Math.max(1, q - 1));
+              }}
             >
-              {actionLabel}
+              −
+            </button>
+            <span className="fc-qty-count">{qty}</span>
+            <button
+              className="fc-qty-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setQty((q) => Math.max(1, q + 1));
+              }}
+            >
+              +
+            </button>
+
+            <button
+              className="fc-add-btn"
+              aria-label="Add to cart"
+              onClick={(e) => handleCart(e)}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="15"
+                height="15"
+                fill="none"
+                stroke="#E1F5EE"
+                strokeWidth="2"
+              >
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+              </svg>
             </button>
           </div>
-        )}
+        </div>
       </div>
+
+      {showAlert && (
+        <div className="fixed bottom-5 right-5 z-50 w-auto max-w-sm">
+          <div
+            role="alert"
+            className="alert alert-success alert-soft shadow-lg text-white py-3"
+          >
+            <span>{alertMessage}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+}
 
-FoodCard.propTypes = {
+FoodCard2.propTypes = {
   food: PropTypes.object.isRequired,
-  actionLabel: PropTypes.string,
-  onAction: PropTypes.func,
-  metaFields: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-    }),
-  ),
-  showAvailability: PropTypes.bool,
 };
-
-export default FoodCard;

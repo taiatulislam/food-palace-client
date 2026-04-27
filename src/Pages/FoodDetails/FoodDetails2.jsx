@@ -1,32 +1,26 @@
 import { useState } from "react";
 import "./FoodDetails2.css";
 import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import axiosInstance from "../../api/axiosInstance";
 
-export default function FoodDetails2({
-  image = "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=800&q=80",
-  name = "Tom Yum Thai Soup",
-  cuisine = "Thai Cuisine",
-  available = true,
-  rating = 4.8,
-  reviews = 312,
-  prepTime = "20 min",
-  spiceLevel = "Medium",
-  calories = 210,
-  description = "Tom Yum is a bold, aromatic Thai soup famed for its hot-and-sour profile. It features lemongrass, kaffir lime leaves, galangal, and fresh chili, balanced with shrimp or chicken in a clear or coconut-milk broth. Served with jasmine rice or crusty bread — a complete meal in a bowl.",
-  origin = "Thailand",
-  madeBy = "Chef Somchai",
-  serves = "1–2 persons",
-  category = "Soups & Stews",
-  tags = [
-    "Gluten-free",
-    "Dairy-free",
-    "High protein",
-    "Lemongrass",
-    "Coconut milk",
-    "Aromatic herbs",
-  ],
-  price = 19,
-}) {
+export default function FoodDetails2() {
+  const { id } = useParams();
+  // const navigate = useNavigate();
+
+  const { data: food, isLoading } = useQuery({
+    queryKey: ["food-details", id],
+    queryFn: async () => {
+      const { data } = await axiosInstance.get(`/foodDetails/${id}`);
+      return data;
+    },
+  });
+
+  // const handleOrder = (foodId) => {
+  //   navigate(`/purchase/${foodId}`);
+  // };
+
   const [qty, setQty] = useState(1);
   const [wished, setWished] = useState(false);
   const [added, setAdded] = useState(false);
@@ -42,15 +36,15 @@ export default function FoodDetails2({
     <div className="max-w-7xl mx-auto my-10">
       {/* Hero */}
       <div className="fd-hero">
-        <img src={image} alt={name} className="fd-hero-img" />
+        <img src={food?.image} alt={name} className="fd-hero-img" />
         <div className="fd-hero-overlay" />
 
         <div className="fd-hero-top">
-          <span className="fd-badge-cuisine">{cuisine}</span>
+          <span className="fd-badge-cuisine">{food?.cuisine}</span>
           <span
-            className={`fd-badge-avail ${available ? "fd-avail" : "fd-unavail"}`}
+            className={`fd-badge-avail ${food?.available ? "fd-avail" : "fd-unavail"}`}
           >
-            {available ? "Available" : "Unavailable"}
+            {food?.available ? "Available" : "Unavailable"}
           </span>
         </div>
 
@@ -70,9 +64,9 @@ export default function FoodDetails2({
                 </svg>
               ))}
             </div>
-            <span className="fd-rating-num">{rating}</span>
+            <span className="fd-rating-num">{food?.rating}</span>
             <span className="fd-hero-dot" />
-            <span className="fd-review-count">{reviews} reviews</span>
+            <span className="fd-review-count">{food?.reviews} reviews</span>
           </div>
         </div>
       </div>
@@ -84,23 +78,23 @@ export default function FoodDetails2({
           <div className="fd-stat-card">
             <span className="fd-stat-icon">🕐</span>
             <span className="fd-stat-label">Prep time</span>
-            <span className="fd-stat-value">{prepTime}</span>
+            <span className="fd-stat-value">{food?.prepTime}</span>
           </div>
           <div className="fd-stat-card">
             <span className="fd-stat-icon">🌶</span>
             <span className="fd-stat-label">Spice level</span>
-            <span className="fd-stat-value">{spiceLevel}</span>
+            <span className="fd-stat-value">{food?.spiceLevel}</span>
           </div>
           <div className="fd-stat-card">
             <span className="fd-stat-icon">🔥</span>
             <span className="fd-stat-label">Calories</span>
-            <span className="fd-stat-value">{calories} kcal</span>
+            <span className="fd-stat-value">{food?.calories} kcal</span>
           </div>
         </div>
 
         {/* Description */}
         <p className="fd-section-label">Description</p>
-        <p className="fd-description">{description}</p>
+        <p className="fd-description">{food?.description}</p>
 
         <div className="fd-divider" />
 
@@ -109,19 +103,19 @@ export default function FoodDetails2({
         <div className="fd-info-grid">
           <div className="fd-info-item">
             <span className="fd-info-label">Origin</span>
-            <span className="fd-info-val">{origin}</span>
+            <span className="fd-info-val">{food?.origin}</span>
           </div>
           <div className="fd-info-item">
             <span className="fd-info-label">Made by</span>
-            <span className="fd-info-val">{madeBy}</span>
+            <span className="fd-info-val">{food?.madeBy}</span>
           </div>
           <div className="fd-info-item">
             <span className="fd-info-label">Serves</span>
-            <span className="fd-info-val">{serves}</span>
+            <span className="fd-info-val">{food?.serves}</span>
           </div>
           <div className="fd-info-item">
             <span className="fd-info-label">Category</span>
-            <span className="fd-info-val">{category}</span>
+            <span className="fd-info-val">{food?.category}</span>
           </div>
         </div>
 
@@ -130,7 +124,7 @@ export default function FoodDetails2({
         {/* Tags */}
         <p className="fd-section-label">Highlights</p>
         <div className="fd-tags-row">
-          {tags.map((tag) => (
+          {food?.tags?.map((tag) => (
             <span key={tag} className="fd-tag">
               {tag}
             </span>
@@ -143,7 +137,7 @@ export default function FoodDetails2({
             <span className="fd-price-label">Price</span>
             <span className="fd-price">
               <sup className="fd-currency">$</sup>
-              {price}
+              {food?.price}
             </span>
           </div>
 
@@ -195,21 +189,5 @@ export default function FoodDetails2({
 }
 
 FoodDetails2.propTypes = {
-  image: PropTypes.string,
-  name: PropTypes.string,
-  cuisine: PropTypes.string,
-  available: PropTypes.bool,
-  rating: PropTypes.number,
-  reviews: PropTypes.number,
-  prepTime: PropTypes.string,
-  spiceLevel: PropTypes.string,
-  calories: PropTypes.number,
-  description:
-    PropTypes.string,
-  origin: PropTypes.string,
-  madeBy: PropTypes.string,
-  serves: PropTypes.string,
-  category: PropTypes.string,
-  tags: PropTypes.array,
-  price: PropTypes.number,
+  food: PropTypes.object.isRequired,
 };

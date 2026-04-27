@@ -1,23 +1,56 @@
-const FoodCardSkeleton = ({ variant = "allFood" }) => {
-  const isPopular = variant === "popularFood";
-
+const FoodCardSkeleton = () => {
   return (
-    <div
-      className={`bg-base-100 shadow-xl p-5 border-primary ${
-        isPopular ? "flex flex-col border-4 rounded-lg" : "card card-compact border-[3px]"
-      }`}
-    >
-      <div className={`skeleton bg-base-300 h-[200px] w-full ${isPopular ? "rounded-lg" : "rounded-b-lg"}`} />
-      <div className={`${isPopular ? "flex flex-col pt-3" : "mt-3"}`}>
-        <div className="flex gap-2 items-center">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div key={index} className="skeleton bg-base-300 h-4 w-4 rounded-full" />
-          ))}
+    <div className="fc-card">
+      {/* Image area */}
+      <div className="fc-image-area relative">
+        <div className="skeleton w-full h-[200px] rounded-lg" />
+
+        {/* Availability badge */}
+        <div className="skeleton bg-base-200 h-5 w-20 absolute top-2 left-2 rounded-full" />
+
+        {/* Time badge */}
+        <div className="skeleton bg-base-200 h-5 w-16 absolute top-2 right-10 rounded-full" />
+
+        {/* Wishlist button */}
+        <div className="skeleton bg-base-200 w-8 h-8 absolute top-2 right-2 rounded-full" />
+      </div>
+
+      {/* Body */}
+      <div className="fc-body space-y-3 mt-3">
+        {/* Category */}
+        <div className="skeleton bg-base-200 h-4 w-24" />
+
+        {/* Name */}
+        <div className="skeleton bg-base-200 h-5 w-3/4" />
+
+        {/* Description */}
+        <div className="space-y-2">
+          <div className="skeleton bg-base-200 h-3 w-full" />
+          <div className="skeleton bg-base-200 h-3 w-5/6" />
         </div>
-        <div className={`skeleton bg-base-300 mt-2 ${isPopular ? "h-6 w-3/4" : "h-7 w-4/5"}`} />
-        <div className={`skeleton bg-base-300 mt-2 ${isPopular ? "h-5 w-1/3" : "h-7 w-1/3"}`} />
-        {!isPopular && <div className="skeleton bg-base-300 mt-2 h-6 w-1/2" />}
-        <div className={`skeleton bg-base-300 w-full ${isPopular ? "h-10 mt-3 rounded-lg" : "h-12 mt-4"}`} />
+
+        {/* Meta */}
+        <div className="flex items-center gap-2">
+          <div className="skeleton bg-base-200 h-4 w-20" />
+          <div className="skeleton bg-base-200 h-4 w-full" />
+        </div>
+
+        {/* Divider */}
+        <div className="skeleton bg-base-200 h-[1px] w-full" />
+
+        {/* Bottom */}
+        <div className="flex justify-between items-center">
+          {/* Price */}
+          <div className="space-y-2">
+            <div className="skeleton bg-base-200 h-3 w-12" />
+            <div className="skeleton bg-base-200 h-5 w-16" />
+          </div>
+
+          {/* Qty + button */}
+          <div className="flex items-center gap-2">
+            <div className="skeleton bg-base-200 w-10 h-10 rounded-full" />
+          </div>
+        </div>
       </div>
     </div>
   );
