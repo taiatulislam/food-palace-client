@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../api/axiosInstance";
 // import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
@@ -14,23 +14,16 @@ const AllFood = () => {
   const [priceSort, setPriceSort] = useState("none");
   const foodPerPage = 9;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const { data: totalFoodData = [], isLoading: isTotalLoading } = useQuery({
     queryKey: ["all-food-total"],
     queryFn: async () => {
       const { data } = await axiosInstance.get("/allFood");
       return data;
     },
-  });
-
-  const { data: pagedFoods = [], isLoading: isPageLoading } = useQuery({
-    queryKey: ["all-food-page", currentPage, foodPerPage],
-    queryFn: async () => {
-      const { data } = await axiosInstance.get("/allFoodPage", {
-        params: { page: currentPage, size: foodPerPage },
-      });
-      return data;
-    },
-    enabled: !searchTerm,
   });
 
   const noOfPage = Math.ceil((totalFoodData?.length || 0) / foodPerPage);
@@ -57,7 +50,13 @@ const AllFood = () => {
     availabilityFilter !== "all" ||
     priceSort !== "none";
 
+  const pagedFoods = totalFoodData.slice(
+    currentPage * foodPerPage,
+    (currentPage + 1) * foodPerPage,
+  );
+
   const baseFoods = hasFilterApplied ? totalFoodData : pagedFoods;
+
   const categories = [
     "all",
     ...new Set(totalFoodData.map((food) => food.category).filter(Boolean)),
@@ -83,7 +82,7 @@ const AllFood = () => {
       return 0;
     });
 
-  const isGridLoading = isTotalLoading || (!hasFilterApplied && isPageLoading);
+  const isGridLoading = isTotalLoading || (!hasFilterApplied && isTotalLoading);
 
   return (
     <div className="max-w-7xl mx-auto px-5">
