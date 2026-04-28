@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 import { useQuery } from "@tanstack/react-query";
 
 const ChooseCategory = () => {
-  const fetchAllFoods = async () => {
+  const fetchAllCategory = async () => {
     const response = await fetch("/json/category.json");
 
     if (!response.ok) {
@@ -16,8 +16,8 @@ const ChooseCategory = () => {
   };
 
   const { data: totalCategory = [], isLoading } = useQuery({
-    queryKey: ["totalCategory"],
-    queryFn: fetchAllFoods,
+    queryKey: ["all-category"],
+    queryFn: fetchAllCategory,
   });
 
   return (

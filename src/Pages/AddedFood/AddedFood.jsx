@@ -7,6 +7,7 @@ import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
 const AddedFood = () => {
   const navigate = useNavigate();
   const { email } = useParams();
+  
   const { data: foods = [], isLoading } = useQuery({
     queryKey: ["added-food", email],
     queryFn: async () => {

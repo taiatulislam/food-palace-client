@@ -35,9 +35,11 @@ const AllFood = () => {
   };
 
   const { data: totalFoodData = [], isLoading: isTotalLoading } = useQuery({
-    queryKey: ["all-food-total"],
+    queryKey: ["all-foods"],
     queryFn: fetchAllFoods,
   });
+
+  console.log("totalFoodData", totalFoodData);
 
   const noOfPage = Math.ceil((totalFoodData?.length || 0) / foodPerPage);
   const pages = [];
@@ -63,7 +65,7 @@ const AllFood = () => {
     availabilityFilter !== "all" ||
     priceSort !== "none";
 
-  const pagedFoods = totalFoodData.slice(
+  const pagedFoods = totalFoodData?.slice(
     currentPage * foodPerPage,
     (currentPage + 1) * foodPerPage,
   );
@@ -72,7 +74,7 @@ const AllFood = () => {
 
   const categories = [
     "all",
-    ...new Set(totalFoodData.map((food) => food.category).filter(Boolean)),
+    ...new Set(totalFoodData?.map((food) => food.category).filter(Boolean)),
   ];
 
   const displayFoods = [...baseFoods]
@@ -94,6 +96,9 @@ const AllFood = () => {
         return Number(b?.price) - Number(a?.price);
       return 0;
     });
+
+  console.log("baseFoods", baseFoods);
+  console.log("displayFoods", displayFoods);
 
   const isGridLoading = isTotalLoading || (!hasFilterApplied && isTotalLoading);
 
@@ -151,7 +156,7 @@ const AllFood = () => {
                 }}
                 className="select select-bordered border-2 border-primary w-full"
               >
-                {categories.map((category) => (
+                {categories?.map((category) => (
                   <option key={category} value={category}>
                     {category === "all" ? "All Categories" : category}
                   </option>
@@ -193,20 +198,17 @@ const AllFood = () => {
         <div className="lg:col-span-3">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
             {isGridLoading
-              ? Array.from({ length: foodPerPage }).map((_, index) => (
+              ? Array.from({ length: foodPerPage })?.map((_, index) => (
                   <FoodCardSkeleton key={index} />
                 ))
-              : displayFoods.map((food) => (
-                  <FoodCard
-                    key={food._id}
-                    food={food}
-                  />
+              : displayFoods?.map((food) => (
+                  <FoodCard key={food._id} food={food} />
                 ))}
           </div>
 
           <div className="flex gap-5 justify-center m-7">
             {!hasFilterApplied &&
-              pages.map((page) => (
+              pages?.map((page) => (
                 <button
                   key={page}
                   onClick={() => handlePage(page)}

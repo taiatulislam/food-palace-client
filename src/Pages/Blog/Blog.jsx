@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BlogSkeleton from "../../Components/BlogSkeleton";
 
 const Blog = () => {
-  const fetchAllFoods = async () => {
+  const fetchAllBlog = async () => {
     const response = await fetch("/json/blog.json");
 
     if (!response.ok) {
@@ -15,7 +15,7 @@ const Blog = () => {
 
   const { data: allBlog = [], isLoading } = useQuery({
     queryKey: ["all-blog"],
-    queryFn: fetchAllFoods,
+    queryFn: fetchAllBlog,
   });
 
   const featuredBlogs = allBlog?.filter((blog) => blog.id === "featured");

@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
 .fd-page {
-  font-family: 'DM Sans', sans-serif;
   max-width: 480px;
   margin: 0 auto;
   padding-bottom: 2rem;
@@ -83,7 +76,6 @@
 }
 
 .fd-dish-name {
-  font-family: 'Cormorant Garamond', serif;
   font-size: 34px;
   font-weight: 600;
   color: #fff;
@@ -260,7 +252,6 @@
 }
 
 .fd-price {
-  font-family: 'Cormorant Garamond', serif;
   font-size: 30px;
   font-weight: 600;
   color: #111827;
@@ -269,7 +260,6 @@
 
 .fd-currency {
   font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   vertical-align: super;
 }
@@ -347,7 +337,6 @@
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
   transition: background 0.15s;
   white-space: nowrap;
 }

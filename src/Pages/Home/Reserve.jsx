@@ -1,63 +1,78 @@
 const Reserve = () => {
   return (
     <section
-      className="max-w-7xl mx-auto p-5 md:p-10 my-10 rounded-xl"
+      className="max-w-7xl mx-auto my-10 rounded-xl overflow-hidden p-5 md:p-10"
       style={{
         backgroundImage: "url(https://i.ibb.co/QdHbqft/patron.jpg)",
         backgroundSize: "cover",
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-col md:flex-row">
-        <div className="w-full md:w-1/3 text-white">
-          <h2 className="text-3xl font-semibold">RESERVE A TABLE</h2>
-          <hr className="w-[250px] md:w-[120px] border-2 border-secondary rounded-lg" />
-          <p className="my-3">Discover Our New Menu!</p>
+      <div className="flex flex-col lg:flex-row gap-10 items-start">
+        {/* Left Content */}
+        <div className="w-full lg:w-1/3 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold">RESERVE A TABLE</h2>
+          <hr className="w-32 border-2 border-secondary rounded-lg my-4" />
+          <p className="text-base md:text-lg text-gray-200">
+            Discover Our New Menu!
+          </p>
         </div>
 
-        <div className="w-full md:w-2/3">
-          <div className="flex flex-col md:flex-row gap-5">
-            {/* First div */}
-            <div className="flex flex-col gap-5 w-full md:w-1/2">
-              <input
-                type="text"
-                placeholder="Full Name"
-                required
-                className="p-2 pl-5 rounded-md"
-              />
-              <input
-                type="text"
-                placeholder="No of Guests"
-                required
-                className="p-2 pl-5 rounded-md"
-              />
-            </div>
-            {/* Second div */}
-            <div className="flex flex-col gap-5 w-full md:w-1/2">
-              <input
-                type="email"
-                placeholder="Email Address"
-                required
-                className="p-2 pl-5 rounded-md"
-              />
-              <div className="flex gap-5">
+        {/* Right Form */}
+        <div className="w-full lg:w-2/3">
+          <form className="space-y-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* Left Inputs */}
+              <div className="flex flex-col gap-5">
                 <input
-                  type="date"
-                  placeholder="dd/mm/yyyy"
+                  type="text"
+                  placeholder="Full Name"
                   required
-                  className="w-full md:w-1/2 p-2 rounded-md"
+                  className="w-full p-3 rounded-md outline-none"
                 />
                 <input
-                  type="time"
+                  type="number"
+                  placeholder="No of Guests"
                   required
-                  className="w-full md:w-1/2 p-2 rounded-md"
+                  className="w-full p-3 rounded-md outline-none"
                 />
               </div>
+
+              {/* Right Inputs */}
+              <div className="flex flex-col gap-5">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  required
+                  className="w-full p-3 rounded-md outline-none"
+                />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <input
+                    type="date"
+                    required
+                    className="w-full p-3 rounded-md outline-none"
+                  />
+                  <input
+                    type="time"
+                    required
+                    className="w-full p-3 rounded-md outline-none"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <button className="bg-secondary p-3 font-semibold rounded-lg float-right mt-5 text-sm text-w">
-            Reserve A Table
-          </button>
+
+            {/* Button */}
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                className="bg-secondary hover:opacity-90 transition px-6 py-3 font-semibold rounded-lg text-white text-sm md:text-base"
+              >
+                Reserve A Table
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>

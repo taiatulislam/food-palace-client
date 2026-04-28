@@ -1,12 +1,12 @@
 [
   {
+    "_id": 1,
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
     "name": "Margherita Pizza",
     "price": 1199,
     "quantity": 20,
     "orderCount": 12,
     "rating": 4.5,
-    "reviews": 230,
     "available": true,
     "prepTime": "20 min",
     "spiceLevel": "Mild",
@@ -17,16 +17,60 @@
     "serves": "1–2 persons",
     "category": "Casual Dining",
     "tags": ["Vegetarian", "Cheesy", "Tomato", "Classic"],
-    "details": "Classic Italian pizza topped with fresh mozzarella, basil, and tomato sauce."
+    "details": "Classic Italian pizza topped with fresh mozzarella, basil, and tomato sauce.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 2,
     "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
     "name": "Grilled Chicken Steak",
     "price": 1499,
     "quantity": 15,
     "orderCount": 8,
     "rating": 4.3,
-    "reviews": 180,
     "available": true,
     "prepTime": "25 min",
     "spiceLevel": "Medium",
@@ -37,16 +81,60 @@
     "serves": "1 person",
     "category": "Casual Dining",
     "tags": ["Protein-rich", "Grilled", "Savory"],
-    "details": "Juicy grilled chicken steak served with vegetables and mashed potatoes."
+    "details": "Juicy grilled chicken steak served with vegetables and mashed potatoes.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 3,
     "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
     "name": "Beef Burger",
     "price": 899,
     "quantity": 25,
     "orderCount": 15,
     "rating": 4.4,
-    "reviews": 320,
     "available": true,
     "prepTime": "15 min",
     "spiceLevel": "Medium",
@@ -57,16 +145,60 @@
     "serves": "1 person",
     "category": "Casual Dining",
     "tags": ["Beef", "Cheesy", "Burger"],
-    "details": "Loaded beef burger with cheese, lettuce, and signature sauce."
+    "details": "Loaded beef burger with cheese, lettuce, and signature sauce.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 4,
     "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
     "name": "Creamy Alfredo Pasta",
     "price": 1099,
     "quantity": 18,
     "orderCount": 10,
     "rating": 4.6,
-    "reviews": 210,
     "available": true,
     "prepTime": "18 min",
     "spiceLevel": "Mild",
@@ -77,16 +209,60 @@
     "serves": "1–2 persons",
     "category": "Casual Dining",
     "tags": ["Creamy", "Pasta", "Vegetarian"],
-    "details": "Rich creamy Alfredo pasta with parmesan and herbs."
+    "details": "Rich creamy Alfredo pasta with parmesan and herbs.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 5,
     "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
     "name": "BBQ Ribs",
     "price": 1899,
     "quantity": 12,
     "orderCount": 6,
     "rating": 4.7,
-    "reviews": 150,
     "available": true,
     "prepTime": "35 min",
     "spiceLevel": "Hot",
@@ -97,16 +273,60 @@
     "serves": "2 persons",
     "category": "Casual Dining",
     "tags": ["BBQ", "Meaty", "Spicy"],
-    "details": "Tender barbecue ribs glazed with smoky house BBQ sauce."
+    "details": "Tender barbecue ribs glazed with smoky house BBQ sauce.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 6,
     "image": "https://images.unsplash.com/photo-1559314809-0d155014e29e",
     "name": "Pad Thai",
     "price": 999,
     "quantity": 20,
     "orderCount": 11,
     "rating": 4.8,
-    "reviews": 310,
     "available": true,
     "prepTime": "18 min",
     "spiceLevel": "Medium",
@@ -117,16 +337,60 @@
     "serves": "1 person",
     "category": "Thai Cuisine",
     "tags": ["Noodles", "Peanut", "Authentic"],
-    "details": "Traditional stir-fried rice noodles with shrimp, peanuts, and tamarind sauce."
+    "details": "Traditional stir-fried rice noodles with shrimp, peanuts, and tamarind sauce.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 7,
     "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624",
     "name": "Green Curry",
     "price": 1099,
     "quantity": 18,
     "orderCount": 9,
     "rating": 4.6,
-    "reviews": 210,
     "available": true,
     "prepTime": "22 min",
     "spiceLevel": "Hot",
@@ -137,16 +401,60 @@
     "serves": "1–2 persons",
     "category": "Thai Cuisine",
     "tags": ["Curry", "Spicy", "Coconut Milk"],
-    "details": "Rich green curry with chicken, basil, and coconut milk."
+    "details": "Rich green curry with chicken, basil, and coconut milk.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 8,
     "image": "https://images.unsplash.com/photo-1702940860770-f742273de15c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "name": "Tom Yum Soup",
     "price": 799,
     "quantity": 25,
     "orderCount": 14,
     "rating": 4.5,
-    "reviews": 180,
     "available": true,
     "prepTime": "15 min",
     "spiceLevel": "Hot",
@@ -157,16 +465,60 @@
     "serves": "1 person",
     "category": "Thai Cuisine",
     "tags": ["Soup", "Shrimp", "Tangy"],
-    "details": "Hot and sour Thai soup with shrimp and lemongrass."
+    "details": "Hot and sour Thai soup with shrimp and lemongrass.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 9,
     "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950",
     "name": "Thai Basil Chicken",
     "price": 949,
     "quantity": 20,
     "orderCount": 8,
     "rating": 4.4,
-    "reviews": 145,
     "available": true,
     "prepTime": "17 min",
     "spiceLevel": "Medium",
@@ -177,16 +529,60 @@
     "serves": "1 person",
     "category": "Thai Cuisine",
     "tags": ["Basil", "Chicken", "Rice"],
-    "details": "Stir-fried chicken with holy basil and Thai spices."
+    "details": "Stir-fried chicken with holy basil and Thai spices.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 10,
     "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
     "name": "Mango Sticky Rice",
     "price": 699,
     "quantity": 30,
     "orderCount": 16,
     "rating": 4.9,
-    "reviews": 290,
     "available": true,
     "prepTime": "10 min",
     "spiceLevel": "None",
@@ -197,16 +593,60 @@
     "serves": "1 person",
     "category": "Thai Cuisine",
     "tags": ["Dessert", "Sweet", "Mango"],
-    "details": "Sweet sticky rice served with ripe mango slices and coconut cream."
+    "details": "Sweet sticky rice served with ripe mango slices and coconut cream.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 11,
     "image": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=1115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "name": "Classic Cheeseburger",
     "price": 799,
     "quantity": 30,
     "orderCount": 20,
     "rating": 4.6,
-    "reviews": 340,
     "available": true,
     "prepTime": "12 min",
     "spiceLevel": "Mild",
@@ -217,16 +657,60 @@
     "serves": "1 person",
     "category": "Fast Food",
     "tags": ["Burger", "Cheese", "Beef"],
-    "details": "Juicy beef patty layered with cheddar cheese, lettuce, tomato, and house sauce."
+    "details": "Juicy beef patty layered with cheddar cheese, lettuce, tomato, and house sauce.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 12,
     "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec",
     "name": "Crispy Fried Chicken",
     "price": 999,
     "quantity": 25,
     "orderCount": 18,
     "rating": 4.7,
-    "reviews": 280,
     "available": true,
     "prepTime": "18 min",
     "spiceLevel": "Medium",
@@ -237,16 +721,60 @@
     "serves": "2 persons",
     "category": "Fast Food",
     "tags": ["Chicken", "Crispy", "Fried"],
-    "details": "Golden crispy fried chicken with seasoned coating and juicy meat."
+    "details": "Golden crispy fried chicken with seasoned coating and juicy meat.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 13,
     "image": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5",
     "name": "French Fries",
     "price": 399,
     "quantity": 50,
     "orderCount": 35,
     "rating": 4.4,
-    "reviews": 500,
     "available": true,
     "prepTime": "8 min",
     "spiceLevel": "Mild",
@@ -257,16 +785,60 @@
     "serves": "1 person",
     "category": "Fast Food",
     "tags": ["Fries", "Snack", "Crispy"],
-    "details": "Crispy golden potato fries lightly salted and served hot."
+    "details": "Crispy golden potato fries lightly salted and served hot.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 14,
     "image": "https://images.unsplash.com/photo-1638368593249-7cadb261e8b3?q=80&w=691&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "name": "Hot Dog",
     "price": 499,
     "quantity": 35,
     "orderCount": 15,
     "rating": 4.2,
-    "reviews": 190,
     "available": true,
     "prepTime": "10 min",
     "spiceLevel": "Mild",
@@ -277,16 +849,60 @@
     "serves": "1 person",
     "category": "Fast Food",
     "tags": ["Sausage", "Snack", "Bread"],
-    "details": "Classic hot dog with grilled sausage, mustard, and ketchup."
+    "details": "Classic hot dog with grilled sausage, mustard, and ketchup.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 15,
     "image": "https://images.unsplash.com/photo-1512152272829-e3139592d56f",
     "name": "Chicken Nuggets",
     "price": 599,
     "quantity": 40,
     "orderCount": 22,
     "rating": 4.5,
-    "reviews": 260,
     "available": true,
     "prepTime": "10 min",
     "spiceLevel": "Mild",
@@ -297,16 +913,60 @@
     "serves": "1–2 persons",
     "category": "Fast Food",
     "tags": ["Chicken", "Snack", "Crispy"],
-    "details": "Tender chicken nuggets coated in crispy breadcrumbs."
+    "details": "Tender chicken nuggets coated in crispy breadcrumbs.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 16,
     "image": "https://images.unsplash.com/photo-1559847844-5315695dadae",
     "name": "Grilled Salmon",
     "price": 1699,
     "quantity": 15,
     "orderCount": 10,
     "rating": 4.8,
-    "reviews": 210,
     "available": true,
     "prepTime": "22 min",
     "spiceLevel": "Mild",
@@ -317,16 +977,60 @@
     "serves": "1 person",
     "category": "Seafood",
     "tags": ["Salmon", "Healthy", "Grilled"],
-    "details": "Fresh grilled salmon fillet served with lemon butter."
+    "details": "Fresh grilled salmon fillet served with lemon butter.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 17,
     "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
     "name": "Garlic Butter Shrimp",
     "price": 1499,
     "quantity": 18,
     "orderCount": 12,
     "rating": 4.7,
-    "reviews": 180,
     "available": true,
     "prepTime": "18 min",
     "spiceLevel": "Medium",
@@ -337,16 +1041,60 @@
     "serves": "1–2 persons",
     "category": "Seafood",
     "tags": ["Shrimp", "Garlic", "Butter"],
-    "details": "Succulent shrimp sautéed in garlic butter sauce."
+    "details": "Succulent shrimp sautéed in garlic butter sauce.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 18,
     "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288",
     "name": "Fish and Chips",
     "price": 1299,
     "quantity": 20,
     "orderCount": 14,
     "rating": 4.5,
-    "reviews": 260,
     "available": true,
     "prepTime": "20 min",
     "spiceLevel": "Mild",
@@ -357,16 +1105,60 @@
     "serves": "1 person",
     "category": "Seafood",
     "tags": ["Fish", "Fries", "Classic"],
-    "details": "Battered fried fish served with crispy chips."
+    "details": "Battered fried fish served with crispy chips.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 19,
     "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
     "name": "Lobster Thermidor",
     "price": 2999,
     "quantity": 8,
     "orderCount": 4,
     "rating": 4.9,
-    "reviews": 95,
     "available": true,
     "prepTime": "35 min",
     "spiceLevel": "Mild",
@@ -377,16 +1169,60 @@
     "serves": "2 persons",
     "category": "Seafood",
     "tags": ["Lobster", "Luxury", "Creamy"],
-    "details": "Premium lobster baked in creamy wine sauce."
+    "details": "Premium lobster baked in creamy wine sauce.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 20,
     "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3",
     "name": "Seafood Paella",
     "price": 1899,
     "quantity": 12,
     "orderCount": 7,
     "rating": 4.7,
-    "reviews": 170,
     "available": true,
     "prepTime": "30 min",
     "spiceLevel": "Medium",
@@ -397,16 +1233,60 @@
     "serves": "2 persons",
     "category": "Seafood",
     "tags": ["Rice", "Seafood", "Traditional"],
-    "details": "Spanish saffron rice loaded with seafood."
+    "details": "Spanish saffron rice loaded with seafood.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 21,
     "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
     "name": "Chocolate Cake",
     "price": 699,
     "quantity": 20,
     "orderCount": 25,
     "rating": 4.9,
-    "reviews": 420,
     "available": true,
     "prepTime": "12 min",
     "spiceLevel": "None",
@@ -417,16 +1297,60 @@
     "serves": "1–2 persons",
     "category": "Desserts",
     "tags": ["Chocolate", "Sweet", "Cake"],
-    "details": "Rich moist chocolate cake topped with ganache."
+    "details": "Rich moist chocolate cake topped with ganache.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 22,
     "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777",
     "name": "Ice Cream Sundae",
     "price": 499,
     "quantity": 30,
     "orderCount": 19,
     "rating": 4.7,
-    "reviews": 280,
     "available": true,
     "prepTime": "5 min",
     "spiceLevel": "None",
@@ -437,16 +1361,60 @@
     "serves": "1 person",
     "category": "Desserts",
     "tags": ["Ice Cream", "Sweet", "Cold"],
-    "details": "Vanilla ice cream topped with syrup and nuts."
+    "details": "Vanilla ice cream topped with syrup and nuts.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 23,
     "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b",
     "name": "Strawberry Cheesecake",
     "price": 799,
     "quantity": 18,
     "orderCount": 16,
     "rating": 4.8,
-    "reviews": 260,
     "available": true,
     "prepTime": "15 min",
     "spiceLevel": "None",
@@ -457,16 +1425,60 @@
     "serves": "1–2 persons",
     "category": "Desserts",
     "tags": ["Cheesecake", "Strawberry", "Sweet"],
-    "details": "Creamy cheesecake with strawberry glaze."
+    "details": "Creamy cheesecake with strawberry glaze.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 24,
     "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff",
     "name": "Croissant",
     "price": 299,
     "quantity": 40,
     "orderCount": 21,
     "rating": 4.5,
-    "reviews": 180,
     "available": true,
     "prepTime": "8 min",
     "spiceLevel": "None",
@@ -477,16 +1489,60 @@
     "serves": "1 person",
     "category": "Desserts",
     "tags": ["Bakery", "Buttery", "Pastry"],
-    "details": "Flaky buttery French croissant."
+    "details": "Flaky buttery French croissant.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   },
   {
+    "_id": 25,
     "image": "https://images.unsplash.com/photo-1464306076886-da185f6a9d05",
     "name": "Macarons",
     "price": 599,
     "quantity": 25,
     "orderCount": 14,
     "rating": 4.8,
-    "reviews": 210,
     "available": true,
     "prepTime": "10 min",
     "spiceLevel": "None",
@@ -497,6 +1553,50 @@
     "serves": "1 person",
     "category": "Desserts",
     "tags": ["Macaron", "Colorful", "Sweet"],
-    "details": "Elegant almond meringue cookies with cream filling."
+    "details": "Elegant almond meringue cookies with cream filling.",
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah Ahmed",
+        "designation": "Food Blogger",
+        "rating": 5,
+        "review": "Absolutely loved the variety and freshness! The ordering process was smooth, and every dish arrived perfectly packed. Highly recommended for food lovers."
+      },
+      {
+        "id": 2,
+        "name": "Michael Johnson",
+        "designation": "Regular Customer",
+        "rating": 4,
+        "review": "Great food quality and fast delivery. The menu has plenty of options, and the flavors were impressive. Would definitely order again."
+      },
+      {
+        "id": 3,
+        "name": "Nusrat Jahan",
+        "designation": "Restaurant Enthusiast",
+        "rating": 5,
+        "review": "One of the best food platforms I’ve used. Easy navigation, excellent customer service, and the dishes tasted amazing."
+      },
+      {
+        "id": 4,
+        "name": "David Lee",
+        "designation": "Chef",
+        "rating": 5,
+        "review": "Exceptional experience! The ingredients felt premium, and the food presentation was top-notch. A wonderful platform for discovering delicious meals."
+      },
+      {
+        "id": 5,
+        "name": "Ayesha Rahman",
+        "designation": "Verified Buyer",
+        "rating": 4,
+        "review": "Very satisfied with my experience. Affordable pricing, delicious meals, and a user-friendly interface made everything enjoyable."
+      },
+      {
+        "id": 6,
+        "name": "James Carter",
+        "designation": "Food Critic",
+        "rating": 5,
+        "review": "Fantastic service with consistently delicious food. The platform makes exploring cuisines easy, and the quality never disappoints."
+      }
+    ]
   }
 ]

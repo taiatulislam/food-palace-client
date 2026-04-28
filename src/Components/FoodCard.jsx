@@ -4,20 +4,22 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import placeholderImage from "../assets/images/placeholder.png";
 
-export default function FoodCard({ food }) {
+export default function FoodCard({ food = {} }) {
   const {
-    image = food?.image || placeholderImage,
-    category = food?.category || "",
-    name = food?.name || "",
-    description = food?.description ||
-      "Tender white fish fillet grilled in banana leaf with lemon, herbs & seasoned potatoes.",
-    rating = food?.rating || 0.0,
-    reviews = food?.reviews || 0,
-    price = food?.price || 0,
-    available = food?.available || false,
-    prepTime = food?.prepTime || "0 Min",
-    calories = food?.calories || 0,
+    _id,
+    image = placeholderImage,
+    category = "",
+    name = "",
+    description = "",
+    rating = 0.0,
+    reviews = [],
+    price = 0,
+    available = false,
+    prepTime = "0 Min",
+    calories = 0,
   } = food;
+  const reviewCount = reviews.length;
+
   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
   const [wished, setWished] = useState(false);
@@ -59,7 +61,7 @@ export default function FoodCard({ food }) {
   };
 
   return (
-    <div className="fc-card" onClick={() => handleDetails(food?._id)}>
+    <div className="fc-card" onClick={() => handleDetails(_id)}>
       {/* Image */}
       <div className="fc-image-area">
         <img
@@ -133,7 +135,7 @@ export default function FoodCard({ food }) {
             <span className="fc-rating-val">{rating}</span>
           </div>
           <span className="fc-dot" />
-          <span className="fc-reviews">{reviews} reviews</span>
+          <span className="fc-reviews">{reviewCount} reviews</span>
           <span className="fc-dot" />
           <span className="fc-calories">{calories} kcal</span>
         </div>

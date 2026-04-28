@@ -3,7 +3,7 @@ import FoodCardSkeleton from "./FoodCardSkeleton";
 import FoodCard from "./FoodCard";
 
 const RecentlyViewed = () => {
-  const fetchAllFoods = async () => {
+  const fetchRecentView = async () => {
     const response = await fetch("/json/popularFood.json");
 
     if (!response.ok) {
@@ -14,8 +14,8 @@ const RecentlyViewed = () => {
   };
 
   const { data: foods = [], isLoading } = useQuery({
-    queryKey: ["all-food-total"],
-    queryFn: fetchAllFoods,
+    queryKey: ["recent-view"],
+    queryFn: fetchRecentView,
   });
 
   return (

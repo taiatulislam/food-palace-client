@@ -13,7 +13,7 @@ const PopularFood = () => {
   //   },
   // });
 
-  const fetchAllFoods = async () => {
+  const fetchPopularFood = async () => {
     const response = await fetch("/json/popularFood.json");
 
     if (!response.ok) {
@@ -23,9 +23,9 @@ const PopularFood = () => {
     return response.json();
   };
 
-  const { data: foods = [], isLoading } = useQuery({
-    queryKey: ["all-food-total"],
-    queryFn: fetchAllFoods,
+  const { data: popularFood = [], isLoading } = useQuery({
+    queryKey: ["popular-food"],
+    queryFn: fetchPopularFood,
   });
 
   return (
@@ -39,7 +39,7 @@ const PopularFood = () => {
           ? Array.from({ length: 4 }).map((_, index) => (
               <FoodCardSkeleton key={index} variant="popularFood" />
             ))
-          : foods?.map((food) => <FoodCard key={food._id} food={food} />)}
+          : popularFood?.map((food) => <FoodCard key={food._id} food={food} />)}
       </div>
 
       <div className="mt-10 text-center">

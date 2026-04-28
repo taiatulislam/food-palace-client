@@ -5,7 +5,7 @@ import BlogSkeleton from "../../Components/BlogSkeleton";
 const BlogDetails = () => {
   const { id } = useParams();
 
-  const fetchAllFoods = async () => {
+  const fetchAllBlog = async () => {
     const response = await fetch("/json/blog.json");
 
     if (!response.ok) {
@@ -17,7 +17,7 @@ const BlogDetails = () => {
 
   const { data: allBlog = [], isLoading } = useQuery({
     queryKey: ["all-blog"],
-    queryFn: fetchAllFoods,
+    queryFn: fetchAllBlog,
   });
 
   const blog = allBlog.find((item) => item.id === id);

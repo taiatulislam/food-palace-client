@@ -8,6 +8,10 @@
   --color-star: #EF9F27;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .font-link {
   font-family: "Fredoka", sans-serif;
 }
@@ -23,12 +27,6 @@
 }
 
 /* Handle */
-/* ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 10px;
-  height: 50px;
-} */
-
 ::-webkit-scrollbar {
   width: 4px;
   height: 5px;
@@ -44,7 +42,7 @@
   background: #dadada;
 }
 
-/* SLider */
+/* Slider */
 .testimonial-swiper .swiper-pagination {
   overflow: visible !important;
   bottom: 0 !important;
