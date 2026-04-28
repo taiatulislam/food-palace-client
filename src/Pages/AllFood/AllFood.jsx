@@ -97,13 +97,15 @@ const AllFood = () => {
       return 0;
     });
 
-  console.log("baseFoods", baseFoods);
-  console.log("displayFoods", displayFoods);
-
   const isGridLoading = isTotalLoading || (!hasFilterApplied && isTotalLoading);
 
   return (
     <div className="max-w-7xl mx-auto px-5">
+      <div className="text-center my-8">
+        <h1 className="text-3xl md:text-5xl font-bold text-black">All Food</h1>
+        <hr className="mx-auto w-[100px] md:w-[100px] border-[3px] border-secondary rounded-lg my-3" />
+      </div>
+
       <div className="mt-5 flex justify-end">
         <div className="w-full md:w-auto flex items-center gap-2 md:justify-end">
           <label className="font-semibold text-primary">Sort By:</label>

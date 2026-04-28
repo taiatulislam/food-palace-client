@@ -1,39 +1,6 @@
 import { useState } from "react";
 import "./CheckoutPage.css";
-import { Link } from "react-router-dom";
-
-const ORDER_ITEMS = [
-  {
-    id: 1,
-    name: "Tom Yum Thai Soup",
-    qty: 1,
-    price: 19,
-    image:
-      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=100&q=70",
-  },
-  {
-    id: 2,
-    name: "Banana Leaf Grilled Fish",
-    qty: 2,
-    price: 30,
-    image:
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=100&q=70",
-  },
-  {
-    id: 3,
-    name: "Garden Harvest Salad",
-    qty: 1,
-    price: 12,
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=100&q=70",
-  },
-];
-
-const DELIVERY_OPTIONS = [
-  { id: "standard", label: "Standard", sub: "30–45 min", fee: 2.99 },
-  { id: "express", label: "Express", sub: "15–20 min", fee: 5.99 },
-  { id: "pickup", label: "Pickup", sub: "Ready in 20 min", fee: 0 },
-];
+import PropTypes from "prop-types";
 
 const PAYMENT_METHODS = [
   { id: "card", label: "Card" },
@@ -93,65 +60,17 @@ function IconCard() {
   );
 }
 
-function IconCheck() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="22"
-      height="22"
-      fill="none"
-      stroke="#1D9E75"
-      strokeWidth="2"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
-function StepBar({ step }) {
-  return (
-    <div className="ck-steps">
-      {["Delivery", "Payment", "Confirm"].map((label, i) => {
-        const num = i + 1;
-        const done = num < step;
-        const active = num === step;
-        return (
-          <div key={label} className="ck-step-wrap">
-            <div
-              className={`ck-step-num ${done ? "done" : active ? "active" : "idle"}`}
-            >
-              {done ? (
-                <svg
-                  viewBox="0 0 12 12"
-                  width="10"
-                  height="10"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <polyline points="2,6 5,9 10,3" />
-                </svg>
-              ) : (
-                num
-              )}
-            </div>
-            <span className={`ck-step-label ${active ? "active" : ""}`}>
-              {label}
-            </span>
-            {i < 2 && <div className={`ck-step-line ${done ? "done" : ""}`} />}
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-export default function CheckoutPage() {
-  const [step, setStep] = useState(2);
-  const [delivery, setDelivery] = useState("standard");
+export default function CheckoutPage({
+  setStep,
+  subtotal,
+  cartFood,
+  promo,
+  DELIVERY_OPTIONS,
+  delivery,
+  setDelivery,
+}) {
   const [payMethod, setPayMethod] = useState("card");
   const [placing, setPlacing] = useState(false);
-  const [placed, setPlaced] = useState(false);
 
   const [form, setForm] = useState({
     firstName: "",
@@ -169,59 +88,18 @@ export default function CheckoutPage() {
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  const subtotal = ORDER_ITEMS.reduce((s, i) => s + i.price, 0);
-  const fee = DELIVERY_OPTIONS.find((d) => d.id === delivery)?.fee ?? 2.99;
+  const fee = DELIVERY_OPTIONS.find((d) => d.id === delivery)?.fee ?? 50;
   const tax = (subtotal + fee) * TAX_RATE;
-  const total = subtotal + fee + tax;
+  const total = subtotal + fee + tax - promo;
 
   const handlePlace = () => {
     setPlacing(true);
     setStep(3);
-    setTimeout(() => {
-      setPlacing(false);
-      setPlaced(true);
-    }, 1400);
+    setTimeout(() => {}, 1400);
   };
 
-  if (placed) {
-    return (
-      <div className="ck-page">
-        <StepBar step={3} />
-        <div className="ck-success">
-          <div className="ck-check-circle">
-            <IconCheck />
-          </div>
-          <h2 className="ck-success-title">Order placed!</h2>
-          <p className="ck-success-sub">
-            Your food is being prepared.
-            <br />
-            Estimated delivery:{" "}
-            {DELIVERY_OPTIONS.find((d) => d.id === delivery)?.sub}.
-          </p>
-          <span className="ck-order-num"># ORD-2026-8847</span>
-
-          <div>
-            <Link
-              to="/"
-              className="btn btn-sm normal-case mt-3 text-xs text-primary border-2 border-primary"
-            >
-              Return Home
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="ck-page">
-      <div className="ck-header">
-        <h1 className="ck-title">Checkout</h1>
-        <p className="ck-sub">Complete your order in a few easy steps</p>
-      </div>
-
-      <StepBar step={step} />
-
+    <div className="max-w-7xl mx-auto mb-10">
       <div className="ck-layout">
         {/* ── Left column ── */}
         <div className="ck-left">
@@ -238,7 +116,7 @@ export default function CheckoutPage() {
                 <label className="ck-label">First name</label>
                 <input
                   className="ck-input"
-                  placeholder="Rafiq"
+                  placeholder="Taiatul"
                   value={form.firstName}
                   onChange={set("firstName")}
                 />
@@ -247,7 +125,7 @@ export default function CheckoutPage() {
                 <label className="ck-label">Last name</label>
                 <input
                   className="ck-input"
-                  placeholder="Ahmed"
+                  placeholder="Islam"
                   value={form.lastName}
                   onChange={set("lastName")}
                 />
@@ -258,7 +136,7 @@ export default function CheckoutPage() {
                 <label className="ck-label">Street address</label>
                 <input
                   className="ck-input"
-                  placeholder="123 Padma River Rd"
+                  placeholder="Naogaon Sadar"
                   value={form.address}
                   onChange={set("address")}
                 />
@@ -269,7 +147,7 @@ export default function CheckoutPage() {
                 <label className="ck-label">City</label>
                 <input
                   className="ck-input"
-                  placeholder="Rajshahi"
+                  placeholder="Naogaon"
                   value={form.city}
                   onChange={set("city")}
                 />
@@ -287,7 +165,7 @@ export default function CheckoutPage() {
                 <label className="ck-label">ZIP</label>
                 <input
                   className="ck-input"
-                  placeholder="6000"
+                  placeholder="6500"
                   value={form.zip}
                   onChange={set("zip")}
                 />
@@ -325,7 +203,7 @@ export default function CheckoutPage() {
                     <span className="ck-d-name">{opt.label}</span>
                     <div className="ck-d-right">
                       <span className="ck-d-price">
-                        {opt.fee === 0 ? "Free" : `$${opt.fee.toFixed(2)}`}
+                        {opt.fee === 0 ? "Free" : `৳${opt.fee.toFixed(2)}`}
                       </span>
                       <div
                         className={`ck-radio ${delivery === opt.id ? "ck-radio-checked" : ""}`}
@@ -468,14 +346,14 @@ export default function CheckoutPage() {
         <div className="ck-summary-card">
           <p className="ck-sum-title">Your order</p>
 
-          {ORDER_ITEMS.map((item) => (
+          {cartFood.map((item) => (
             <div key={item.id} className="ck-oc-item">
               <img src={item.image} alt={item.name} className="ck-oc-img" />
               <div className="ck-oc-info">
                 <div className="ck-oc-name">{item.name}</div>
-                <div className="ck-oc-qty">× {item.qty}</div>
+                <div className="ck-oc-qty">× {item.quantity}</div>
               </div>
-              <span className="ck-oc-price">${item.price}</span>
+              <span className="ck-oc-price">৳{item.price * item.quantity}</span>
             </div>
           ))}
 
@@ -483,24 +361,30 @@ export default function CheckoutPage() {
 
           <div className="ck-oc-row">
             <span className="ck-oc-lbl">Subtotal</span>
-            <span className="ck-oc-val">${subtotal.toFixed(2)}</span>
+            <span className="ck-oc-val">৳{subtotal.toFixed(2)}</span>
           </div>
           <div className="ck-oc-row">
             <span className="ck-oc-lbl">Delivery</span>
             <span className="ck-oc-val">
-              {fee === 0 ? "Free" : `$${fee.toFixed(2)}`}
+              {fee === 0 ? "Free" : `৳${fee.toFixed(2)}`}
             </span>
           </div>
+          {promo > 0 && (
+            <div className="ck-oc-row">
+              <span className="ck-oc-lbl">Promo</span>
+              <span className="ck-oc-val-err">-৳{promo.toFixed(2)}</span>
+            </div>
+          )}
           <div className="ck-oc-row">
             <span className="ck-oc-lbl">Tax (5%)</span>
-            <span className="ck-oc-val">${tax.toFixed(2)}</span>
+            <span className="ck-oc-val">৳{tax.toFixed(2)}</span>
           </div>
 
           <div className="ck-oc-divider" />
 
           <div className="ck-oc-total-row">
             <span className="ck-oc-total-lbl">Total</span>
-            <span className="ck-oc-total-val">${total.toFixed(2)}</span>
+            <span className="ck-oc-total-val">৳{total.toFixed(2)}</span>
           </div>
 
           <button
@@ -515,3 +399,17 @@ export default function CheckoutPage() {
     </div>
   );
 }
+
+CheckoutPage.propTypes = {
+  step: PropTypes.number,
+  setStep: PropTypes.function,
+  PROMO_CODE: PropTypes.string,
+  PROMO_DISCOUNT: PropTypes.number,
+  subtotal: PropTypes.number,
+  setSubtotal: PropTypes.function,
+  cartFood: PropTypes.array,
+  promo: PropTypes.number,
+  DELIVERY_OPTIONS: PropTypes.array,
+  delivery: PropTypes.string,
+  setDelivery: PropTypes.function,
+};

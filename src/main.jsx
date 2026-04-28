@@ -20,9 +20,8 @@ import OrderedFood from "./Pages/OrderedFood/OrderedFood.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import FoodDetails from "./Pages/FoodDetails/FoodDetails.jsx";
-import CartPage from "./Pages/Cart/CartPage.jsx";
-import CheckoutPage from "./Pages/CheckoutPage/CheckoutPage.jsx";
 import BlogDetails from "./Pages/Blog/BlogDetails.jsx";
+import CartSteps from "./Pages/Cart/CartSteps.jsx";
 
 const router = createBrowserRouter([
   {
@@ -60,11 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <CartPage />,
-      },
-      {
-        path: "/checkout",
-        element: <CheckoutPage />,
+        element: <CartSteps />,
       },
       {
         path: "/addedFood/:email",

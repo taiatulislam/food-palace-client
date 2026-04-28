@@ -1,24 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap");
-
-* {
-  box-sizing: border-box;
-}
-
-.ck-page {
-  font-family: "DM Sans", sans-serif;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
-  color: #111827;
-}
-
-/* ---------- Header ---------- */
 .ck-header {
   margin-bottom: 1.5rem;
 }
 
 .ck-title {
-  font-family: "Cormorant Garamond", serif;
   font-size: 36px;
   font-weight: 600;
   color: #111827;
@@ -104,7 +88,7 @@
 /* ---------- Layout ---------- */
 .ck-layout {
   display: grid;
-  grid-template-columns: 1fr 260px;
+  grid-template-columns: 1fr 280px;
   gap: 20px;
   align-items: start;
 }
@@ -187,7 +171,6 @@
   border-radius: 8px;
   padding: 0 10px;
   font-size: 13.5px;
-  font-family: "DM Sans", sans-serif;
   color: #111827;
   background: #f9fafb;
   outline: none;
@@ -356,7 +339,6 @@
 }
 
 .ck-sum-title {
-  font-family: "Cormorant Garamond", serif;
   font-size: 19px;
   font-weight: 600;
   color: #111827;
@@ -428,6 +410,11 @@
   color: #111827;
 }
 
+.ck-oc-val-err {
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
 .ck-oc-total-row {
   display: flex;
   justify-content: space-between;
@@ -444,7 +431,6 @@
 }
 
 .ck-oc-total-val {
-  font-family: "Cormorant Garamond", serif;
   font-size: 26px;
   font-weight: 600;
   color: #111827;
@@ -453,20 +439,19 @@
 .ck-place-btn {
   width: 100%;
   height: 44px;
-  background: #111827;
+  background: var(--color-primary);
   color: #ffffff;
   border: none;
   border-radius: 10px;
   font-size: 13.5px;
   font-weight: 500;
   cursor: pointer;
-  font-family: "DM Sans", sans-serif;
   transition: background 0.15s;
   margin-top: 14px;
 }
 
 .ck-place-btn:hover:not(:disabled) {
-  background: #1f2937;
+  background: var(--color-primary);
 }
 
 .ck-place-btn:disabled {
@@ -511,7 +496,6 @@
 }
 
 .ck-success-title {
-  font-family: "Cormorant Garamond", serif;
   font-size: 28px;
   font-weight: 600;
   color: #111827;
