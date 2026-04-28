@@ -19,12 +19,12 @@ const RecentlyViewed = () => {
   });
 
   return (
-    <div className="max-w-7xl mx-auto py-10 px-5 lg:px-0">
+    <div className="max-w-7xl mx-auto py-10">
       <h3 className="text-3xl md:text-5xl text-center font-bold text-black">
         Recently Viewed
       </h3>
       <hr className="mx-auto w-[100px] md:w-[150px] border-[3px] border-secondary rounded-lg mb-10" />
-      <div className="grid justify-center md:grid-cols-2 lg:grid-cols-4 gap-7">
+      <div className="grid justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
         {isLoading
           ? Array.from({ length: 4 }).map((_, index) => (
               <FoodCardSkeleton key={index} variant="popularFood" />

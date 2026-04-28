@@ -32,9 +32,14 @@ export default function CartSteps() {
     return response.json();
   };
 
-  const { data: cartFood = [], isLoading } = useQuery({
+  const {
+    data: cartFood = [],
+    isLoading,
+    isFetching,
+  } = useQuery({
     queryKey: ["cart-food"],
     queryFn: fetchCartFood,
+    staleTime: 0,
   });
 
   useEffect(() => {
@@ -66,59 +71,65 @@ export default function CartSteps() {
     const steps = ["Delivery", "Payment", "Confirm"];
 
     return (
-      <div className="ck-steps flex items-center justify-between w-full">
-        {steps.map((label, i) => {
-          const num = i + 1;
-          const done = num < step;
-          const active = num === step;
+      <div className="ck-steps w-full overflow-x-auto justify-center">
+        <div className="flex items-center min-w-max md:min-w-0 md:w-full justify-between px-2">
+          {steps.map((label, i) => {
+            const num = i + 1;
+            const done = num < step;
+            const active = num === step;
 
-          return (
-            <div
-              key={label}
-              className={`flex items-center ${
-                i === steps.length - 1 ? "flex-none" : "flex-1"
-              }`}
-            >
-              {/* Step */}
-              <div className="flex flex-col items-center relative">
-                <div
-                  className={`ck-step-num ${
-                    done ? "done" : active ? "active" : "idle"
-                  } ${step > num ? "cursor-pointer" : ""}`}
-                  onClick={() => step > num && setStep(num)}
-                >
-                  {done ? (
-                    <svg
-                      viewBox="0 0 12 12"
-                      width="10"
-                      height="10"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <polyline points="2,6 5,9 10,3" />
-                    </svg>
-                  ) : (
-                    num
-                  )}
+            return (
+              <div
+                key={label}
+                className={`flex items-center ${
+                  i === steps.length - 1 ? "flex-none" : "flex-1"
+                }`}
+              >
+                {/* Step */}
+                <div className="flex flex-col items-center relative min-w-[70px] sm:min-w-[90px] md:[600px]">
+                  <div
+                    className={`ck-step-num ${
+                      done ? "done" : active ? "active" : "idle"
+                    } ${step > num ? "cursor-pointer" : ""}`}
+                    onClick={() => step > num && setStep(num)}
+                  >
+                    {done ? (
+                      <svg
+                        viewBox="0 0 12 12"
+                        width="10"
+                        height="10"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <polyline points="2,6 5,9 10,3" />
+                      </svg>
+                    ) : (
+                      num
+                    )}
+                  </div>
+
+                  <span
+                    className={`ck-step-label ${
+                      active ? "active" : ""
+                    } text-xs sm:text-sm text-center mt-2 whitespace-nowrap`}
+                  >
+                    {label}
+                  </span>
                 </div>
 
-                <span className={`ck-step-label ${active ? "active" : ""}`}>
-                  {label}
-                </span>
+                {/* Connector Line */}
+                {i < steps.length - 1 && (
+                  <div
+                    className={`flex-1 h-[2px] mx-2 sm:mx-3 min-w-[30px] ${
+                      done ? "bg-secondary" : "bg-gray-300"
+                    }`}
+                  />
+                )}
               </div>
-
-              {/* Connector Line */}
-              {i < steps.length - 1 && (
-                <div
-                  className={`flex-1 h-[1px] mx-3 ${
-                    done ? "bg-secondary" : "bg-gray-300"
-                  }`}
-                />
-              )}
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     );
   }
@@ -156,6 +167,7 @@ export default function CartSteps() {
           items={items}
           setItems={setItems}
           isLoading={isLoading}
+          isFetching={isFetching}
         />
       )}
       {step === 2 && (
@@ -170,7 +182,7 @@ export default function CartSteps() {
         />
       )}
       {step === 3 && (
-        <div className="ck-page mb-10">
+        <div className="ck-page mb-10 px-5 lg:px-0">
           <div className="ck-success">
             <div className="ck-check-circle">
               <IconCheck />

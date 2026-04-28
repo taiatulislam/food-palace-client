@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap');
-
 .fc-card {
-  width: 300px;
+  /* width: 300px; */
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 20px;
@@ -35,13 +33,13 @@
 }
 
 .fc-avail {
-  background: #1D9E75;
-  color: #E1F5EE;
+  background: #1d9e75;
+  color: #e1f5ee;
 }
 
 .fc-unavail {
-  background: #A32D2D;
-  color: #FCEBEB;
+  background: #a32d2d;
+  color: #fcebeb;
 }
 
 .fc-badge-time {
@@ -76,7 +74,7 @@
 }
 
 .fc-wishlist:hover {
-  border-color: #E24B4A;
+  border-color: #e24b4a;
 }
 
 /* ---------- Body ---------- */
@@ -218,7 +216,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #1D9E75;
+  background: #1d9e75;
   border: none;
   display: flex;
   align-items: center;
@@ -228,5 +226,5 @@
 }
 
 .fc-add-btn:hover {
-  background: #0F6E56;
+  background: #0f6e56;
 }

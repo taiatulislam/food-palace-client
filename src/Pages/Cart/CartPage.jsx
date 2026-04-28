@@ -31,6 +31,7 @@ export default function CartPage({
   items,
   setItems,
   isLoading,
+  isFetching,
 }) {
   const [promoInput, setPromoInput] = useState("");
   const [promoState, setPromoState] = useState("idle");
@@ -76,26 +77,26 @@ export default function CartPage({
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="cp-layout">
+    <div className="max-w-7xl mx-auto px-5 lg:px-0 mb-10">
+      <div className="flex flex-col xl:flex-row gap-8">
         {/* Left — Cart Items */}
-        <div className="cp-left">
-          {isLoading ? (
-            <div className="cp-item-list">
+        <div className="w-full xl:w-[65%]">
+          {isLoading || isFetching ? (
+            <div className="cp-item-list space-y-5">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="cp-item-card animate-pulse">
+                <div
+                  key={i}
+                  className="cp-item-card animate-pulse flex flex-col sm:flex-row gap-4"
+                >
                   {/* Image Skeleton */}
-                  <div
-                    className="bg-base-300 rounded-lg"
-                    style={{ width: "90px", height: "90px" }}
-                  ></div>
+                  <div className="bg-base-300 rounded-lg w-full sm:w-[90px] h-[180px] sm:h-[90px] shrink-0"></div>
 
                   {/* Content Skeleton */}
                   <div className="cp-item-info flex-1">
                     <div className="h-3 bg-base-300 rounded w-20 mb-3"></div>
                     <div className="h-5 bg-base-300 rounded w-40 mb-3"></div>
 
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2">
                       <div className="h-6 w-14 bg-base-300 rounded-full"></div>
                       <div className="h-6 w-16 bg-base-300 rounded-full"></div>
                       <div className="h-6 w-12 bg-base-300 rounded-full"></div>
@@ -103,10 +104,10 @@ export default function CartPage({
                   </div>
 
                   {/* Right Skeleton */}
-                  <div className="cp-item-right">
-                    <div className="h-5 w-16 bg-base-300 rounded mb-4"></div>
+                  <div className="cp-item-right flex flex-row sm:flex-col justify-between sm:justify-start gap-4">
+                    <div className="h-5 w-16 bg-base-300 rounded"></div>
 
-                    <div className="flex gap-2 items-center mb-4">
+                    <div className="flex gap-2 items-center">
                       <div className="h-8 w-8 bg-base-300 rounded"></div>
                       <div className="h-5 w-8 bg-base-300 rounded"></div>
                       <div className="h-8 w-8 bg-base-300 rounded"></div>
@@ -123,20 +124,20 @@ export default function CartPage({
               <p className="cp-empty-text">Your cart is empty</p>
             </div>
           ) : (
-            <div className="cp-item-list">
+            <div className="cp-item-list space-y-5">
               {items.map((item) => (
-                <div key={item.id} className="cp-item-card">
+                <div key={item.id} className="cp-item-card flex flex-row gap-4">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="cp-item-img"
+                    className="cp-item-img w-full sm:w-[90px] h-[220px] sm:h-[90px] object-cover rounded-lg"
                   />
 
-                  <div className="cp-item-info">
+                  <div className="cp-item-info flex-1">
                     <p className="cp-item-cat">{item.category}</p>
                     <p className="cp-item-name">{item.name}</p>
 
-                    <div className="cp-item-tags">
+                    <div className="cp-item-tags flex flex-wrap gap-2 mt-2">
                       {item.tags.map((tag) => (
                         <span key={tag} className="cp-item-tag">
                           {tag}
@@ -145,7 +146,7 @@ export default function CartPage({
                     </div>
                   </div>
 
-                  <div className="cp-item-right">
+                  <div className="cp-item-right flex flex-row sm:flex-col justify-between sm:justify-start gap-4">
                     <span className="cp-item-price">
                       ৳{(item.price * item.quantity).toFixed(2)}
                     </span>
@@ -183,104 +184,102 @@ export default function CartPage({
         </div>
 
         {/* Right — Order Summary */}
-        <div className="cp-summary-card">
-          {isLoading ? (
-            <div className="animate-pulse space-y-4">
-              <div className="h-6 bg-base-300 rounded w-40"></div>
+        <div className="w-full xl:w-[35%]">
+          <div className="cp-summary-card sticky top-6">
+            {isLoading ? (
+              <div className="animate-pulse space-y-4">
+                <div className="h-6 bg-base-300 rounded w-40"></div>
 
-              <div className="flex gap-4">
-                <div className="h-16 flex-1 bg-base-300 rounded-lg"></div>
-                <div className="h-16 flex-1 bg-base-300 rounded-lg"></div>
-              </div>
+                <div className="h-12 bg-base-300 rounded-lg w-full"></div>
 
-              <div className="h-12 bg-base-300 rounded-lg w-full"></div>
-
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="flex justify-between">
-                  <div className="h-4 bg-base-300 rounded w-24"></div>
-                  <div className="h-4 bg-base-300 rounded w-16"></div>
-                </div>
-              ))}
-
-              <div className="h-[1px] bg-base-300 w-full"></div>
-
-              <div className="flex justify-between">
-                <div className="h-5 bg-base-300 rounded w-20"></div>
-                <div className="h-5 bg-base-300 rounded w-24"></div>
-              </div>
-
-              <div className="h-12 bg-base-300 rounded-lg w-full"></div>
-            </div>
-          ) : (
-            <>
-              <p className="cp-summary-title">Order Summary</p>
-              {/* Promo code */}
-              <div className="cp-promo-wrap">
-                <input
-                  className={`cp-promo-input ${
-                    promoState === "valid"
-                      ? "cp-promo-valid"
-                      : promoState === "invalid"
-                        ? "cp-promo-invalid"
-                        : ""
-                  }`}
-                  placeholder="Promo code (SAVE10)"
-                  value={promoInput}
-                  onChange={(e) => {
-                    setPromoInput(e.target.value);
-                    setPromoState("idle");
-                  }}
-                  onKeyDown={(e) => e.key === "Enter" && applyPromo()}
-                />
-
-                <button className="cp-promo-btn" onClick={applyPromo}>
-                  Apply
-                </button>
-              </div>
-
-              {promoState === "invalid" && (
-                <p className="cp-promo-error">Invalid promo code</p>
-              )}
-
-              {promoState === "valid" && (
-                <p className="cp-promo-success">10% discount applied!</p>
-              )}
-
-              {/* Summary rows */}
-              <div className="cp-summary-rows">
-                <div className="cp-summary-row">
-                  <span className="cp-s-label">Subtotal</span>
-                  <span className="cp-s-val">৳{subtotal.toFixed(2)}</span>
-                </div>
-
-                {promoApplied && (
-                  <div className="cp-summary-row">
-                    <span className="cp-s-label">Promo (SAVE10)</span>
-                    <span className="cp-s-val cp-s-discount">
-                      −৳{discount.toFixed(2)}
-                    </span>
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="flex justify-between">
+                    <div className="h-4 bg-base-300 rounded w-24"></div>
+                    <div className="h-4 bg-base-300 rounded w-16"></div>
                   </div>
+                ))}
+
+                <div className="h-[1px] bg-base-300 w-full"></div>
+
+                <div className="flex justify-between">
+                  <div className="h-5 bg-base-300 rounded w-20"></div>
+                  <div className="h-5 bg-base-300 rounded w-24"></div>
+                </div>
+
+                <div className="h-12 bg-base-300 rounded-lg w-full"></div>
+              </div>
+            ) : (
+              <>
+                <p className="cp-summary-title">Order Summary</p>
+
+                {/* Promo code */}
+                <div className="cp-promo-wrap">
+                  <input
+                    className={`cp-promo-input ${
+                      promoState === "valid"
+                        ? "cp-promo-valid"
+                        : promoState === "invalid"
+                          ? "cp-promo-invalid"
+                          : ""
+                    }`}
+                    placeholder="Promo code (SAVE10)"
+                    value={promoInput}
+                    onChange={(e) => {
+                      setPromoInput(e.target.value);
+                      setPromoState("idle");
+                    }}
+                    onKeyDown={(e) => e.key === "Enter" && applyPromo()}
+                  />
+
+                  <button className="cp-promo-btn" onClick={applyPromo}>
+                    Apply
+                  </button>
+                </div>
+
+                {promoState === "invalid" && (
+                  <p className="cp-promo-error">Invalid promo code</p>
                 )}
-              </div>
 
-              <div className="cp-divider" />
+                {promoState === "valid" && (
+                  <p className="cp-promo-success">10% discount applied!</p>
+                )}
 
-              <div className="cp-total-row">
-                <span className="cp-total-label">Total</span>
-                <span className="cp-total-val">৳{total.toFixed(2)}</span>
-              </div>
+                {/* Summary rows */}
+                <div className="cp-summary-rows">
+                  <div className="cp-summary-row">
+                    <span className="cp-s-label">Subtotal</span>
+                    <span className="cp-s-val">৳{subtotal.toFixed(2)}</span>
+                  </div>
 
-              <button
-                className={`cp-checkout-btn ${
-                  checkingOut ? "cp-checkout-loading" : ""
-                }`}
-                onClick={handleCheckout}
-                disabled={items.length === 0}
-              >
-                {checkingOut ? "Processing…" : "Proceed to Checkout"}
-              </button>
-            </>
-          )}
+                  {promoApplied && (
+                    <div className="cp-summary-row">
+                      <span className="cp-s-label">Promo (SAVE10)</span>
+                      <span className="cp-s-val cp-s-discount">
+                        −৳{discount.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="cp-divider" />
+
+                <div className="cp-total-row">
+                  <span className="cp-total-label">Total</span>
+                  <span className="cp-total-val">৳{total.toFixed(2)}</span>
+                </div>
+
+                <button
+                  className={`cp-checkout-btn ${
+                    checkingOut ? "cp-checkout-loading" : ""
+                  }`}
+                  onClick={handleCheckout}
+                  disabled={items.length === 0}
+                >
+                  {checkingOut ? "Processing…" : "Proceed to Checkout"}
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
@@ -299,4 +298,5 @@ CartPage.propTypes = {
   items: PropTypes.array,
   setItems: PropTypes.function,
   isLoading: PropTypes.bool,
+  isFetching: PropTypes.bool,
 };

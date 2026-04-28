@@ -51,7 +51,6 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
         result.user.displayName = name;
         result.user.photoURL = photo;
         Swal.fire({
@@ -82,10 +81,7 @@ const SignUp = () => {
   };
 
   return (
-    <div
-      className="py-10 px-4 md:px-6"
-      style={authBackgroundStyle}
-    >
+    <div className="py-10 px-4 md:px-6" style={authBackgroundStyle}>
       <div className="max-w-7xl mx-auto">
         <div className="w-full md:w-3/4 lg:w-1/2 pb-5 bg-black/45 backdrop-blur-sm rounded-xl border border-white/20">
           <h2 className="text-4xl md:text-5xl font-bold text-center mt-3 text-primary">

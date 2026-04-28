@@ -39,8 +39,6 @@ const AllFood = () => {
     queryFn: fetchAllFoods,
   });
 
-  console.log("totalFoodData", totalFoodData);
-
   const noOfPage = Math.ceil((totalFoodData?.length || 0) / foodPerPage);
   const pages = [];
   for (let i = 0; i < noOfPage; i++) {
@@ -108,7 +106,9 @@ const AllFood = () => {
 
       <div className="mt-5 flex justify-end">
         <div className="w-full md:w-auto flex items-center gap-2 md:justify-end">
-          <label className="font-semibold text-primary">Sort By:</label>
+          <label className="font-semibold text-primary text-nowrap">
+            Sort By:
+          </label>
           <select
             value={priceSort}
             onChange={(e) => {

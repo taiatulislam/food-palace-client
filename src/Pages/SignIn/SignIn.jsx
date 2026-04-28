@@ -28,7 +28,6 @@ const SignIn = () => {
 
     signIn(email, password)
       .then((result) => {
-        console.log(result.user);
         navigate(location.state ? location.state : "/");
         Swal.fire({
           title: "Success!",
@@ -47,7 +46,7 @@ const SignIn = () => {
           .then((data) => data);
       })
       .catch((error) => {
-        console.log(error.code, error.message);
+        console.error(error.code, error.message);
         return Swal.fire({
           title: "Error!",
           text: `${error.message}`,
@@ -61,7 +60,6 @@ const SignIn = () => {
     e.preventDefault();
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
         Swal.fire({
           title: "Success!",
           text: "User SignIn successfully",
@@ -71,7 +69,7 @@ const SignIn = () => {
         navigate(location.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error.code, error.message);
+        console.error(error.code, error.message);
         Swal.fire({
           title: "Error!",
           text: `${error.message}`,
