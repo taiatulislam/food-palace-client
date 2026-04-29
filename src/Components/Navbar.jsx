@@ -31,7 +31,8 @@ const Navbar = () => {
     // { label: "My added food", to: `/addedFood/${user?.email}` },
     // { label: "Add food", to: "/addFood" },
     // { label: "My Cart", to: `/cart/${user?.email}` },
-    { label: "My ordered food", to: `/ordered/${user?.email}` },
+    { label: "Dashboard", to: `/dashboard` },
+    { label: "My ordered food", to: `/ordered` },
   ];
 
   const links = (

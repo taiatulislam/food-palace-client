@@ -23,6 +23,7 @@ import FoodDetails from "./Pages/FoodDetails/FoodDetails.jsx";
 import BlogDetails from "./Pages/Blog/BlogDetails.jsx";
 import CartSteps from "./Pages/Cart/CartSteps.jsx";
 import Wishlist from "./Pages/Wishlist/Wishlist.jsx";
+import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -71,10 +72,18 @@ const router = createBrowserRouter([
         element: <AddedFood />,
       },
       {
-        path: "/ordered/:email",
+        path: "/ordered",
         element: (
           <PrivateRoute>
             <OrderedFood />,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <AdminDashboard />,
           </PrivateRoute>
         ),
       },

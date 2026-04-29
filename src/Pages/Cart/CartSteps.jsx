@@ -22,8 +22,6 @@ export default function CartSteps() {
   const [promo, setPromo] = useState(0);
   const [delivery, setDelivery] = useState("standard");
 
-  console.log("items", items);
-
   const fetchAllFoods = async () => {
     const response = await fetch("/json/allFood.json");
 
