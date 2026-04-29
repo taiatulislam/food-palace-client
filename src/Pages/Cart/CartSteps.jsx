@@ -22,8 +22,10 @@ export default function CartSteps() {
   const [promo, setPromo] = useState(0);
   const [delivery, setDelivery] = useState("standard");
 
-  const fetchCartFood = async () => {
-    const response = await fetch("/json/cart.json");
+  console.log("items", items);
+
+  const fetchAllFoods = async () => {
+    const response = await fetch("/json/allFood.json");
 
     if (!response.ok) {
       throw new Error("Failed to fetch food data");
@@ -33,20 +35,36 @@ export default function CartSteps() {
   };
 
   const {
-    data: cartFood = [],
+    data: totalFoodData = [],
     isLoading,
     isFetching,
   } = useQuery({
-    queryKey: ["cart-food"],
-    queryFn: fetchCartFood,
-    staleTime: 0,
+    queryKey: ["all-foods"],
+    queryFn: fetchAllFoods,
   });
 
   useEffect(() => {
-    if (cartFood?.length > 0) {
-      setItems(cartFood);
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (totalFoodData.length > 0) {
+      const matchedItems = totalFoodData
+        .filter((item) =>
+          storedCart.some((cartItem) => cartItem.id === item._id),
+        )
+        .map((item) => {
+          const cartItem = storedCart.find(
+            (cartItem) => cartItem.id === item._id,
+          );
+
+          return {
+            ...item,
+            cart: cartItem.cart,
+          };
+        });
+
+      setItems(matchedItems);
     }
-  }, [cartFood]);
+  }, [totalFoodData]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -30,7 +30,7 @@ const Navbar = () => {
   const userMenuLinks = [
     // { label: "My added food", to: `/addedFood/${user?.email}` },
     // { label: "Add food", to: "/addFood" },
-    { label: "My Cart", to: `/cart/${user?.email}` },
+    // { label: "My Cart", to: `/cart/${user?.email}` },
     { label: "My ordered food", to: `/ordered/${user?.email}` },
   ];
 
@@ -51,7 +51,20 @@ const Navbar = () => {
           All Food
         </NavLink>
       </li>
-
+      <li>
+        <NavLink to="/cart" style={navLinkStyle} className="text-xs md:text-lg">
+          Cart
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/wishlist"
+          style={navLinkStyle}
+          className="text-xs md:text-lg"
+        >
+          Wishlist
+        </NavLink>
+      </li>
       <li>
         <NavLink to="/blog" style={navLinkStyle} className="text-xs md:text-lg">
           Blog

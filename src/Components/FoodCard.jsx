@@ -22,9 +22,10 @@ export default function FoodCard({ food = {} }) {
 
   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
-  const [wished, setWished] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const wished = wishlist?.includes(_id);
   let alertTimeout;
 
   const showCustomAlert = (message) => {
@@ -38,22 +39,51 @@ export default function FoodCard({ food = {} }) {
     }, 3000);
   };
 
-  const handleWishlist = (e) => {
+  const handleWishlist = (e, productId) => {
     e.stopPropagation();
 
-    const newWishState = !wished;
-    setWished(newWishState);
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-    showCustomAlert(
-      newWishState
-        ? "Added to wishlist successfully!"
-        : "Removed from wishlist successfully!",
-    );
+    const exists = wishlist.includes(productId);
+
+    if (exists) {
+      wishlist = wishlist.filter((id) => id !== productId);
+
+      if (wishlist.length === 0) {
+        localStorage.removeItem("wishlist");
+      } else {
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      }
+
+      showCustomAlert("Removed from wishlist successfully!");
+    } else {
+      wishlist.push(productId);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      showCustomAlert("Added to wishlist successfully!");
+    }
   };
 
-  const handleCart = (e) => {
+  const handleCart = (e, productId, quantity) => {
     e.stopPropagation();
-    showCustomAlert("Added to cart successfully!");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingItem = cart.find((item) => item.id === productId);
+
+    if (existingItem) {
+      existingItem.quantity += quantity;
+
+      showCustomAlert("Quantity updated in cart!");
+    } else {
+      cart.push({
+        id: productId,
+        cart: quantity,
+      });
+
+      showCustomAlert("Added to cart successfully!");
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   const handleDetails = (id) => {
@@ -96,7 +126,7 @@ export default function FoodCard({ food = {} }) {
 
         <button
           className={`fc-wishlist ${wished ? "fc-wished" : ""}`}
-          onClick={(e) => handleWishlist(e)}
+          onClick={(e) => handleWishlist(e, _id)}
           aria-label="Save to wishlist"
         >
           <svg
@@ -147,7 +177,7 @@ export default function FoodCard({ food = {} }) {
           <div className="fc-price-block">
             <p className="fc-price-label">Price</p>
             <p className="fc-price">
-              <span className="fc-currency">৳</span>
+              <span className="fc-currency">৳ </span>
               {price?.toFixed(2)}
             </p>
           </div>
@@ -176,7 +206,7 @@ export default function FoodCard({ food = {} }) {
             <button
               className="fc-add-btn"
               aria-label="Add to cart"
-              onClick={(e) => handleCart(e)}
+              onClick={(e) => handleCart(e, _id, qty)}
             >
               <svg
                 viewBox="0 0 24 24"

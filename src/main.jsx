@@ -22,6 +22,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import FoodDetails from "./Pages/FoodDetails/FoodDetails.jsx";
 import BlogDetails from "./Pages/Blog/BlogDetails.jsx";
 import CartSteps from "./Pages/Cart/CartSteps.jsx";
+import Wishlist from "./Pages/Wishlist/Wishlist.jsx";
 
 const router = createBrowserRouter([
   {
@@ -58,12 +59,12 @@ const router = createBrowserRouter([
         element: <BlogDetails />,
       },
       {
-        path: "/cart/:email",
-        element: (
-          <PrivateRoute>
-            <CartSteps />,
-          </PrivateRoute>
-        ),
+        path: "/cart",
+        element: <CartSteps />,
+      },
+      {
+        path: "/wishlist",
+        element: <Wishlist />,
       },
       {
         path: "/addedFood/:email",

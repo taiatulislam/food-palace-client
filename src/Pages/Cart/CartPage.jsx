@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./CartPage.css";
 import RecentlyViewed from "../../Components/RecentlyViewed";
 import PropTypes from "prop-types";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 function TrashIcon() {
   return (
@@ -33,13 +35,15 @@ export default function CartPage({
   isLoading,
   isFetching,
 }) {
+  const { user } = useContext(AuthContext);
   const [promoInput, setPromoInput] = useState("");
   const [promoState, setPromoState] = useState("idle");
   const [checkingOut, setCheckingOut] = useState(false);
+  const navigate = useNavigate();
 
   const promoApplied = promoState === "valid";
 
-  const calculateSubtotal = items.reduce((s, i) => s + i.price * i.quantity, 0);
+  const calculateSubtotal = items.reduce((s, i) => s + i.price * i.cart, 0);
   const discount = promoApplied ? calculateSubtotal * PROMO_DISCOUNT : 0;
   const total = calculateSubtotal - discount;
 
@@ -52,7 +56,7 @@ export default function CartPage({
     setItems((prev) =>
       prev.map((item) =>
         item._id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+          ? { ...item, cart: Math.max(1, item.cart + delta) }
           : item,
       ),
     );
@@ -60,6 +64,11 @@ export default function CartPage({
 
   const removeItem = (id) => {
     setItems((prev) => prev.filter((item) => item._id !== id));
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const updatedCart = cart.filter((item) => String(item.id) !== String(id));
+
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const applyPromo = () => {
@@ -73,7 +82,12 @@ export default function CartPage({
   const handleCheckout = () => {
     setCheckingOut(true);
     setTimeout(() => setCheckingOut(false), 2000);
-    setStep(2);
+
+    if (user) {
+      setStep(2);
+    } else {
+      navigate("/signIn");
+    }
   };
 
   return (
@@ -148,7 +162,7 @@ export default function CartPage({
 
                   <div className="cp-item-right flex flex-row sm:flex-col justify-between sm:justify-start gap-4">
                     <span className="cp-item-price">
-                      ৳{(item.price * item.quantity).toFixed(2)}
+                      ৳{(item.price * item.cart).toFixed(2)}
                     </span>
 
                     <div className="cp-qty-row">
@@ -159,7 +173,7 @@ export default function CartPage({
                         −
                       </button>
 
-                      <span className="cp-qty-num">{item.quantity}</span>
+                      <span className="cp-qty-num">{item.cart}</span>
 
                       <button
                         className="cp-qty-btn"
