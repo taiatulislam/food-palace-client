@@ -223,49 +223,7 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("Overview");
 
   return (
-    <div className="max-w-7xl mx-auto px-5 lg:px-0 my-10">
-      {/* Top bar */}
-      <div className="ad-topbar">
-        <div className="ad-brand">
-          <div className="ad-logo">
-            <svg
-              viewBox="0 0 24 24"
-              width="16"
-              height="16"
-              fill="none"
-              stroke="#E1F5EE"
-              strokeWidth="1.5"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
-            </svg>
-          </div>
-          <div>
-            <div className="ad-brand-name">FoodDash Admin</div>
-            <div className="ad-brand-sub">Restaurant management</div>
-          </div>
-        </div>
-        <div className="ad-topbar-right">
-          <span className="ad-date">Wednesday, 29 Apr 2026</span>
-          <button className="ad-notif-btn" aria-label="Notifications">
-            <svg
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-            <span className="ad-notif-dot" />
-          </button>
-          <div className="ad-avatar">RA</div>
-        </div>
-      </div>
-
+    <div className="max-w-7xl mx-auto px-5 lg:px-0">
       {/* Tabs */}
       <div className="ad-tabs">
         {TABS.map((tab) => (

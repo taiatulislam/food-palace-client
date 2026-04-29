@@ -10,10 +10,10 @@ import AuthProvider from "./Providers/AuthProvider.jsx";
 import SignIn from "./Pages/SignIn/SignIn.jsx";
 import Blog from "./Pages/Blog/Blog.jsx";
 // import FoodDetails from "./Pages/FoodDetails/FoodDetails.jsx";
-import Purchase from "./Pages/Purchase/Purchase.jsx";
+// import Purchase from "./Pages/Purchase/Purchase.jsx";
 import AddedFood from "./Pages/AddedFood/AddedFood.jsx";
-import UpdateFood from "./Pages/UpdateFood/UpdateFood.jsx";
-import AddFood from "./Pages/AddFood/AddFood.jsx";
+// import UpdateFood from "./Pages/UpdateFood/UpdateFood.jsx";
+// import AddFood from "./Pages/AddFood/AddFood.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import OrderedFood from "./Pages/OrderedFood/OrderedFood.jsx";
 
@@ -24,6 +24,9 @@ import BlogDetails from "./Pages/Blog/BlogDetails.jsx";
 import CartSteps from "./Pages/Cart/CartSteps.jsx";
 import Wishlist from "./Pages/Wishlist/Wishlist.jsx";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard.jsx";
+import AdminLayout from "./Layout/AdminLayout.jsx";
+import { Navigate } from "react-router-dom";
+import AddFood2 from "./Pages/AddFood/AddFood2.jsx";
 
 const router = createBrowserRouter([
   {
@@ -68,10 +71,6 @@ const router = createBrowserRouter([
         element: <Wishlist />,
       },
       {
-        path: "/addedFood/:email",
-        element: <AddedFood />,
-      },
-      {
         path: "/ordered",
         element: (
           <PrivateRoute>
@@ -79,29 +78,40 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <AdminLayout />
+      </PrivateRoute>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
       {
-        path: "/dashboard",
-        element: (
-          <PrivateRoute>
-            <AdminDashboard />,
-          </PrivateRoute>
-        ),
+        path: "",
+        element: <Navigate to="home" replace />,
       },
       {
-        path: "/addFood",
-        element: <AddFood />,
+        path: "home",
+        element: <AdminDashboard />,
       },
       {
-        path: "/purchase/:id",
-        element: (
-          <PrivateRoute>
-            <Purchase />
-          </PrivateRoute>
-        ),
+        path: "manage-food",
+        element: <AddFood2 />,
       },
       {
-        path: "/updateFood/:id",
-        element: <UpdateFood />,
+        path: "manage-food/:id",
+        element: <AddFood2 />,
+      },
+      {
+        path: "all-food",
+        element: <AddedFood />,
+      },
+      {
+        path: "orders",
+        element: <OrderedFood />,
       },
     ],
   },

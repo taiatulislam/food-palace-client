@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+
 const FoodCardSkeleton = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="fc-card">
       {/* Image area */}
@@ -35,22 +40,22 @@ const FoodCardSkeleton = () => {
           <div className="skeleton bg-base-200 h-4 w-full" />
         </div>
 
-        {/* Divider */}
-        <div className="skeleton bg-base-200 h-[1px] w-full" />
+        {user?.role === "user" && (
+          <>
+            <div className="skeleton bg-base-200 h-[1px] w-full" />
 
-        {/* Bottom */}
-        <div className="flex justify-between items-center">
-          {/* Price */}
-          <div className="space-y-2">
-            <div className="skeleton bg-base-200 h-3 w-12" />
-            <div className="skeleton bg-base-200 h-5 w-16" />
-          </div>
+            <div className="flex justify-between items-center">
+              <div className="space-y-2">
+                <div className="skeleton bg-base-200 h-3 w-12" />
+                <div className="skeleton bg-base-200 h-5 w-16" />
+              </div>
 
-          {/* Qty + button */}
-          <div className="flex items-center gap-2">
-            <div className="skeleton bg-base-200 w-10 h-10 rounded-full" />
-          </div>
-        </div>
+              <div className="flex items-center gap-2">
+                <div className="skeleton bg-base-200 w-10 h-10 rounded-full" />
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

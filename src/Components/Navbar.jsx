@@ -31,8 +31,12 @@ const Navbar = () => {
     // { label: "My added food", to: `/addedFood/${user?.email}` },
     // { label: "Add food", to: "/addFood" },
     // { label: "My Cart", to: `/cart/${user?.email}` },
-    { label: "Dashboard", to: `/dashboard` },
     { label: "My ordered food", to: `/ordered` },
+  ];
+  const adminMenuLinks = [
+    { label: "Dashboard", to: `/dashboard` },
+    { label: "Manage food", to: "/dashboard/manage-food" },
+    { label: "All FOod", to: `/dashboard/all-food` },
   ];
 
   const links = (
@@ -52,20 +56,28 @@ const Navbar = () => {
           All Food
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/cart" style={navLinkStyle} className="text-xs md:text-lg">
-          Cart
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/wishlist"
-          style={navLinkStyle}
-          className="text-xs md:text-lg"
-        >
-          Wishlist
-        </NavLink>
-      </li>
+      {user?.role !== "admin" && (
+        <li>
+          <NavLink
+            to="/cart"
+            style={navLinkStyle}
+            className="text-xs md:text-lg"
+          >
+            Cart
+          </NavLink>
+        </li>
+      )}
+      {user?.role !== "admin" && (
+        <li>
+          <NavLink
+            to="/wishlist"
+            style={navLinkStyle}
+            className="text-xs md:text-lg"
+          >
+            Wishlist
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink to="/blog" style={navLinkStyle} className="text-xs md:text-lg">
           Blog
@@ -169,16 +181,25 @@ const Navbar = () => {
                     className="btn btn-ghost btn-circle avatar"
                   >
                     <div
-                      className="w-8 md:w-10 rounded-full"
+                      className="w-8 md:w-10 rounded-full border border-[#cccccc]"
                       onClick={() => setIsUserMenuOpen(!IsUserMenuOpen)}
                     >
-                      <img src={user?.photoURL} alt="profile" />
+                      <img
+                        src={user?.photoURL}
+                        alt="profile"
+                        onError={(e) => {
+                          e.currentTarget.src = placeholderImage;
+                        }}
+                      />
                     </div>
                   </label>
 
                   {IsUserMenuOpen && (
-                    <ul className="menu menu-xs md:menu-sm dropdown-content right-0 mt-2 z-20 p-2 shadow bg-base-100 rounded-box">
-                      {userMenuLinks.map((item) => (
+                    <ul className="menu menu-xs md:menu-sm dropdown-content right-0 mt-2 z-20 p-2 shadow bg-base-100 rounded-md">
+                      {(user?.role === "admin"
+                        ? adminMenuLinks
+                        : userMenuLinks
+                      ).map((item) => (
                         <li key={item.label}>
                           <Link
                             to={item.to}

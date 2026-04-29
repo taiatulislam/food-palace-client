@@ -13,34 +13,38 @@ const authBackgroundStyle = {
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
+
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
 
-    const user = { name, email, photo, password };
-
+    // Validation
     if (password.length < 6) {
       return Swal.fire({
         title: "Error!",
-        text: "Password length must be grater than 6",
+        text: "Password length must be greater than 6",
         icon: "error",
         confirmButtonText: "OK",
       });
-    } else if (!/[A-Z]/.test(password)) {
+    }
+
+    if (!/[A-Z]/.test(password)) {
       return Swal.fire({
         title: "Error!",
         text: "Password should have one capital letter",
         icon: "error",
         confirmButtonText: "OK",
       });
-    } else if (!/[@$!%*?&]/.test(password)) {
+    }
+
+    if (!/[@$!%*?&]/.test(password)) {
       return Swal.fire({
         title: "Error!",
         text: "Password should have one special character",
@@ -49,35 +53,50 @@ const SignUp = () => {
       });
     }
 
-    createUser(email, password)
-      .then((result) => {
-        result.user.displayName = name;
-        result.user.photoURL = photo;
-        Swal.fire({
-          title: "Success!",
-          text: "Create User successfully",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
-        fetch(`${import.meta.env.VITE_baseUrl}/users`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(user),
-        })
-          .then((res) => res.json())
-          .then((data) => data);
-        navigate("/");
-      })
-      .catch((error) => {
-        Swal.fire({
-          title: "Error!",
-          text: `${error.message}`,
-          icon: "error",
-          confirmButtonText: "OK",
-        });
+    try {
+      await createUser(email, password);
+
+      await updateUserProfile(name, photo);
+
+      const userInfo = {
+        displayName: name,
+        email,
+        photoURL: photo,
+        password,
+        role: "user",
+        provider: "email",
+      };
+
+      const response = await fetch(`${import.meta.env.VITE_baseUrl}/users`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
       });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to save user");
+      }
+
+      Swal.fire({
+        title: "Success!",
+        text: "Create User successfully",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+
+      navigate("/");
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: error.message,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
   return (

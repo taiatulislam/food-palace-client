@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import axiosInstance from "../../api/axiosInstance";
 
 const authBackgroundStyle = {
   backgroundImage:
@@ -18,65 +19,78 @@ const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
+
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    const user = { email, password };
+    try {
+      await signIn(email, password);
 
-    signIn(email, password)
-      .then((result) => {
-        navigate(location.state ? location.state : "/");
-        Swal.fire({
-          title: "Success!",
-          text: "SignIn successfully",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
-        fetch(`${import.meta.env.VITE_baseUrl}/users`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(user),
-        })
-          .then((res) => res.json())
-          .then((data) => data);
-      })
-      .catch((error) => {
-        console.error(error.code, error.message);
-        return Swal.fire({
-          title: "Error!",
-          text: `${error.message}`,
-          icon: "error",
-          confirmButtonText: "OK",
-        });
+      Swal.fire({
+        title: "Success!",
+        text: "SignIn successfully",
+        icon: "success",
+        confirmButtonText: "OK",
       });
+
+      navigate(location.state ? location.state : "/");
+    } catch (error) {
+      console.error(error.code, error.message);
+
+      let errorMessage = error.message;
+
+      if (error.code === "auth/invalid-credential") {
+        errorMessage = "Invalid email or password";
+      }
+
+      Swal.fire({
+        title: "Error!",
+        text: errorMessage,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
-  const handleGoogle = (e) => {
+  const handleGoogle = async (e) => {
     e.preventDefault();
-    googleSignIn()
-      .then((result) => {
-        Swal.fire({
-          title: "Success!",
-          text: "User SignIn successfully",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
-        navigate(location.state ? location.state : "/");
-      })
-      .catch((error) => {
-        console.error(error.code, error.message);
-        Swal.fire({
-          title: "Error!",
-          text: `${error.message}`,
-          icon: "error",
-          confirmButtonText: "OK",
-        });
+
+    try {
+      const result = await googleSignIn();
+      const loggedUser = result.user;
+
+      const userInfo = {
+        displayName: loggedUser.displayName,
+        email: loggedUser.email,
+        photoURL: loggedUser.photoURL,
+        role: "user",
+        provider: "google",
+        password: null,
+      };
+
+      await axiosInstance.post("/users", userInfo);
+
+      Swal.fire({
+        title: "Success!",
+        text: "User SignIn successfully",
+        icon: "success",
+        confirmButtonText: "OK",
       });
+
+      navigate(location.state ? location.state : "/");
+    } catch (error) {
+      console.error(error.code, error.message);
+
+      Swal.fire({
+        title: "Error!",
+        text: error.message,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
   return (

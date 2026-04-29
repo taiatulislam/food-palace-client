@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./FoodCard.css";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import placeholderImage from "../assets/images/placeholder.png";
+import { AuthContext } from "../Providers/AuthProvider";
 
 export default function FoodCard({ food = {} }) {
   const {
@@ -20,6 +21,7 @@ export default function FoodCard({ food = {} }) {
   } = food;
   const reviewCount = reviews.length;
 
+  const { user } = useContext(AuthContext);
   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState("");
@@ -87,7 +89,11 @@ export default function FoodCard({ food = {} }) {
   };
 
   const handleDetails = (id) => {
-    navigate(`/allFood/${id}`);
+    if (user?.role === "user") {
+      navigate(`/allFood/${id}`);
+    } else {
+      navigate(`/dashboard/manage-food/${id}`);
+    }
   };
 
   return (
@@ -170,59 +176,63 @@ export default function FoodCard({ food = {} }) {
           <span className="fc-calories">{calories} kcal</span>
         </div>
 
-        <div className="fc-divider" />
-
         {/* Bottom row */}
-        <div className="fc-bottom">
-          <div className="fc-price-block">
-            <p className="fc-price-label">Price</p>
-            <p className="fc-price">
-              <span className="fc-currency">৳ </span>
-              {price?.toFixed(2)}
-            </p>
-          </div>
+        {user?.role === "user" && (
+          <>
+            <div className="fc-divider" />
 
-          <div className="fc-qty-add">
-            <button
-              className="fc-qty-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                setQty((q) => Math.max(1, q - 1));
-              }}
-            >
-              −
-            </button>
-            <span className="fc-qty-count">{qty}</span>
-            <button
-              className="fc-qty-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                setQty((q) => Math.max(1, q + 1));
-              }}
-            >
-              +
-            </button>
+            <div className="fc-bottom">
+              <div className="fc-price-block">
+                <p className="fc-price-label">Price</p>
+                <p className="fc-price">
+                  <span className="fc-currency">৳ </span>
+                  {price?.toFixed(2)}
+                </p>
+              </div>
 
-            <button
-              className="fc-add-btn"
-              aria-label="Add to cart"
-              onClick={(e) => handleCart(e, _id, qty)}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                width="15"
-                height="15"
-                fill="none"
-                stroke="#E1F5EE"
-                strokeWidth="2"
-              >
-                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <path d="M16 10a4 4 0 01-8 0" />
-              </svg>
-            </button>
-          </div>
-        </div>
+              <div className="fc-qty-add">
+                <button
+                  className="fc-qty-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setQty((q) => Math.max(1, q - 1));
+                  }}
+                >
+                  −
+                </button>
+                <span className="fc-qty-count">{qty}</span>
+                <button
+                  className="fc-qty-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setQty((q) => Math.max(1, q + 1));
+                  }}
+                >
+                  +
+                </button>
+
+                <button
+                  className="fc-add-btn"
+                  aria-label="Add to cart"
+                  onClick={(e) => handleCart(e, _id, qty)}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                    fill="none"
+                    stroke="#E1F5EE"
+                    strokeWidth="2"
+                  >
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 01-8 0" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       {showAlert && (
