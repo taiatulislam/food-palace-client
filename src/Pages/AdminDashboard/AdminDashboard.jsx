@@ -10,9 +10,8 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import "./AdminDashboard.css";
+import PropTypes from "prop-types";
 
-/* ─── Data ──────────────────────────────────────────── */
 const REVENUE_DATA = [
   { day: "Mon", revenue: 5820 },
   { day: "Tue", revenue: 7240 },
@@ -35,35 +34,35 @@ const RECENT_ORDERS = [
     id: "#8847",
     customer: "Rafiq A.",
     item: "Tom Yum Soup",
-    total: "$19",
+    total: "৳ 19",
     status: "delivered",
   },
   {
     id: "#8846",
     customer: "Priya S.",
     item: "Grilled Fish",
-    total: "$15",
+    total: "৳ 15",
     status: "preparing",
   },
   {
     id: "#8845",
     customer: "Chen W.",
     item: "Mango Sticky Rice",
-    total: "$9",
+    total: "৳ 9",
     status: "delivered",
   },
   {
     id: "#8844",
     customer: "Sara K.",
     item: "Beef Noodles",
-    total: "$18",
+    total: "৳ 18",
     status: "pending",
   },
   {
     id: "#8843",
     customer: "Amir H.",
     item: "Garden Salad",
-    total: "$12",
+    total: "৳ 12",
     status: "cancelled",
   },
 ];
@@ -72,23 +71,23 @@ const TOP_DISHES = [
   {
     rank: 1,
     name: "Tom Yum Soup",
-    orders: 312,
-    revenue: "$5,928",
-    img: "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=80&q=60",
+    orders: 310,
+    revenue: "৳ 392",
+    img: "https://images.unsplash.com/photo-1702940860770-f742273de15c",
   },
   {
     rank: 2,
-    name: "Grilled Fish",
+    name: "Grilled Chicken Steak",
     orders: 210,
-    revenue: "$3,150",
-    img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=80&q=60",
+    revenue: "৳ 999",
+    img: "https://images.unsplash.com/photo-1544025162-d76694265947",
   },
   {
     rank: 3,
-    name: "Mango Sticky Rice",
+    name: "Beef Burger",
     orders: 198,
-    revenue: "$1,782",
-    img: "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=80&q=60",
+    revenue: "৳ 482",
+    img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
   },
 ];
 
@@ -117,11 +116,10 @@ const ACTIVITY = [
 
 const TABS = ["Overview", "Orders", "Menu", "Customers", "Reports"];
 
-/* ─── KPI Cards ─────────────────────────────────────── */
 const KPI_CARDS = [
   {
     label: "Today's revenue",
-    value: "$8,249",
+    value: "৳ 8,249",
     badge: "+12.4%",
     trend: "up",
     color: "green",
@@ -202,7 +200,6 @@ const KPI_CARDS = [
   },
 ];
 
-/* ─── Custom bar colors ─────────────────────────────── */
 function CustomBar(props) {
   const { x, y, width, height, index } = props;
   const isToday = index === REVENUE_DATA.length - 1;
@@ -218,201 +215,313 @@ function CustomBar(props) {
   );
 }
 
-/* ─── Main component ────────────────────────────────── */
+CustomBar.propTypes = {
+  x: PropTypes.number,
+  y: PropTypes.number,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  index: PropTypes.number,
+};
+
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("Overview");
 
-  return (
-    <div className="max-w-7xl mx-auto px-5 lg:px-0">
-      {/* Tabs */}
-      <div className="ad-tabs">
-        {TABS.map((tab) => (
-          <button
-            key={tab}
-            className={`ad-tab ${activeTab === tab ? "ad-tab-active" : ""}`}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
+  // Helper for status pill classes
+  const getStatusClasses = (status) => {
+    const base =
+      "text-[10.5px] font-medium px-2 py-[3px] rounded-full inline-block";
+    const map = {
+      delivered: "bg-[#e1f5ee] text-[#085041]",
+      preparing: "bg-[#faeeda] text-[#633806]",
+      pending: "bg-[#e6f1fb] text-[#0c447c]",
+      cancelled: "bg-[#fcebeb] text-[#791f1f]",
+    };
+    return `${base} ${map[status]}`;
+  };
 
-      {/* KPI Cards */}
-      <div className="ad-kpi-grid">
-        {KPI_CARDS.map((card) => (
-          <div key={card.label} className="ad-kpi-card">
-            <div className="ad-kpi-top">
-              <div className={`ad-kpi-icon ad-kpi-icon--${card.color}`}>
-                {card.icon}
+  const getDotClass = (type) => {
+    const map = {
+      green: "bg-[#1D9E75]",
+      amber: "bg-[#EF9F27]",
+      red: "bg-[#E24B4A]",
+      blue: "bg-[#378ADD]",
+    };
+    return `w-2 h-2 rounded-full shrink-0 mt-1 ${map[type]}`;
+  };
+
+  const getKpiIconClasses = (color) => {
+    const bg = {
+      green: "bg-[#e1f5ee] text-[#085041]",
+      amber: "bg-[#faeeda] text-[#633806]",
+      blue: "bg-[#e6f1fb] text-[#0c447c]",
+      pink: "bg-[#fbeaf0] text-[#72243e]",
+    }[color];
+    return `w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${bg}`;
+  };
+
+  const getBadgeClasses = (trend) => {
+    const base = "text-[10.5px] font-medium px-2 py-[3px] rounded-full";
+    if (trend === "up") return `${base} bg-[#e1f5ee] text-[#085041]`;
+    return `${base} bg-[#fcebeb] text-[#791f1f]`;
+  };
+
+  return (
+    <div className="bg-[#f9fafb] min-h-screen py-6 font-['Sora',system-ui,sans-serif]">
+      <div className="max-w-7xl mx-auto px-5 lg:px-0">
+        {/* Tabs */}
+        <div className="flex gap-1 flex-wrap mb-5">
+          {TABS.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-[18px] py-[7px] rounded-full text-[12.5px] font-medium transition-all duration-150 cursor-pointer ${
+                activeTab === tab
+                  ? "bg-[#111827] text-white border border-[#111827]"
+                  : "bg-[#f9fafb] text-[#6b7280] border border-[#e5e7eb] hover:border-[#d1d5db] hover:text-[#111827]"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* KPI Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 mb-4">
+          {KPI_CARDS.map((card) => (
+            <div
+              key={card.label}
+              className="bg-white border border-[#e5e7eb] rounded-xl p-[14px_16px] hover:border-[#d1d5db] transition-colors"
+            >
+              <div className="flex justify-between items-start mb-2.5">
+                <div className={getKpiIconClasses(card.color)}>{card.icon}</div>
+                <span className={getBadgeClasses(card.trend)}>
+                  {card.badge}
+                </span>
               </div>
-              <span
-                className={`ad-kpi-badge ${card.trend === "up" ? "ad-kpi-badge--up" : "ad-kpi-badge--down"}`}
-              >
-                {card.badge}
+              <div className="text-[28px] font-semibold text-[#111827] leading-none mb-1">
+                {card.value}
+              </div>
+              <div className="text-[10.5px] text-[#9ca3af] uppercase tracking-wide font-medium">
+                {card.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Charts Row */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-3 mb-3.5">
+          {/* Bar Chart */}
+          <div className="bg-white border border-[#e5e7eb] rounded-xl p-[14px_16px]">
+            <div className="flex justify-between items-center text-[13px] font-medium text-[#111827] mb-3.5">
+              Revenue — last 7 days
+              <span className="text-[11px] text-[#9ca3af] font-normal">
+                Apr 22–29
               </span>
             </div>
-            <div className="ad-kpi-val">{card.value}</div>
-            <div className="ad-kpi-lbl">{card.label}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* Charts row */}
-      <div className="ad-mid-grid">
-        {/* Revenue bar chart */}
-        <div className="ad-panel">
-          <div className="ad-panel-title">
-            Revenue — last 7 days
-            <span>Apr 22–29</span>
-          </div>
-          <ResponsiveContainer width="100%" height={160}>
-            <BarChart data={REVENUE_DATA} barSize={28}>
-              <XAxis
-                dataKey="day"
-                tick={{ fontSize: 10, fill: "#888780" }}
-                axisLine={false}
-                tickLine={false}
-              />
-              <YAxis
-                tick={{ fontSize: 10, fill: "#888780" }}
-                axisLine={false}
-                tickLine={false}
-                tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
-              />
-              <Tooltip
-                formatter={(v) => [`$${v.toLocaleString()}`, "Revenue"]}
-                contentStyle={{
-                  fontSize: 12,
-                  borderRadius: 8,
-                  border: "0.5px solid #e5e7eb",
-                  fontFamily: "'Sora', sans-serif",
-                }}
-              />
-              <Bar
-                dataKey="revenue"
-                shape={<CustomBar />}
-                radius={[4, 4, 0, 0]}
-              />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Doughnut */}
-        <div className="ad-panel">
-          <div className="ad-panel-title">Orders by status</div>
-          <ResponsiveContainer width="100%" height={130}>
-            <PieChart>
-              <Pie
-                data={ORDER_STATUS}
-                cx="50%"
-                cy="50%"
-                innerRadius={38}
-                outerRadius={58}
-                dataKey="value"
-                paddingAngle={2}
-              >
-                {ORDER_STATUS.map((entry) => (
-                  <Cell key={entry.name} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip
-                formatter={(v, name) => [`${v}%`, name]}
-                contentStyle={{
-                  fontSize: 12,
-                  borderRadius: 8,
-                  border: "0.5px solid #e5e7eb",
-                  fontFamily: "'Sora', sans-serif",
-                }}
-              />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="ad-legend">
-            {ORDER_STATUS.map((s) => (
-              <div key={s.name} className="ad-legend-item">
-                <span
-                  className="ad-legend-dot"
-                  style={{ background: s.color }}
-                />
-                {s.name} {s.value}%
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom row */}
-      <div className="ad-bot-grid">
-        {/* Recent orders */}
-        <div className="ad-panel">
-          <div className="ad-panel-title">
-            Recent orders
-            <span className="ad-live-badge">Live</span>
-          </div>
-          <table className="ad-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Customer</th>
-                <th>Item</th>
-                <th>Total</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {RECENT_ORDERS.map((o) => (
-                <tr key={o.id}>
-                  <td className="ad-table-id">{o.id}</td>
-                  <td>{o.customer}</td>
-                  <td>{o.item}</td>
-                  <td>{o.total}</td>
-                  <td>
-                    <span
-                      className={`ad-status-pill ad-status-pill--${o.status}`}
-                    >
-                      {o.status.charAt(0).toUpperCase() + o.status.slice(1)}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="ad-right-col">
-          {/* Top dishes */}
-          <div className="ad-panel">
-            <div className="ad-panel-title">
-              Top dishes
-              <span>This week</span>
+            <div className="w-full h-48">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={REVENUE_DATA} barSize={28}>
+                  <XAxis
+                    dataKey="day"
+                    tick={{ fontSize: 10, fill: "#888780" }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    tick={{ fontSize: 10, fill: "#888780" }}
+                    axisLine={false}
+                    tickLine={false}
+                    tickFormatter={(v) => `৳ ${(v / 1000).toFixed(0)}k`}
+                  />
+                  <Tooltip
+                    formatter={(v) => [`৳ ${v.toLocaleString()}`, "Revenue"]}
+                    contentStyle={{
+                      fontSize: 12,
+                      borderRadius: 8,
+                      border: "0.5px solid #e5e7eb",
+                      fontFamily: "'Sora', sans-serif",
+                    }}
+                  />
+                  <Bar
+                    dataKey="revenue"
+                    shape={<CustomBar />}
+                    isAnimationActive={false}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
-            {TOP_DISHES.map((dish) => (
-              <div key={dish.rank} className="ad-top-dish">
-                <span className="ad-dish-rank">{dish.rank}</span>
-                <img src={dish.img} alt={dish.name} className="ad-dish-img" />
-                <div className="ad-dish-info">
-                  <div className="ad-dish-name">{dish.name}</div>
-                  <div className="ad-dish-orders">{dish.orders} orders</div>
-                </div>
-                <span className="ad-dish-rev">{dish.revenue}</span>
-              </div>
-            ))}
           </div>
 
-          {/* Activity */}
-          <div className="ad-panel">
-            <div className="ad-panel-title">Recent activity</div>
-            {ACTIVITY.map((a, i) => (
-              <div
-                key={i}
-                className={`ad-activity-item ${i === ACTIVITY.length - 1 ? "ad-activity-last" : ""}`}
-              >
-                <div className={`ad-act-dot ad-act-dot--${a.type}`} />
-                <div>
-                  <div className="ad-act-text">{a.text}</div>
-                  <div className="ad-act-time">{a.time}</div>
+          {/* Pie Chart */}
+          <div className="bg-white border border-[#e5e7eb] rounded-xl p-[14px_16px]">
+            <div className="text-[13px] font-medium text-[#111827] mb-3.5">
+              Orders by status
+            </div>
+            <div className="w-full h-40">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={ORDER_STATUS}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={38}
+                    outerRadius={58}
+                    dataKey="value"
+                    paddingAngle={2}
+                  >
+                    {ORDER_STATUS.map((entry) => (
+                      <Cell key={entry.name} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    formatter={(v, name) => [`${v}%`, name]}
+                    contentStyle={{
+                      fontSize: 12,
+                      borderRadius: 8,
+                      border: "0.5px solid #e5e7eb",
+                      fontFamily: "'Sora', sans-serif",
+                    }}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="flex flex-col gap-1.5 mt-3">
+              {ORDER_STATUS.map((s) => (
+                <div
+                  key={s.name}
+                  className="flex items-center gap-1.5 text-[11.5px] text-[#6b7280]"
+                >
+                  <span
+                    className="w-2 h-2 rounded-[2px]"
+                    style={{ background: s.color }}
+                  />
+                  {s.name} {s.value}%
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-3">
+          {/* Recent Orders Table */}
+          <div className="bg-white border border-[#e5e7eb] rounded-xl p-[14px_16px] overflow-x-auto">
+            <div className="flex justify-between items-center mb-3.5">
+              <span className="text-[13px] font-medium text-[#111827]">
+                Recent orders
+              </span>
+              <span className="text-[10.5px] font-medium text-[#1d9e75] bg-[#e1f5ee] px-2 py-[3px] rounded-full">
+                Live
+              </span>
+            </div>
+            <table className="w-full text-[12.5px] border-collapse">
+              <thead>
+                <tr>
+                  <th className="text-left text-[10.5px] text-[#9ca3af] uppercase tracking-wide font-medium pb-2.5 border-b border-[#f3f4f6]">
+                    #
+                  </th>
+                  <th className="text-left text-[10.5px] text-[#9ca3af] uppercase tracking-wide font-medium pb-2.5 border-b border-[#f3f4f6]">
+                    Customer
+                  </th>
+                  <th className="text-left text-[10.5px] text-[#9ca3af] uppercase tracking-wide font-medium pb-2.5 border-b border-[#f3f4f6]">
+                    Item
+                  </th>
+                  <th className="text-left text-[10.5px] text-[#9ca3af] uppercase tracking-wide font-medium pb-2.5 border-b border-[#f3f4f6]">
+                    Total
+                  </th>
+                  <th className="text-left text-[10.5px] text-[#9ca3af] uppercase tracking-wide font-medium pb-2.5 border-b border-[#f3f4f6]">
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {RECENT_ORDERS.map((o) => (
+                  <tr key={o.id}>
+                    <td className="py-2.5 border-b border-[#f9fafb] text-[#9ca3af]">
+                      {o.id}
+                    </td>
+                    <td className="py-2.5 border-b border-[#f9fafb] text-[#111827]">
+                      {o.customer}
+                    </td>
+                    <td className="py-2.5 border-b border-[#f9fafb] text-[#111827]">
+                      {o.item}
+                    </td>
+                    <td className="py-2.5 border-b border-[#f9fafb] text-[#111827]">
+                      {o.total}
+                    </td>
+                    <td className="py-2.5 border-b border-[#f9fafb]">
+                      <span className={getStatusClasses(o.status)}>
+                        {o.status.charAt(0).toUpperCase() + o.status.slice(1)}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Right Column */}
+          <div className="flex flex-col gap-3">
+            {/* Top Dishes */}
+            <div className="bg-white border border-[#e5e7eb] rounded-xl p-[14px_16px]">
+              <div className="flex justify-between items-center mb-3.5">
+                <span className="text-[13px] font-medium text-[#111827]">
+                  Top dishes
+                </span>
+                <span className="text-[11px] text-[#9ca3af] font-normal">
+                  This week
+                </span>
               </div>
-            ))}
+              {TOP_DISHES.map((dish) => (
+                <div
+                  key={dish.rank}
+                  className="flex items-center gap-2.5 mb-2.5 last:mb-0"
+                >
+                  <span className="text-[11px] font-medium text-[#9ca3af] w-4 text-center">
+                    {dish.rank}
+                  </span>
+                  <img
+                    src={dish.img}
+                    alt={dish.name}
+                    className="w-[38px] h-[38px] rounded-lg object-cover bg-[#f3f4f6]"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[12.5px] font-medium text-[#111827] truncate">
+                      {dish.name}
+                    </div>
+                    <div className="text-[11px] text-[#9ca3af] mt-0.5">
+                      {dish.orders} orders
+                    </div>
+                  </div>
+                  <span className="text-[12.5px] font-medium text-[#111827] shrink-0">
+                    {dish.revenue}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Recent Activity */}
+            <div className="bg-white border border-[#e5e7eb] rounded-xl p-[14px_16px]">
+              <div className="text-[13px] font-medium text-[#111827] mb-3.5">
+                Recent activity
+              </div>
+              {ACTIVITY.map((a, i) => (
+                <div
+                  key={i}
+                  className={`flex gap-2.5 items-start ${i !== ACTIVITY.length - 1 ? "pb-3 mb-3 border-b border-[#f3f4f6]" : ""}`}
+                >
+                  <div className={getDotClass(a.type)} />
+                  <div>
+                    <div className="text-[12px] text-[#111827] leading-normal">
+                      {a.text}
+                    </div>
+                    <div className="text-[10.5px] text-[#9ca3af] mt-0.5">
+                      {a.time}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

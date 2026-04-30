@@ -36,7 +36,7 @@ const Navbar = () => {
   const adminMenuLinks = [
     { label: "Dashboard", to: `/dashboard` },
     { label: "Manage food", to: "/dashboard/manage-food" },
-    { label: "All FOod", to: `/dashboard/all-food` },
+    { label: "All Food", to: `/dashboard/all-food` },
   ];
 
   const links = (
