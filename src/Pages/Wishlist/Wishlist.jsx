@@ -3,6 +3,7 @@ import "./Wishlist.css";
 import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
 import FoodCard from "../../Components/FoodCard";
 import { useQuery } from "@tanstack/react-query";
+import axiosInstance from "../../api/axiosInstance";
 
 const FILTERS = [
   { label: "All", value: "all" },
@@ -34,7 +35,7 @@ export default function Wishlist() {
   const [filter, setFilter] = useState("all");
 
   const fetchAllFoods = async () => {
-    const response = await fetch("/json/allFood.json");
+    const response = await axiosInstance.get("/foods");
 
     if (!response.ok) {
       throw new Error("Failed to fetch food data");

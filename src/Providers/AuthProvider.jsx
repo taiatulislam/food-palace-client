@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // Register user
-  const createUser = (email, password) => {
+  const createUser = async (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         try {
           const res = await fetch(
-            `${import.meta.env.VITE_baseUrl}/users/${currentUser.email}`,
+            `${import.meta.env.VITE_baseUrl}/users?email=${currentUser.email}`,
           );
 
           if (!res.ok) {
@@ -69,25 +69,22 @@ const AuthProvider = ({ children }) => {
           }
 
           const dbUser = await res.json();
+          const userData = dbUser?.data?.[0];
 
-          // Properly merge Firebase + DB data
-          setUser({
-            uid: currentUser.uid,
-            email: currentUser.email,
-            displayName: currentUser.displayName,
-            photoURL: currentUser.photoURL,
-            ...dbUser,
-          });
+          if (userData) {
+            setUser({
+              uid: currentUser.uid,
+              email: currentUser.email,
+              displayName: currentUser.displayName,
+              photoURL: currentUser.photoURL,
+              ...userData,
+            });
+          } else {
+            setUser(null);
+          }
         } catch (error) {
           console.error("Database user fetch failed:", error);
-
-          // Fallback to Firebase only
-          setUser({
-            uid: currentUser.uid,
-            email: currentUser.email,
-            displayName: currentUser.displayName,
-            photoURL: currentUser.photoURL,
-          });
+          setUser(null);
         }
       } else {
         setUser(null);
@@ -105,6 +102,7 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     updateUserProfile,
     user,
+    setUser,
     loading,
     signout,
   };

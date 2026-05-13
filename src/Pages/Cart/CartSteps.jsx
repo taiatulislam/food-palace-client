@@ -5,6 +5,7 @@ import CheckoutPage from "../CheckoutPage/CheckoutPage";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import PropTypes from "prop-types";
+import axiosInstance from "../../api/axiosInstance";
 
 const DELIVERY_OPTIONS = [
   { id: "standard", label: "Standard", sub: "30–45 min", fee: 50.0 },
@@ -23,7 +24,7 @@ export default function CartSteps() {
   const [delivery, setDelivery] = useState("standard");
 
   const fetchAllFoods = async () => {
-    const response = await fetch("/json/allFood.json");
+    const response = await axiosInstance.get("/foods");
 
     if (!response.ok) {
       throw new Error("Failed to fetch food data");

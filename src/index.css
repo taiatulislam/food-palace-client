@@ -5,7 +5,7 @@
 :root {
   --color-primary: #dc3545;
   --color-secondary: #ffc107;
-  --color-star: #EF9F27;
+  --color-star: #ef9f27;
 }
 
 * {
@@ -70,4 +70,16 @@
   width: 30px;
   height: 6px;
   border-radius: 10px;
+}
+
+/* Chrome, Safari, Edge */
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.no-spinner {
+  -moz-appearance: textfield;
 }

@@ -3,21 +3,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useQuery } from "@tanstack/react-query";
+import axiosInstance from "../../api/axiosInstance";
 
 const ChooseCategory = () => {
   const fetchAllCategory = async () => {
-    const response = await fetch("/json/category.json");
+    const response = await axiosInstance.get("/categories");
 
-    if (!response.ok) {
+    if (!response.data.success) {
       throw new Error("Failed to fetch food data");
     }
 
-    return response.json();
+    return response.data;
   };
 
-  const { data: totalCategory = [], isLoading } = useQuery({
+  const { data: totalCategory = {}, isLoading } = useQuery({
     queryKey: ["all-category"],
     queryFn: fetchAllCategory,
+    retry: false,
+    refetchOnWindowFocus: false,
   });
 
   return (
@@ -52,7 +55,7 @@ const ChooseCategory = () => {
                 </div>
               </SwiperSlide>
             ))
-          : totalCategory?.map((category, index) => (
+          : totalCategory?.data?.map((category, index) => (
               <SwiperSlide key={index} className="text-center">
                 <div className="flex flex-col items-center">
                   <img

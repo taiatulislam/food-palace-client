@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Reserve = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [formData, setFormData] = useState({});
   const [alertMessage, setAlertMessage] = useState("");
+  const { user } = useContext(AuthContext);
   let alertTimeout;
 
   const showCustomAlert = (message) => {
@@ -24,8 +26,23 @@ const Reserve = () => {
     }, 3000);
   };
 
-  const handleReserve = () => {
-    showCustomAlert("Reserve successfully!");
+  const handleReserve = (e) => {
+    e.preventDefault();
+    if (user) {
+      if (
+        formData?.name &&
+        formData?.email &&
+        formData?.guests &&
+        formData?.reserveDate &&
+        formData?.reserveTime
+      ) {
+        showCustomAlert("Reserve successfully!");
+      } else {
+        showCustomAlert("Fill all the data!");
+      }
+    } else {
+      showCustomAlert("Login First!");
+    }
   };
 
   const handleForm = (e) => {
@@ -59,12 +76,7 @@ const Reserve = () => {
 
         {/* Right Form */}
         <div className="w-full lg:w-2/3">
-          <form
-            className="space-y-5"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+          <form className="space-y-5" onSubmit={(e) => handleReserve(e)}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {/* Left Inputs */}
               <div className="flex flex-col gap-5">
@@ -74,7 +86,6 @@ const Reserve = () => {
                   name="name"
                   value={formData?.name}
                   onChange={handleForm}
-                  required
                   className="w-full p-3 rounded-md outline-none"
                 />
                 <input
@@ -83,7 +94,6 @@ const Reserve = () => {
                   name="guests"
                   value={formData?.guests}
                   onChange={handleForm}
-                  required
                   className="w-full p-3 rounded-md outline-none"
                 />
               </div>
@@ -96,7 +106,6 @@ const Reserve = () => {
                   name="email"
                   value={formData?.email}
                   onChange={handleForm}
-                  required
                   className="w-full p-3 rounded-md outline-none"
                 />
 
@@ -106,7 +115,6 @@ const Reserve = () => {
                     name="reserveDate"
                     value={formData?.reserveDate}
                     onChange={handleForm}
-                    required
                     className="w-full p-3 rounded-md outline-none"
                   />
                   <input
@@ -114,7 +122,6 @@ const Reserve = () => {
                     name="reserveTime"
                     value={formData?.reserveTime}
                     onChange={handleForm}
-                    required
                     className="w-full p-3 rounded-md outline-none"
                   />
                 </div>
@@ -124,9 +131,15 @@ const Reserve = () => {
             {/* Button */}
             <div className="flex justify-end">
               <button
+                disabled={
+                  !formData?.name ||
+                  !formData?.email ||
+                  !formData?.guests ||
+                  !formData?.reserveDate ||
+                  !formData?.reserveTime
+                }
                 type="submit"
-                className="bg-secondary hover:opacity-90 transition px-6 py-3 font-semibold rounded-lg text-white text-sm md:text-base"
-                onClick={handleReserve}
+                className="bg-secondary hover:opacity-90 transition px-6 py-3 font-semibold rounded-lg text-white text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Reserve A Table
               </button>

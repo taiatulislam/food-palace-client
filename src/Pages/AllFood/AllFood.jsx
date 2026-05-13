@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-// import axiosInstance from "../../api/axiosInstance";
 import FoodCard from "../../Components/FoodCard";
 import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
+import axiosInstance from "../../api/axiosInstance";
 
 const AllFood = () => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [availabilityFilter, setAvailabilityFilter] = useState("all");
@@ -16,45 +16,36 @@ const AllFood = () => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  // const { data: totalFoodData = [], isLoading: isTotalLoading } = useQuery({
-  //   queryKey: ["all-food-total"],
-  //   queryFn: async () => {
-  //     const { data } = await axiosInstance.get("/allFood");
-  //     return data;
-  //   },
-  // });
-
   const fetchAllFoods = async () => {
-    const response = await fetch("/json/allFood.json");
+    let url = `/foods?}`;
 
-    if (!response.ok) {
+    if (searchTerm) {
+      url += `name=${searchTerm}&page=${currentPage}`;
+    } else {
+      url += `page=${currentPage}`;
+    }
+
+    const response = await axiosInstance.get(url);
+
+    if (!response.data.success) {
       throw new Error("Failed to fetch food data");
     }
 
-    return response.json();
+    return response.data;
   };
 
-  const { data: totalFoodData = [], isLoading: isTotalLoading } = useQuery({
-    queryKey: ["all-foods"],
+  const { data: totalFoodData = {}, isLoading: isTotalLoading } = useQuery({
+    queryKey: ["all-foods", currentPage, searchTerm],
     queryFn: fetchAllFoods,
+    retry: false,
+    refetchOnWindowFocus: false,
   });
 
-  const noOfPage = Math.ceil((totalFoodData?.length || 0) / foodPerPage);
-  const pages = [];
-  for (let i = 0; i < noOfPage; i++) {
-    pages.push(i);
-  }
+  const noOfPage = totalFoodData?.meta?.totalPages || 0;
+  const pages = Array.from({ length: noOfPage }, (_, index) => index + 1);
 
   const handlePage = (page) => {
     setCurrentPage(page);
-  };
-
-  const handleForm = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    setSearchTerm(name.trim().toLowerCase());
-    setCurrentPage(0);
   };
 
   const hasFilterApplied =
@@ -63,16 +54,13 @@ const AllFood = () => {
     availabilityFilter !== "all" ||
     priceSort !== "none";
 
-  const pagedFoods = totalFoodData?.slice(
-    currentPage * foodPerPage,
-    (currentPage + 1) * foodPerPage,
-  );
-
-  const baseFoods = hasFilterApplied ? totalFoodData : pagedFoods;
+  const baseFoods = totalFoodData?.data || [];
 
   const categories = [
     "all",
-    ...new Set(totalFoodData?.map((food) => food.category).filter(Boolean)),
+    ...new Set(
+      totalFoodData?.data?.map((food) => food.category).filter(Boolean),
+    ),
   ];
 
   const displayFoods = [...baseFoods]
@@ -113,7 +101,7 @@ const AllFood = () => {
             value={priceSort}
             onChange={(e) => {
               setPriceSort(e.target.value);
-              setCurrentPage(0);
+              setCurrentPage(1);
             }}
             className="select select-bordered border-2 border-primary w-full md:w-[220px]"
           >
@@ -131,21 +119,14 @@ const AllFood = () => {
           <div className="space-y-4">
             <div>
               <p className="font-semibold mb-2">Search Food</p>
-              <form onSubmit={handleForm}>
-                <div className="flex">
-                  <input
-                    type="text"
-                    name="name"
-                    value={searchTerm}
-                    placeholder="Burger, Pizza, Pasta..."
-                    className="pl-2 border-2 p-2 border-primary rounded-l-lg w-full"
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                  <button className="text-white bg-primary border-2 py-2 px-4 border-primary rounded-r-lg">
-                    Go
-                  </button>
-                </div>
-              </form>
+              <input
+                type="text"
+                name="name"
+                value={searchTerm}
+                placeholder="Burger, Pizza, Pasta..."
+                className="pl-2 border-2 p-2 border-primary rounded-lg w-full"
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
 
             <div>
@@ -154,7 +135,7 @@ const AllFood = () => {
                 value={categoryFilter}
                 onChange={(e) => {
                   setCategoryFilter(e.target.value);
-                  setCurrentPage(0);
+                  setCurrentPage(1);
                 }}
                 className="select select-bordered border-2 border-primary w-full"
               >
@@ -172,7 +153,7 @@ const AllFood = () => {
                 value={availabilityFilter}
                 onChange={(e) => {
                   setAvailabilityFilter(e.target.value);
-                  setCurrentPage(0);
+                  setCurrentPage(1);
                 }}
                 className="select select-bordered border-2 border-primary w-full"
               >
@@ -188,7 +169,7 @@ const AllFood = () => {
                 setCategoryFilter("all");
                 setAvailabilityFilter("all");
                 setPriceSort("none");
-                setCurrentPage(0);
+                setCurrentPage(1);
               }}
               className="btn w-full bg-primary text-white normal-case"
             >
@@ -218,7 +199,7 @@ const AllFood = () => {
                     currentPage === page ? "bg-primary btn text-white" : "btn"
                   }
                 >
-                  {page + 1}
+                  {page}
                 </button>
               ))}
           </div>

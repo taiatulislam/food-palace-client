@@ -87,25 +87,37 @@ const Navbar = () => {
   );
 
   const handleSignOut = () => {
-    signout()
-      .then(() => {
-        Swal.fire({
-          title: "Success!",
-          text: "User signed out successfully",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
-      })
-      .catch((error) => {
-        console.error(error.code, error.message);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be signed out from your account!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Sign Out",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        signout()
+          .then(() => {
+            Swal.fire({
+              title: "Success!",
+              text: "User signed out successfully",
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+          })
+          .catch((error) => {
+            console.error(error.code, error.message);
 
-        Swal.fire({
-          title: "Error!",
-          text: error.message,
-          icon: "error",
-          confirmButtonText: "OK",
-        });
-      });
+            Swal.fire({
+              title: "Error!",
+              text: error.message,
+              icon: "error",
+              confirmButtonText: "OK",
+            });
+          });
+      }
+    });
   };
 
   return (

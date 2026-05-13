@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import placeholderImage from "../../assets/images/placeholder.png";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
+import axiosInstance from "../../api/axiosInstance";
 
 const SERVES_OPTIONS = [
   "1–2 persons",
@@ -35,7 +36,7 @@ export default function AddFood2() {
   const [imgHover, setImgHover] = useState(false);
 
   const fetchAllFoods = async () => {
-    const response = await fetch("/json/allFood.json");
+    const response = await axiosInstance.get("/foods");
 
     if (!response.ok) {
       throw new Error("Failed to fetch food data");

@@ -7,6 +7,7 @@ import BookingDetailsSkeleton from "../../Components/BookingDetailsSkeleton";
 import { ImQuotesLeft } from "react-icons/im";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import axiosInstance from "../../api/axiosInstance";
 
 export default function FoodDetails() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ export default function FoodDetails() {
   let alertTimeout;
 
   const fetchAllFoods = async () => {
-    const response = await fetch("/json/allFood.json");
+    const response = await axiosInstance.get("/foods");
 
     if (!response.ok) {
       throw new Error("Failed to fetch food data");

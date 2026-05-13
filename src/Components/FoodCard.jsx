@@ -101,12 +101,14 @@ export default function FoodCard({ food = {} }) {
       {/* Image */}
       <div className="fc-image-area">
         <img
-          src={image}
+          src={image || placeholderImage}
           alt={name}
-          className="fc-img"
-          onError={(e) => {
-            e.currentTarget.src = placeholderImage;
-          }}
+          loading="lazy"
+          decoding="async"
+          width="400"
+          height="300"
+          className="w-full aspect-[4/3] object-cover rounded-xl"
+          onError={(e) => (e.currentTarget.src = placeholderImage)}
         />
 
         <span

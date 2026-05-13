@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
 import FoodCard from "../../Components/FoodCard";
+import axiosInstance from "../../api/axiosInstance";
 
 const AddedFood = () => {
   // const { email } = useParams();
@@ -15,7 +16,7 @@ const AddedFood = () => {
   // });
 
   const fetchAllFoods = async () => {
-    const response = await fetch("/json/allFood.json");
+    const response = await axiosInstance.get("/foods");
 
     if (!response.ok) {
       throw new Error("Failed to fetch food data");

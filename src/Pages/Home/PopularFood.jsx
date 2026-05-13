@@ -1,31 +1,18 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-// import axiosInstance from "../../api/axiosInstance";
 import FoodCard from "../../Components/FoodCard";
 import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
+import axiosInstance from "../../api/axiosInstance";
 
 const PopularFood = () => {
-  // const { data: foods = [], isLoading } = useQuery({
-  //   queryKey: ["popular-food"],
-  //   queryFn: async () => {
-  //     const { data } = await axiosInstance.get("/popularFood");
-  //     return Array.isArray(data) ? data.slice(0, 4) : [];
-  //   },
-  // });
-
-  const fetchPopularFood = async () => {
-    const response = await fetch("/json/popularFood.json");
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch food data");
-    }
-
-    return response.json();
-  };
-
   const { data: popularFood = [], isLoading } = useQuery({
     queryKey: ["popular-food"],
-    queryFn: fetchPopularFood,
+    queryFn: async () => {
+      const { data } = await axiosInstance.get("/foods/popular");
+      return Array.isArray(data?.data) ? data?.data?.slice(0, 4) : [];
+    },
+    retry: false,
+    refetchOnWindowFocus: false,
   });
 
   return (
