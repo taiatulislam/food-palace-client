@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import FoodCard from "../../Components/FoodCard";
 import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
 import axiosInstance from "../../api/axiosInstance";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { fetchWishlists } from "../../utils/fetchFunction";
 
 const AllFood = () => {
+  const { user } = useContext(AuthContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
@@ -17,7 +20,7 @@ const AllFood = () => {
   }, [currentPage]);
 
   const fetchAllFoods = async () => {
-    let url = `/foods?}`;
+    let url = `/foods?`;
 
     if (searchTerm) {
       url += `name=${searchTerm}&page=${currentPage}`;
@@ -39,6 +42,14 @@ const AllFood = () => {
     queryFn: fetchAllFoods,
     retry: false,
     refetchOnWindowFocus: false,
+  });
+
+  const { data: wishlistData = [] } = useQuery({
+    queryKey: ["all-wishlist"],
+    queryFn: () => fetchWishlists(user),
+    retry: false,
+    refetchOnWindowFocus: false,
+    enabled: !!user,
   });
 
   const noOfPage = totalFoodData?.meta?.totalPages || 0;
@@ -185,7 +196,11 @@ const AllFood = () => {
                   <FoodCardSkeleton key={index} />
                 ))
               : displayFoods?.map((food) => (
-                  <FoodCard key={food._id} food={food} />
+                  <FoodCard
+                    key={food._id}
+                    food={food}
+                    wishlistData={wishlistData || []}
+                  />
                 ))}
           </div>
 

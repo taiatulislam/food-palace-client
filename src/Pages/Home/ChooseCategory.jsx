@@ -47,7 +47,7 @@ const ChooseCategory = () => {
           ? Array.from({ length: 8 }).map((_, index) => (
               <SwiperSlide key={index} className="text-center">
                 <div className="flex flex-col items-center animate-pulse">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-gray-300"></div>
+                  <div className="w-full h-24 md:w-full md:h-28 rounded-full bg-gray-300"></div>
                   <div className="mt-4 space-y-2">
                     <div className="h-4 w-24 bg-gray-300 rounded mx-auto"></div>
                     <div className="h-3 w-32 bg-gray-200 rounded mx-auto"></div>

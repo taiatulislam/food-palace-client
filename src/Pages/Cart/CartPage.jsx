@@ -97,7 +97,7 @@ export default function CartPage({
         <div className="w-full xl:w-[65%]">
           {isLoading || isFetching ? (
             <div className="cp-item-list space-y-5">
-              {[...Array(4)].map((_, i) => (
+              {[...Array(3)].map((_, i) => (
                 <div
                   key={i}
                   className="cp-item-card animate-pulse flex flex-col sm:flex-row gap-4"

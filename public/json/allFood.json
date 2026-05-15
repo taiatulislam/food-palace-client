@@ -1,6 +1,5 @@
 [
   {
-    "_id": 1,
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
     "name": "Margherita Pizza",
     "price": 1199,
@@ -64,7 +63,6 @@
     ]
   },
   {
-    "_id": 2,
     "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
     "name": "Grilled Chicken Steak",
     "price": 1499,
@@ -128,7 +126,6 @@
     ]
   },
   {
-    "_id": 3,
     "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
     "name": "Beef Burger",
     "price": 899,
@@ -192,7 +189,6 @@
     ]
   },
   {
-    "_id": 4,
     "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
     "name": "Creamy Alfredo Pasta",
     "price": 1099,
@@ -256,7 +252,6 @@
     ]
   },
   {
-    "_id": 5,
     "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
     "name": "BBQ Ribs",
     "price": 1899,
@@ -320,7 +315,6 @@
     ]
   },
   {
-    "_id": 6,
     "image": "https://images.unsplash.com/photo-1559314809-0d155014e29e",
     "name": "Pad Thai",
     "price": 999,
@@ -384,7 +378,6 @@
     ]
   },
   {
-    "_id": 7,
     "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624",
     "name": "Green Curry",
     "price": 1099,
@@ -448,7 +441,6 @@
     ]
   },
   {
-    "_id": 8,
     "image": "https://images.unsplash.com/photo-1702940860770-f742273de15c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "name": "Tom Yum Soup",
     "price": 799,
@@ -512,7 +504,6 @@
     ]
   },
   {
-    "_id": 9,
     "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950",
     "name": "Thai Basil Chicken",
     "price": 949,
@@ -576,7 +567,6 @@
     ]
   },
   {
-    "_id": 10,
     "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
     "name": "Mango Sticky Rice",
     "price": 699,
@@ -640,7 +630,6 @@
     ]
   },
   {
-    "_id": 11,
     "image": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=1115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "name": "Classic Cheeseburger",
     "price": 799,
@@ -704,7 +693,6 @@
     ]
   },
   {
-    "_id": 12,
     "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec",
     "name": "Crispy Fried Chicken",
     "price": 999,
@@ -768,7 +756,6 @@
     ]
   },
   {
-    "_id": 13,
     "image": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5",
     "name": "French Fries",
     "price": 399,
@@ -832,7 +819,6 @@
     ]
   },
   {
-    "_id": 14,
     "image": "https://images.unsplash.com/photo-1638368593249-7cadb261e8b3?q=80&w=691&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "name": "Hot Dog",
     "price": 499,
@@ -896,7 +882,6 @@
     ]
   },
   {
-    "_id": 15,
     "image": "https://images.unsplash.com/photo-1512152272829-e3139592d56f",
     "name": "Chicken Nuggets",
     "price": 599,
@@ -960,7 +945,6 @@
     ]
   },
   {
-    "_id": 16,
     "image": "https://images.unsplash.com/photo-1559847844-5315695dadae",
     "name": "Grilled Salmon",
     "price": 1699,
@@ -1024,7 +1008,6 @@
     ]
   },
   {
-    "_id": 17,
     "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
     "name": "Garlic Butter Shrimp",
     "price": 1499,
@@ -1088,7 +1071,6 @@
     ]
   },
   {
-    "_id": 18,
     "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288",
     "name": "Fish and Chips",
     "price": 1299,
@@ -1152,7 +1134,6 @@
     ]
   },
   {
-    "_id": 19,
     "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
     "name": "Lobster Thermidor",
     "price": 2999,
@@ -1216,7 +1197,6 @@
     ]
   },
   {
-    "_id": 20,
     "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3",
     "name": "Seafood Paella",
     "price": 1899,
@@ -1280,7 +1260,6 @@
     ]
   },
   {
-    "_id": 21,
     "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
     "name": "Chocolate Cake",
     "price": 699,
@@ -1344,7 +1323,6 @@
     ]
   },
   {
-    "_id": 22,
     "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777",
     "name": "Ice Cream Sundae",
     "price": 499,
@@ -1408,7 +1386,6 @@
     ]
   },
   {
-    "_id": 23,
     "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b",
     "name": "Strawberry Cheesecake",
     "price": 799,
@@ -1472,7 +1449,6 @@
     ]
   },
   {
-    "_id": 24,
     "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff",
     "name": "Croissant",
     "price": 299,
@@ -1536,7 +1512,6 @@
     ]
   },
   {
-    "_id": 25,
     "image": "https://images.unsplash.com/photo-1464306076886-da185f6a9d05",
     "name": "Macarons",
     "price": 599,

@@ -3,8 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import FoodCard from "../../Components/FoodCard";
 import FoodCardSkeleton from "../../Components/FoodCardSkeleton";
 import axiosInstance from "../../api/axiosInstance";
+import { fetchWishlists } from "../../utils/fetchFunction";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const PopularFood = () => {
+  const { user } = useContext(AuthContext);
+
   const { data: popularFood = [], isLoading } = useQuery({
     queryKey: ["popular-food"],
     queryFn: async () => {
@@ -13,6 +18,14 @@ const PopularFood = () => {
     },
     retry: false,
     refetchOnWindowFocus: false,
+  });
+
+  const { data: wishlistData = [] } = useQuery({
+    queryKey: ["all-wishlist"],
+    queryFn: () => fetchWishlists(user),
+    retry: false,
+    refetchOnWindowFocus: false,
+    enabled: !!user,
   });
 
   return (
@@ -26,7 +39,13 @@ const PopularFood = () => {
           ? Array.from({ length: 4 }).map((_, index) => (
               <FoodCardSkeleton key={index} variant="popularFood" />
             ))
-          : popularFood?.map((food) => <FoodCard key={food._id} food={food} />)}
+          : popularFood?.map((food) => (
+              <FoodCard
+                key={food._id}
+                food={food}
+                wishlistData={wishlistData}
+              />
+            ))}
       </div>
 
       <div className="mt-10 text-center">

@@ -1,48 +1,46 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./FoodDetails.css";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-// import axiosInstance from "../../api/axiosInstance";
 import BookingDetailsSkeleton from "../../Components/BookingDetailsSkeleton";
 import { ImQuotesLeft } from "react-icons/im";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import axiosInstance from "../../api/axiosInstance";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { fetchWishlists } from "../../utils/fetchFunction";
 
 export default function FoodDetails() {
+  const { user } = useContext(AuthContext);
   const { id } = useParams();
   // const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [qty, setQty] = useState(1);
   const [cart, setCart] = useState(false);
-  const [wished, setWished] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   let alertTimeout;
 
-  const fetchAllFoods = async () => {
-    const response = await axiosInstance.get("/foods");
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch food data");
-    }
-
-    return response.json();
-  };
-
-  const { data: allFood = [], isLoading } = useQuery({
-    queryKey: ["all-foods"],
-    queryFn: fetchAllFoods,
+  const { data: wishlistData = [] } = useQuery({
+    queryKey: ["all-wishlist"],
+    queryFn: () => fetchWishlists(user),
+    retry: false,
+    refetchOnWindowFocus: false,
+    enabled: !!user,
   });
 
-  const food = allFood.find((item) => item._id === Number(id));
+  const wished = user
+    ? wishlistData.some((item) => item?.foodId === id)
+    : wishlistData.includes(id);
 
-  // const { data: food, isLoading } = useQuery({
-  //   queryKey: ["food-details", id],
-  //   queryFn: async () => {
-  //     const { data } = await axiosInstance.get(`/foodDetails/${id}`);
-  //     return data;
-  //   },
-  // });
+  const { data: food, isLoading } = useQuery({
+    queryKey: ["food-details", id],
+    queryFn: async () => {
+      const { data } = await axiosInstance.get(`/foods/${id}`);
+      return data?.data;
+    },
+  });
 
   // const handleOrder = (foodId) => {
   //   navigate(`/purchase/${foodId}`);
@@ -59,15 +57,40 @@ export default function FoodDetails() {
     }, 3000);
   };
 
-  const handleWishlist = () => {
-    const newWishState = !wished;
-    setWished(newWishState);
+  const wishlistMutation = useMutation({
+    mutationFn: async (productId) => {
+      return axiosInstance.post("/wishlist", {
+        foodId: productId,
+        email: user?.email,
+      });
+    },
 
-    showCustomAlert(
-      newWishState
-        ? "Added to wishlist successfully!"
-        : "Removed from wishlist successfully!",
-    );
+    onSuccess: () => {
+      queryClient.invalidateQueries(["all-wishlist"]);
+    },
+  });
+
+  const handleWishlist = (productId) => {
+    if (user) {
+      wishlistMutation.mutate(productId);
+      showCustomAlert(`${wished ? "Remove from" : "Add in"} Wishlist.`);
+      return;
+    }
+
+    // localStorage logic stays same
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    const exists = wishlist.includes(productId);
+
+    if (exists) {
+      wishlist = wishlist.filter((id) => id !== productId);
+      showCustomAlert("Removed from wishlist successfully!");
+    } else {
+      wishlist.push(productId);
+      showCustomAlert("Added to wishlist successfully!");
+    }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
   };
 
   const handleCart = () => {
@@ -214,7 +237,7 @@ export default function FoodDetails() {
 
                 <button
                   className={`fd-wishlist-btn ${wished ? "fd-wished" : ""}`}
-                  onClick={handleWishlist}
+                  onClick={() => handleWishlist(food?._id)}
                   aria-label="Save to wishlist"
                 >
                   <svg

@@ -85,11 +85,19 @@ const AboutUs = () => {
                 <img
                   key={index}
                   src={src}
+                  srcSet={`
+                          ${src}?w=300 300w,
+                          ${src}?w=600 600w,
+                          ${src}?w=900 900w
+                        `}
+                  sizes="(max-width: 768px) 46vw, 24vw"
                   alt={alt}
                   className={`${className} object-cover`}
                   loading="lazy"
                   decoding="async"
-                  sizes="(max-width: 768px) 46vw, 24vw"
+                  fetchPriority="auto"
+                  width={400}
+                  height={300}
                 />
               ))}
             </div>

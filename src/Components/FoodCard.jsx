@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import placeholderImage from "../assets/images/placeholder.png";
 import { AuthContext } from "../Providers/AuthProvider";
+import axiosInstance from "../api/axiosInstance";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-export default function FoodCard({ food = {} }) {
+export default function FoodCard({ food = {}, wishlistData = [] }) {
   const {
     _id,
     image = placeholderImage,
@@ -26,8 +28,16 @@ export default function FoodCard({ food = {} }) {
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-  const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-  const wished = wishlist?.includes(_id);
+  const queryClient = useQueryClient();
+  const wishlist = user
+    ? Array.isArray(wishlistData)
+      ? wishlistData
+      : []
+    : JSON.parse(localStorage.getItem("wishlist")) || [];
+
+  const wished = user
+    ? wishlist.some((item) => item?.foodId === _id)
+    : wishlist.includes(_id);
   let alertTimeout;
 
   const showCustomAlert = (message) => {
@@ -41,28 +51,42 @@ export default function FoodCard({ food = {} }) {
     }, 3000);
   };
 
+  const wishlistMutation = useMutation({
+    mutationFn: async (productId) => {
+      return axiosInstance.post("/wishlist", {
+        foodId: productId,
+        email: user?.email,
+      });
+    },
+
+    onSuccess: () => {
+      queryClient.invalidateQueries(["all-wishlist"]);
+    },
+  });
+
   const handleWishlist = (e, productId) => {
     e.stopPropagation();
 
+    if (user) {
+      wishlistMutation.mutate(productId);
+      showCustomAlert(`${wished ? "Remove from" : "Add in"} Wishlist.`);
+      return;
+    }
+
+    // localStorage logic stays same
     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
     const exists = wishlist.includes(productId);
 
     if (exists) {
       wishlist = wishlist.filter((id) => id !== productId);
-
-      if (wishlist.length === 0) {
-        localStorage.removeItem("wishlist");
-      } else {
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-      }
-
       showCustomAlert("Removed from wishlist successfully!");
     } else {
       wishlist.push(productId);
-      localStorage.setItem("wishlist", JSON.stringify(wishlist));
       showCustomAlert("Added to wishlist successfully!");
     }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
   };
 
   const handleCart = (e, productId, quantity) => {
@@ -179,7 +203,7 @@ export default function FoodCard({ food = {} }) {
         </div>
 
         {/* Bottom row */}
-        {user?.role === "user" && (
+        {user?.role !== "admin" && (
           <>
             <div className="fc-divider" />
 
@@ -253,4 +277,5 @@ export default function FoodCard({ food = {} }) {
 
 FoodCard.propTypes = {
   food: PropTypes.object.isRequired,
+  wishlistData: PropTypes.array,
 };
